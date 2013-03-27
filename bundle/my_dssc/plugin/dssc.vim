@@ -9,13 +9,14 @@ if v:version < 700
     finish
 endif
 
+let s:module_cmd = "cad modules; module load sync;"
 
 function s:DSSCcommand(cmd_opt)
     " get the full path of the current buffer
     let this_buf_filename = expand("%:p")
     " build the command
     let dssc_cmd = "dssc ".a:cmd_opt." ".this_buf_filename
-    exec "! ".dssc_cmd
+    exec "! ".s:module_cmd." ".dssc_cmd
 endfunction
 
 

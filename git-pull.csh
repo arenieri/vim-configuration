@@ -3,18 +3,22 @@
 set LIST = "others git-bundle"
 
 foreach L  ($LIST)
-    pushd $L
+    echo "============================================================"
+    echo "Updating plugins in $L"
+    pushd $L > /dev/null
 
     foreach pluginDir (*)
         if (! -d $pluginDir) then
             # if it is not a dir go to nex element
             continue
         endif
-        pushd $pluginDir
-        git pull
-        popd
+        echo "------------------------------------------------------------"
+        echo "Updating $pluginDir"
+        pushd $pluginDir > /dev/null
+        #git pull
+        popd > /dev/null
     end
-    popd
+    popd > /dev/null
 end
 
 

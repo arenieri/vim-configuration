@@ -15,7 +15,7 @@ foreach L  ($LIST)
         echo "------------------------------------------------------------"
         echo "Updating $pluginDir"
         pushd $pluginDir > /dev/null
-        #git pull
+        git pull
         popd > /dev/null
     end
     popd > /dev/null

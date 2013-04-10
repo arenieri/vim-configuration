@@ -26,7 +26,7 @@ command DSSCmerge   call s:DSSCcommand("co -merge")
 command DSSCci      call s:DSSCcommand("ci")
 
 command DSSCls      call s:DSSCcommand("ls -report status")
-command DSSCvhist   call s:DSSCcommand("vhist")
+command DSSCvhist   call s:DSSCcommand("vhist -report verbose+G")
 command DSSCdiff    call s:DSSCcommand("diff")
 
 command DSSCcancel          call s:DSSCcommand("cancel")

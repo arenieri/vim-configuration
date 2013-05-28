@@ -7,7 +7,9 @@ if exists("b:current_syntax")
 endif
 
 " use vhdl syntax
-runtime syntax/vhdl.vim
+" use source instead of runtime to avoid loops
+" runtime! syntax/vhdl.vim
+source $VIMRUNTIME/syntax/vhdl.vim
 
 syn keyword vhdlTodo      contained TODO FIXME XXX
 syn region  vhdlComment   start="--" end="$" contains=vhdlTodo keepend

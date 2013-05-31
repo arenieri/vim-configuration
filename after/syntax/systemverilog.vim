@@ -1,9 +1,17 @@
-" load TT2 syntax
-unlet b:current_syntax
-runtime! syntax/tt2.vim
+"Add tt2 syntax highlight in a SystemVerilog file
 
-" redefine verilogComment
-syn match   verilogComment "//.*" contains=verilogTodo,@Spell,@tt2_top_cluster
-" The following should be the right command but doesn't work
-"syn cluster verilogComment add=tt2_top_cluster
+
+unlet! b:current_syntax
+syntax include @tt2Syn syntax/tt2.vim
+
+
+syntax region tt2Reg matchgroup=tt2Headers  start="// pragma tt2_begin .*" end="////>> Start of tt2 inline generated code. .*" contains=tt2Line,tt2LineHeaders
+syntax region tt2Line                       start="//"lc=2 end="$" contained contains=@tt2Syn,verilog.*
+
+syntax match tt2Headers "//// End of tt2 inline generated code! <<////"
+syntax match tt2Headers "// pragma tt2_end"
+highlight tt2Headers gui=bold guibg=DarkBlue guifg=Magenta
+
+syntax match tt2LineHeaders "\(^ *\zs//\)\{1}" contained containedin=@tt2Syn
+highlight link tt2LineHeaders tt2Headers
 

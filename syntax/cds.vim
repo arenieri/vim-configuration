@@ -9,7 +9,7 @@ endif
 let b:current_syntax = "cds"
 
 " case insensitive
-:syntax case ignore
+syntax case ignore
 
 syntax keyword cdsStatement DEFINE SOFTDEFINE INCLUDE SOFTINCLUDE UNDEFINE
 syntax match   cdsVar		 "\$\w*"

@@ -19,9 +19,15 @@ function s:DSSCcommand(cmd_opt)
     exec "! ".s:module_cmd." ".dssc_cmd
 endfunction
 
+function s:DSSCcommand_chmod_w(cmd_opt)
+    " Execute a dssc command followed by a chmod u+w
+    call s:DSSCcommand(a:cmd_opt)
+    let lnx_cmd = "chmod u+w ".expand("%:p")
+    exec "! ".lnx_cmd
+endfunction
 
-command DSSCget     call s:DSSCcommand("co -get -nocomment")
-command DSSClock    call s:DSSCcommand("co -lock -nocomment")
+
+command DSSCget     call s:DSSCcommand_chmod_w("co -get -nocomment")
 command DSSCmerge   call s:DSSCcommand("co -merge")
 command DSSCci      call s:DSSCcommand("ci")
 

@@ -12,7 +12,6 @@ augroup filetypedetect
     au BufNewFile,BufRead *.lib	        setfiletype lib
     au BufNewFile,BufRead *.f           setfiletype f
     au BufNewFile,BufRead *.ctl         setfiletype tcl
-    " log files
-    au BufNewFile,BufRead run_syn.log   setfiletype backend_log
+    au BufNewFile,BufRead *.log         setfiletype logfile
 augroup END
 

@@ -28,6 +28,7 @@ endfunction
 
 
 command DSSCget     call s:DSSCcommand_chmod_w("co -get -nocomment")
+command DSSClock   call s:DSSCcommand("co -lock -nocomment")
 command DSSCmerge   call s:DSSCcommand("co -merge")
 command DSSCci      call s:DSSCcommand("ci")
 

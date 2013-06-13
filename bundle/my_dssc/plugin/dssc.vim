@@ -28,11 +28,12 @@ endfunction
 
 
 command DSSCget     call s:DSSCcommand_chmod_w("co -get -nocomment")
-command DSSClock   call s:DSSCcommand("co -lock -nocomment")
+command DSSClock    call s:DSSCcommand("co -lock -nocomment")
 command DSSCmerge   call s:DSSCcommand("co -merge")
 command DSSCci      call s:DSSCcommand("ci")
 
 command DSSCls      call s:DSSCcommand("ls -report status")
+command DSSClstags  call s:DSSCcommand("ls -report PRGSUV")
 command DSSCvhist   call s:DSSCcommand("vhist -report verbose+G")
 command DSSCdiff    call s:DSSCcommand("diff")
 
@@ -50,6 +51,7 @@ amenu DSSC.commit           :DSSCci<CR>
 
 amenu DSSC.-sep1-           :
 amenu DSSC.ls               :DSSCls<CR>
+amenu DSSC.ls\ tags         :DSSClstags<CR>
 amenu DSSC.vhist            :DSSCvhist<CR>
 amenu DSSC.diff             :DSSCdiff<CR>
 

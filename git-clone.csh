@@ -24,6 +24,7 @@ endif
 pushd $DIR
 
 git clone git://github.com/scrooloose/nerdtree.git
+git clone git://github.com/scrooloose/nerdcommenter
 git clone git://github.com/mbbill/undotree.git
 git clone git://github.com/nathanaelkane/vim-indent-guides.git
 git clone git://github.com/vim-perl/vim-perl.git

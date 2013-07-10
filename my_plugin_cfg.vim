@@ -2,6 +2,11 @@
 " Plugins Configuration "
 "-----------------------"
 
+" Configuration for NERDCommenter
+map <C-SPACE>   <plug>NERDCommenterToggle
+map <C-K>       <plug>NERDCommenterComment
+map <C-L>       <plug>NERDCommenterUncomment
+
 " Configuration for indent guide plugin
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2

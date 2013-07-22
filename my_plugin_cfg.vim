@@ -3,9 +3,20 @@
 "-----------------------"
 
 " Configuration for NERDCommenter
-map <C-SPACE>   <plug>NERDCommenterToggle
-map <C-K>       <plug>NERDCommenterComment
-map <C-L>       <plug>NERDCommenterUncomment
+nmap <silent> <C-SPACE>       <plug>NERDCommenterInvert
+vmap <silent> <C-SPACE>       <plug>NERDCommenterInvert
+imap <silent> <C-SPACE> <Esc> <plug>NERDCommenterInvert i
+smap <silent> <C-SPACE> <C-G> <plug>NERDCommenterInvert<CR>
+
+nmap <silent> <C-K>           <plug>NERDCommenterComment
+vmap <silent> <C-K>           <plug>NERDCommenterAlignLeft
+imap <silent> <C-K>     <Esc> <plug>NERDCommenterComment i
+smap <silent> <C-K>     <C-G> <plug>NERDCommenterAlignLeft<CR>
+
+nmap <silent> <C-L>           <plug>NERDCommenterUncomment
+vmap <silent> <C-L>           <plug>NERDCommenterUncomment
+imap <silent> <C-L>     <Esc> <plug>NERDCommenterUncomment i
+smap <silent> <C-L>     <C-G> <plug>NERDCommenterUncomment<CR>
 
 " Configuration for indent guide plugin
 let g:indent_guides_guide_size = 1

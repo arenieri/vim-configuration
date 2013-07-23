@@ -12,6 +12,6 @@ augroup filetypedetect
     au BufNewFile,BufRead *.lib	        setfiletype lib
     au BufNewFile,BufRead *.f           setfiletype f
     au BufNewFile,BufRead *.ctl         setfiletype tcl
-    au BufNewFile,BufRead *.log         setfiletype backend_log
+    au BufNewFile,BufRead *.log         setfiletype log
 augroup END
 

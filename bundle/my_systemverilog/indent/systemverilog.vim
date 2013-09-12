@@ -268,7 +268,7 @@ function GetVerilog_SystemVerilogIndent()
   let pat2 = '`\@<!\<\(if\|else\)\>'
   let pat3 = '\<\(always\|initial\|for\|foreach\|always_comb\|always_ff\|always_latch\|final\|repeat\|while\|constraint\|do\)\>'
   let pat5 = '\<\(case\%[[zx]]\|class\|interface\|clocking\|randcase\|package\|specify\)\>'
-  let pat5a = '\%(extern\s\+\|end\)\@<!\%(task\|function\)\>' 
+  let pat5a = '\%(extern\s\+\|end\|\S\)\@<!\%(task\|function\)\>' 
   let pat6 = '^\s*\(\w\+\s*:\)\=\s*\<covergroup\>'
   let pat7 = '^\s*\<\(begin\|fork\)\>\s*\(:\s*\w\+\s*\)\='
   let pat8 = '^\s*`\<\(else\|endif\)\>'
@@ -285,6 +285,7 @@ function GetVerilog_SystemVerilogIndent()
     let indent1 = 1
 
   elseif  last_line =~ pat5 || last_line =~ pat5a ||last_line =~ pat6
+    "echo 'Match pat5||pat5a||pat6'
     let indent2 = 1
     
 

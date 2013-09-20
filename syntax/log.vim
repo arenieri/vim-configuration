@@ -25,7 +25,8 @@ syntax match beLogWarning           /Warning\>/
 syntax match beLogError             /Error\>/
 syntax match beLogSevereError       /Severe\sError\>/
 
-syntax match cdsLogError                 /.*\*E,.*$/
+syntax match cdsLogError            /.*\*E,.*$/
+syntax match cdsLogWarning          /.*\*W,.*$/
 
 
 "-------------------------------------------------------------------------
@@ -39,6 +40,7 @@ highlight beLogWarning_hi           guifg=Orange
 highlight beLogError_hi             guifg=Red
 
 highlight cdsLogError_hi            guifg=Red           guibg=Black
+highlight cdsLogWarning_hi          guifg=Orange        guibg=Black
 
 
 "-------------------------------------------------------------------------
@@ -54,4 +56,5 @@ highlight default link beLogError           beLogError_hi
 highlight default link beLogSevereError     beLogError_hi
 
 highlight default link cdsLogError          cdsLogError_hi
+highlight default link cdsLogWarning        cdsLogWarning_hi
 

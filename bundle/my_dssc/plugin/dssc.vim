@@ -32,11 +32,13 @@ command DSSClock    call s:DSSCcommand("co -lock -nocomment")
 command DSSCmerge   call s:DSSCcommand("co -merge")
 command DSSCci      call s:DSSCcommand("ci")
 
-command DSSCls      call s:DSSCcommand("ls -report status")
-command DSSClstags  call s:DSSCcommand("ls -report PRGSUV")
-command DSSCvhist   call s:DSSCcommand("vhist -report verbose+G")
-command DSSCdiff    call s:DSSCcommand("diff")
-command DSSCdiffgui call s:DSSCcommand("diff -gui")
+command DSSCls              call s:DSSCcommand("ls -report status")
+command DSSClstags          call s:DSSCcommand("ls -report PRGSUV")
+command DSSCvhist           call s:DSSCcommand("vhist -report verbose+G")
+command DSSCdiff            call s:DSSCcommand("diff")
+command DSSCdiffgui         call s:DSSCcommand("diff -gui")
+command DSSCdiffLatest      call s:DSSCcommand("diff -version Latest")
+command DSSCdiffLatestgui   call s:DSSCcommand("diff -version Latest -gui")
 
 command DSSCcancel          call s:DSSCcommand("cancel")
 command DSSCcancelforce     call s:DSSCcommand("cancel -force")
@@ -50,12 +52,14 @@ amenu DSSC.lock             :DSSClock<CR>
 amenu DSSC.merge            :DSSCmerge<CR>
 amenu DSSC.commit           :DSSCci<CR>
 
-amenu DSSC.-sep1-           :
-amenu DSSC.ls               :DSSCls<CR>
-amenu DSSC.ls\ tags         :DSSClstags<CR>
-amenu DSSC.vhist            :DSSCvhist<CR>
-amenu DSSC.diff             :DSSCdiff<CR>
-amenu DSSC.diff\ -gui       :DSSCdiffgui<CR>
+amenu DSSC.-sep1-               :
+amenu DSSC.ls                   :DSSCls<CR>
+amenu DSSC.ls\ tags             :DSSClstags<CR>
+amenu DSSC.vhist                :DSSCvhist<CR>
+amenu DSSC.diff                 :DSSCdiff<CR>
+amenu DSSC.diff\ gui            :DSSCdiffgui<CR>
+amenu DSSC.diff\ Latest         :DSSCdiffLatest<CR>
+amenu DSSC.diff\ Latest\ gui    :DSSCdiffLatestgui<CR>
 
 amenu DSSC.-sep2-           :
 amenu DSSC.cancel           :DSSCcancel<CR>

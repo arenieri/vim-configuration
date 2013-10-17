@@ -34,7 +34,7 @@ colorscheme darkblue
 
 " Configuration
 set textwidth=120   " Text width
-set tabstop=8	    " Number of spaces that a <Tab> in the file counts for (!!! do not modify this !!!)
+set tabstop=8       " Number of spaces that a <Tab> in the file counts for (!!! do not modify this !!!)
 set softtabstop=4   " Number of spaces that a <Tab> counts for while performing editing operations
 set shiftwidth=4    " Number of spaces to use for each step of (auto)indent
 set expandtab       " Convert tab into spaces
@@ -46,10 +46,10 @@ set nowrap          " Wrap long lines
 set number          " Show line numbers
 set hlsearch        " Highlight search patterns
 
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set history=50      " keep 50 lines of command line history
+set ruler           " show the cursor position all the time
+set showcmd         " display incomplete commands
+set incsearch       " do incremental searching
 
 
 " Folding

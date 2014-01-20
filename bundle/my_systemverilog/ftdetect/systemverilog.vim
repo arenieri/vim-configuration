@@ -4,4 +4,4 @@
 " Last Change:	Tue Jun 26 08:56:34 IST 2006
 " Version: 1.0
 
-au BufNewFile,BufRead *.v,*.vh,*.sv,*.svi	set filetype=systemverilog
+au BufNewFile,BufRead *.v,*.vh,*.sv,*.svh,*.svi     set filetype=systemverilog

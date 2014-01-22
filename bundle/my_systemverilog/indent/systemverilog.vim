@@ -31,7 +31,7 @@ let b:did_indent = 1
 
 
 setlocal indentexpr=GetVerilog_SystemVerilogIndent()
-setlocal indentkeys=!^F,o,O,0),0},0{,=begin,=end,=fork,=join,=endcase,=join_any,=join_none
+setlocal indentkeys=!^F,o,O,0),0},0{,=begin,=end,=fork,=join,=endcase,=join_any,=join_none,=else
 setlocal indentkeys+==endmodule,=endfunction,=endtask,=endspecify
 setlocal indentkeys+==endclass,=endpackage,=endsequence,=endclocking
 setlocal indentkeys+==endinterface,=endgroup,=endprogram,=endproperty
@@ -107,7 +107,8 @@ function! s:comment_line_type(lnum) "{{{
 endfunction "}}}
 
 "------------------------------------------------
-
+" s:prevnonblanknoncomment(lnum)
+" return the first no comment and noblank line
 function! s:prevnonblanknoncomment(lnum) "{{{
   let lnum = prevnonblank(a:lnum)
 
@@ -171,7 +172,7 @@ function! GetVerilog_SystemVerilogIndent()
     return 0
   endif
 
-  " Set default indentation (the same of previous line
+  " Set default indentation (the same of previous line)
   let ind  = indent(prevlnum)
 
   let curr_line_type = s:comment_line_type(v:lnum)
@@ -192,7 +193,7 @@ function! GetVerilog_SystemVerilogIndent()
   " ================================================================
   "  Calculate indentation according to the content of current line
   " ================================================================
-  let match_result = matchstr(curr_line_strip,'^\<\(end\|else\|end\(case\|task\|function\|clocking\|interface\|module\|class\|specify\|package\|sequence\|group\|property\)\|join\|join_any\|join_none\)\>\|^}\|`endif\|`else')
+  let match_result = matchstr(curr_line_strip,'\<\(end\%(case\|task\|function\|clocking\|interface\|module\|class\|specify\|package\|sequence\|group\|property\)\|end\|else\|join\|join_any\|join_none\)\>\|^}\|`endif\|`else')
  
   "let match_found = 0
   if len(match_result) > 0
@@ -260,23 +261,25 @@ function! GetVerilog_SystemVerilogIndent()
   "endif
   endif
  
-  "echo curr_line_strip 
-  " This line matches "id:begin", "begin:id" and "begin"
-  if curr_line_strip =~ '\<begin\>'
-    "\%(\h\w*\s*:\s*\)\=\<begin\>\%(\s*:\s*\h\w*\)\="
-    " indent as previous line +2
-    let ind = indent(prevlnum)+offset_be
-    let msg = "Found begin"
-    echo msg." (matching line ".v:lnum.")"
-    return ind
-  endif
+  "echo curr_line_strip
+
+  " This line matches "id:begin", "begin:id" and "begin" in a line
+  "if curr_line =~ '^\s*\<begin\>'
+  "  "\%(\h\w*\s*:\s*\)\=\<begin\>\%(\s*:\s*\h\w*\)\="
+  "  " indent as previous line +2
+  "  let ind = indent(prevlnum)+offset_be
+  "  let msg = "Found begin"
+  "  echo msg." (matching line ".v:lnum.")"
+  "  return ind
+  "endif
   
   " =================================================================
   "  Calculate indentation according to the content of previous line
   " =================================================================
 
   let prev_line_type = s:comment_line_type(prevlnum)
-  let prev_line  = s:removecommment(getline(prevlnum),prev_line_type)
+  let prev_line_s    = s:removecommment(getline(prevlnum),prev_line_type)
+  let prev_line      = substitute(prev_line_s,'^\s*','','')
 
 
   " if previous line is a begin of a block
@@ -285,12 +288,12 @@ function! GetVerilog_SystemVerilogIndent()
     let ind = ind + offset_be
 
   " if previous line is the end of a block
-  elseif prev_line =~ '\<end\>'
-    let msg = "First line after block end"
-    let ind = ind - offset_be
+  "elseif prev_line =~ '\<end\>'
+  "  let msg = "First line after block end"
+  "  let ind = ind - offset_be
 
   " if previous line is the beginning of a block (begin or fork) or an expression
-  elseif prev_line =~ '^\s*module'
+  elseif prev_line =~ '\<\%(module\|fork\)\>'
     let msg = "module|fork|{|( detected"
     let ind = ind + offset
 

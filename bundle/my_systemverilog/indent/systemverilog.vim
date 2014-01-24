@@ -149,6 +149,22 @@ function! s:removecommment(line,comment_line_type) "{{{
 
 endfunction "}}}
 
+" Search for the matching regular expression (excluding comments and strings)
+function! SearchPairNoComment(regexp_start,regexp_mid,regexp_end) "{{{
+    let match_line_num = searchpair(a:regexp_start,a:regexp_mid,a:regexp_end,'bW',
+          \" synIDattr(synID(line('.'),col('.'),1),'name') =~? '\\(Comment\\|String\\)$'")
+    return match_line_num
+endfunction "}}}
+
+" Get line with comments and spaces at the beginning removed
+function! GetLineStrip(lnum) "{{{
+    let this_line_type  = s:comment_line_type(a:lnum)
+    let this_line       = s:removecommment(getline(a:lnum),this_line_type)
+    " remove the blanks at the beginning of the line
+    let this_line_strip = substitute(this_line,'^\s*','','')
+    return this_line_strip
+endfunction "}}}
+
 
 function! GetVerilog_SystemVerilogIndent()
 
@@ -175,25 +191,17 @@ function! GetVerilog_SystemVerilogIndent()
   " Set default indentation (the same of previous line)
   let ind  = indent(prevlnum)
 
-  let curr_line_type = s:comment_line_type(v:lnum)
-  "if curr_line_type == -1
-  " This will indent comments to the first column (no indentation)
-  "  return ind
-  "endif
-
   " remove comments from current line and return only the code
-  let curr_line  = s:removecommment(getline(v:lnum),curr_line_type)
-  " remove the blank at the beginning of the line
-  let curr_line_strip = substitute(curr_line,'^\s*','','')
+  let curr_line  = GetLineStrip(v:lnum)
 
   " -----------------------------------------------------------
-  " curr_line_strip has the meaningful content of the line on
+  " curr_line has the meaningful content of the line on
   " which we have to decide indentation
 
   " ================================================================
   "  Calculate indentation according to the content of current line
   " ================================================================
-  let match_result = matchstr(curr_line_strip,'\<\(end\%(case\|task\|function\|clocking\|interface\|module\|class\|specify\|package\|sequence\|group\|property\)\|end\|else\|join\|join_any\|join_none\)\>\|^}\|`endif\|`else')
+  let match_result = matchstr(curr_line,'\<\(end\%(case\|task\|function\|clocking\|interface\|module\|class\|specify\|package\|sequence\|group\|property\)\|end\|else\|join\|join_any\|join_none\)\>\|^}\|`endif\|`else')
  
   "let match_found = 0
   if len(match_result) > 0
@@ -246,10 +254,8 @@ function! GetVerilog_SystemVerilogIndent()
   "if msg !~ "" "if message is not empty we have found a match
     " Place the cursor in position 1 of the line
     call cursor(v:lnum,1)
-    " Search for the matching character (excluding comments)
-    let match_line_num = searchpair(match_start,match_mid,match_end,'bW',
-          \" synIDattr(synID(line('.'),col('.'),1),'name')"
-          \. "=~? '\\(Comment\\|String\\)$'")
+
+    let match_line_num = SearchPairNoComment(match_start,match_mid,match_end)
 
     " Return indent id found
     if match_line_num > 0
@@ -261,8 +267,6 @@ function! GetVerilog_SystemVerilogIndent()
   "endif
   endif
  
-  "echo curr_line_strip
-
   " This line matches "id:begin", "begin:id" and "begin" in a line
   "if curr_line =~ '^\s*\<begin\>'
   "  "\%(\h\w*\s*:\s*\)\=\<begin\>\%(\s*:\s*\h\w*\)\="
@@ -288,9 +292,26 @@ function! GetVerilog_SystemVerilogIndent()
     let ind = ind + offset_be
 
   " if previous line is the end of a block
-  "elseif prev_line =~ '\<end\>'
-  "  let msg = "First line after block end"
-  "  let ind = ind - offset_be
+  " Indentazione dopo un end e' la stessa di end se il corrispondente begin e' su una linea insieme a altre keyword
+  " altrimenti si deve togliere un livello di indentazione
+  elseif prev_line =~ '\<end\>'
+    let msg = "First line after block end"
+    " move cursor to the previous line (Important: set the cursor to column 1)
+    " save current position
+    "let save_pos = getpos('.')
+    call setpos('.', [0, prevnonblank(prevlnum-1), 1, 0])
+    " Search the line of the matching begin
+    let begin_line_num = SearchPairNoComment('\<begin\>','','\<end\>')
+    let this_line = GetLineStrip(begin_line_num)
+    " Check if the begin keyword is the only keyword in the line and de-dent
+    if (this_line =~ '^begin\>')
+      let ind = ind - offset_be
+    endif
+    " restore position
+    "call setpos('.', save_pos)
+    " otherwise, if it is preceded by some other keyword [if()begin style]
+    " indentation is the same
+    "let msg = "|".prevnonblank(prevlnum-1)." ".begin_line_num."|".msg
 
   " if previous line is the beginning of a block (begin or fork) or an expression
   elseif prev_line =~ '\<\%(module\|fork\)\>'
@@ -299,7 +320,7 @@ function! GetVerilog_SystemVerilogIndent()
 
   " Indent after if/else/for/case/always/initial/specify/fork blocks
   " .*\(\(;\)\@!.\)$ means "not followed by ; before the end of the line
-  elseif (prev_line =~ '`\@<!\<\(if\|else\)\>.*\(\(;\)\@!.\)$' ||
+  elseif (prev_line =~ '`\@<!\<\(if\|else\)\>.*;\@!.*$' ||
         \ prev_line =~ '\<\(initial\|final\|always\|always_comb\|always_ff\|always_latch\|constraint\)\>' ||
         \ prev_line =~ '\<\%(disable\@!fork\)\>' ||
         \ prev_line =~ '\<\(for\|foreach\|repeat\|while\|do\)\>' ||
@@ -320,11 +341,33 @@ function! GetVerilog_SystemVerilogIndent()
   "                         EXCEPTIONS
   " =================================================================
   
+  " Remove previous indentation in case of interface instance
   if (prev_line =~ '\<\(interface\)\s\+\w\+\s\+\w\+\s*;')
-    " This matches interface instance and remove previous indentation
     let msg ="interface instance"
     let ind = ind - offset
   endif
+
+  " Calculate indentation for single line commands outside a begin/end block
+  " Eg. if (something)
+  "         command;
+  let prevlnum2 = s:prevnonblanknoncomment(prevlnum - 1)
+  if (prevlnum2 >= 0)
+    " if line-1 and line-2 does not contain a begin then deindent line
+    let prev2_line_type = s:comment_line_type(prevlnum2)
+    let prev2_line_s    = s:removecommment(getline(prevlnum2),prev2_line_type)
+    let prev2_line      = substitute(prev2_line_s,'^\s*','','')
+    
+    " TODO questa linea dovrebbe fare il match di tutti i comandi che possono prevedere 
+    " un comando singolo subito dopo. Le regexp sono gia' utilizzate quando si fa' l' indentazione
+    " Assegnare le regexp a delle variabili per eviare duplicazioni
+    if (  prev2_line =~ '`\@<!\<\(if\|else\)\>.*;\@!.*$')
+      if ( (prev_line !~ '\<begin\>') && (prev2_line !~ '\<begin\>') )
+        let ind = ind - offset
+        let msg = "Single line command after if"
+      endif
+    endif
+  endif
+
 
 
   " Return the indention

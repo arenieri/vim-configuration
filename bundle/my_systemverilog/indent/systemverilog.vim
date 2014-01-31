@@ -201,7 +201,7 @@ function! GetVerilog_SystemVerilogIndent()
   " ================================================================
   "  Calculate indentation according to the content of current line
   " ================================================================
-  let match_result = matchstr(curr_line,'\<\(end\%(case\|task\|function\|clocking\|interface\|module\|class\|specify\|package\|sequence\|group\|property\)\|end\|else\|join\|join_any\|join_none\)\>\|^}\|`endif\|`else')
+  let match_result = matchstr(curr_line,'\<\(end\%(case\|task\|function\|clocking\|interface\|module\|program\|class\|specify\|package\|sequence\|group\|property\)\|end\|else\|join\|join_any\|join_none\)\>\|^}\|`endif\|`else')
  
   "let match_found = 0
   if len(match_result) > 0
@@ -321,7 +321,7 @@ function! GetVerilog_SystemVerilogIndent()
   " Indent after if/else/for/case/always/initial/specify/fork blocks
   " .*\(\(;\)\@!.\)$ means "not followed by ; before the end of the line
   elseif (prev_line =~ '`\@<!\<\(if\|else\)\>.*;\@!.*$' ||
-        \ prev_line =~ '\<\(initial\|final\|always\|always_comb\|always_ff\|always_latch\|constraint\)\>' ||
+        \ prev_line =~ '\<\(initial\|final\|forever\|always\|always_comb\|always_ff\|always_latch\|constraint\)\>' ||
         \ prev_line =~ '\<\%(disable\@!fork\)\>' ||
         \ prev_line =~ '\<\(for\|foreach\|repeat\|while\|do\)\>' ||
         \ prev_line =~ ':\s*$')

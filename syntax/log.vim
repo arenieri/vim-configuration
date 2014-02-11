@@ -29,6 +29,12 @@ syntax match cdsLogError            /.*\*E,.*$/
 syntax match cdsLogWarning          /.*\*W,.*$/
 
 
+syntax match uvmInfo                /UVM_INFO/
+syntax match uvmWarning             /UVM_WARNING/
+syntax match uvmError               /UVM_ERROR/
+syntax match uvmFatal               /UVM_FATAL/
+
+
 "-------------------------------------------------------------------------
 " Highlight color definition
 highlight beLogSourceStart_hi       guifg=LightGray     guibg=DarkGreen
@@ -42,6 +48,10 @@ highlight beLogError_hi             guifg=Red
 highlight cdsLogError_hi            guifg=Red           guibg=Black
 highlight cdsLogWarning_hi          guifg=Orange        guibg=Black
 
+highlight uvmInfo_hi                guifg=Cyan
+highlight uvmWarning_hi             guifg=Orange
+highlight uvmError_hi               guifg=Red
+highlight uvmFatal_hi               guifg=Magenta
 
 "-------------------------------------------------------------------------
 " Highlight definition
@@ -57,4 +67,9 @@ highlight default link beLogSevereError     beLogError_hi
 
 highlight default link cdsLogError          cdsLogError_hi
 highlight default link cdsLogWarning        cdsLogWarning_hi
+
+highlight default link uvmInfo              uvmInfo_hi
+highlight default link uvmWarning           uvmWarning_hi
+highlight default link uvmError             uvmError_hi
+highlight default link uvmFatal             uvmFatal_hi
 

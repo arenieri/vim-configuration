@@ -26,12 +26,21 @@ function s:DSSCcommand_chmod_w(cmd_opt)
     exec "! ".lnx_cmd
 endfunction
 
-
+" Commands for non-module based environment
 command DSSCget     call s:DSSCcommand_chmod_w("co -get -nocomment")
 command DSSClock    call s:DSSCcommand("co -lock -nocomment")
 command DSSCmerge   call s:DSSCcommand("co -merge")
 command DSSCci      call s:DSSCcommand("ci")
 
+" Commands for module based environment
+command DSSCmodget     call s:DSSCcommand_chmod_w("pop -get")
+command DSSCmodlock    call s:DSSCcommand("pop -lock")
+"command DSSCmerge   call s:DSSCcommand("co -merge")
+command DSSCmodci      call s:DSSCcommand("ci -nonew -iflock")
+
+
+
+" Commands valid in both module and non module environment
 command DSSCls              call s:DSSCcommand("ls -report status")
 command DSSClstags          call s:DSSCcommand("ls -report PRGSUV")
 command DSSCvhist           call s:DSSCcommand("vhist -report verbose+G")
@@ -47,10 +56,14 @@ command DSSCpopunifyforce   call s:DSSCcommand("pop -unify -force")
 
 
 
-amenu DSSC.get              :DSSCget<CR>
-amenu DSSC.lock             :DSSClock<CR>
-amenu DSSC.merge            :DSSCmerge<CR>
-amenu DSSC.commit           :DSSCci<CR>
+amenu DSSC.noModule.get         :DSSCget<CR>
+amenu DSSC.noModule.lock        :DSSClock<CR>
+amenu DSSC.noModule.merge       :DSSCmerge<CR>
+amenu DSSC.noModule.commit      :DSSCci<CR>
+
+amenu DSSC.module\ get          :DSSCmodget<CR>
+amenu DSSC.module\ lock         :DSSCmodlock<CR>
+amenu DSSC.module\ commit       :DSSCmodci<CR>
 
 amenu DSSC.-sep1-               :
 amenu DSSC.ls                   :DSSCls<CR>

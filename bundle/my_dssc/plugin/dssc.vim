@@ -33,7 +33,7 @@ command DSSCmerge   call s:DSSCcommand("co -merge")
 command DSSCci      call s:DSSCcommand("ci")
 
 " Commands for module based environment
-command DSSCmodget     call s:DSSCcommand_chmod_w("pop -get")
+command DSSCmodget     call s:DSSCcommand_chmod_w("pop -get -unify")
 command DSSCmodlock    call s:DSSCcommand("pop -lock")
 "command DSSCmerge   call s:DSSCcommand("co -merge")
 command DSSCmodci      call s:DSSCcommand("ci -nonew -iflock")

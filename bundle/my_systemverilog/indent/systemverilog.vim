@@ -175,7 +175,7 @@ function! GetVerilog_SystemVerilogIndent()
   endif
 
   " offset for 'begin'/'end' identifiers
-  let offset_be = 4
+  let offset_be = offset/2
 
   let msg = ""
 
@@ -268,14 +268,14 @@ function! GetVerilog_SystemVerilogIndent()
   endif
  
   " This line matches "id:begin", "begin:id" and "begin" in a line
-  "if curr_line =~ '^\s*\<begin\>'
-  "  "\%(\h\w*\s*:\s*\)\=\<begin\>\%(\s*:\s*\h\w*\)\="
-  "  " indent as previous line +2
-  "  let ind = indent(prevlnum)+offset_be
-  "  let msg = "Found begin"
-  "  echo msg." (matching line ".v:lnum.")"
-  "  return ind
-  "endif
+  if curr_line =~ '^\s*\<begin\>'
+    "\%(\h\w*\s*:\s*\)\=\<begin\>\%(\s*:\s*\h\w*\)\="
+    " indent as previous line +2
+    let ind = indent(prevlnum)+offset_be
+    let msg = "Found begin"
+    echo msg." (matching line ".v:lnum.")"
+    return ind
+  endif
   
   " =================================================================
   "  Calculate indentation according to the content of previous line

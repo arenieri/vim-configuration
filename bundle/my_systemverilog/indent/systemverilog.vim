@@ -266,10 +266,12 @@ function! GetVerilog_SystemVerilogIndent()
 
   "endif
   endif
+
+  let regexp_begin = '^\s*\%(\h\w*\s*:\s*\)\=\<begin\>\%(\s*:\s*\h\w*\)\='
  
   " This line matches "id:begin", "begin:id" and "begin" in a line
-  if curr_line =~ '^\s*\<begin\>'
-    "\%(\h\w*\s*:\s*\)\=\<begin\>\%(\s*:\s*\h\w*\)\="
+  if curr_line =~ regexp_begin
+  "if curr_line =~ '^\s*\<begin\>'
     " indent as previous line +2
     let ind = indent(prevlnum)+offset_be
     let msg = "Found begin"
@@ -286,8 +288,10 @@ function! GetVerilog_SystemVerilogIndent()
   let prev_line      = substitute(prev_line_s,'^\s*','','')
 
 
+
   " if previous line is a begin of a block
-  if prev_line =~ '\<begin\>'
+  " This line matches "id:begin", "begin:id" and "begin" in a line
+  if prev_line =~ regexp_begin
     let msg = "First line after block begin"
     let ind = ind + offset_be
 
@@ -304,7 +308,7 @@ function! GetVerilog_SystemVerilogIndent()
     let begin_line_num = SearchPairNoComment('\<begin\>','','\<end\>')
     let this_line = GetLineStrip(begin_line_num)
     " Check if the begin keyword is the only keyword in the line and de-dent
-    if (this_line =~ '^begin\>')
+    if (this_line =~ regexp_begin)
       let ind = ind - offset_be
     endif
     " restore position

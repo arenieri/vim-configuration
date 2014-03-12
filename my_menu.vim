@@ -16,5 +16,6 @@ amenu Misc.Tagbar<Tab>F9                :TagbarToggle<CR>
 amenu Misc.Tag\ List<Tab>F10            :TlistToggle<CR>
 amenu Misc.Undo\ Tree<Tab>F11           :UndotreeToggle<CR>
 amenu Misc.Indent\ Guide<Tab>F12        :IndentGuidesToggle<CR>
-amenu Misc.Matrix                       :Matrix<CR>
+amenu Misc.MRU                          :MRU<CR>
+"amenu Misc.Matrix                       :Matrix<CR>
 

@@ -32,7 +32,7 @@ git clone git://github.com/fholgado/minibufexpl.vim.git
 git clone git://github.com/vim-scripts/mru.vim.git
 git clone git://github.com/majutsushi/tagbar.git
 git clone git://github.com/luochen1990/rainbow.git
-
+#git clone git://github.com/uguu-org/vim-matrix-screensaver.git
 popd 
 
 

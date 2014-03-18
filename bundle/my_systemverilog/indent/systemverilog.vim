@@ -218,7 +218,7 @@ function! GetVerilog_SystemVerilogIndent()
     let msg = "if ... else"
 
   elseif match_result =~ 'join'
-    let match_start = '\<fork\>'
+    let match_start = '\<\%(disable\s\+\)\@<!fork\>'
     let match_mid   = ''
     let match_end   = '\<\(join\|join_none\|join_any\)\>'
     let msg = "fork ... join"
@@ -271,10 +271,18 @@ function! GetVerilog_SystemVerilogIndent()
  
   " This line matches "id:begin", "begin:id" and "begin" in a line
   if curr_line =~ regexp_begin
-  "if curr_line =~ '^\s*\<begin\>'
-    " indent as previous line +2
-    let ind = indent(prevlnum)+offset_be
     let msg = "Found begin"
+    " check if we are inside a fork..join
+    let match_line_num = SearchPairNoComment('\<\%(disable\s\+\)\@<!fork\>','','\<\(join\|join_none\|join_any\)\>')
+    if match_line_num > 0
+      " we are inside a fork..join
+      let ind = indent(match_line_num)+offset_be
+      let msg = msg." inside fork..join at line ".match_line_num
+    else
+      " we are not in a fork..join
+      let ind = indent(prevlnum)+offset_be
+    endif
+
     echo msg." (matching line ".v:lnum.")"
     return ind
   endif
@@ -318,7 +326,8 @@ function! GetVerilog_SystemVerilogIndent()
     "let msg = "|".prevnonblank(prevlnum-1)." ".begin_line_num."|".msg
 
   " if previous line is the beginning of a block (begin or fork) or an expression
-  elseif prev_line =~ '\<\%(module\|fork\)\>'
+  elseif prev_line =~ '\<\%(module\)\>' ||
+         prev_line =~ '\<\%(disable\s\+\)\@<!fork\>'
     let msg = "module|fork|{|( detected"
     let ind = ind + offset
 
@@ -326,7 +335,7 @@ function! GetVerilog_SystemVerilogIndent()
   " .*\(\(;\)\@!.\)$ means "not followed by ; before the end of the line
   elseif (prev_line =~ '`\@<!\<\(if\|else\)\>.*;\@!.*$' ||
         \ prev_line =~ '\<\(initial\|final\|forever\|always\|always_comb\|always_ff\|always_latch\|constraint\)\>' ||
-        \ prev_line =~ '\<\%(disable\@!fork\)\>' ||
+        \ prev_line =~ '\<\%(disable\s\+\)\@<!fork\>' ||
         \ prev_line =~ '\<\(for\|foreach\|repeat\|while\|do\)\>' ||
         \ prev_line =~ ':\s*$')
     let msg = "if|always|for detected"

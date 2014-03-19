@@ -202,56 +202,56 @@ function! GetVerilog_SystemVerilogIndent()
   "  Calculate indentation according to the content of current line
   " ================================================================
   let match_result = matchstr(curr_line,'\<\(end\%(case\|task\|function\|clocking\|interface\|module\|program\|class\|specify\|package\|sequence\|group\|property\)\|end\|else\|join\|join_any\|join_none\)\>\|^}\|`endif\|`else')
- 
+
   "let match_found = 0
   if len(match_result) > 0
-  if match_result =~ '\<end\>'
-    let match_start = '\<begin\>'
-    let match_mid   = ''
-    let match_end   = '\<end\>'
-    let msg = "begin ... end"
+    if match_result =~ '\<end\>'
+      let match_start = '\<begin\>'
+      let match_mid   = ''
+      let match_end   = '\<end\>'
+      let msg = "begin ... end"
 
-  elseif match_result =~ '\<else\>'
-    let match_start = '\<if\>'
-    let match_mid   = ''
-    let match_end   = '\<else\>'
-    let msg = "if ... else"
+    elseif match_result =~ '\<else\>'
+      let match_start = '\<if\>'
+      let match_mid   = ''
+      let match_end   = '\<else\>'
+      let msg = "if ... else"
 
-  elseif match_result =~ 'join'
-    let match_start = '\<\%(disable\s\+\)\@<!fork\>'
-    let match_mid   = ''
-    let match_end   = '\<\(join\|join_none\|join_any\)\>'
-    let msg = "fork ... join"
+    elseif match_result =~ 'join'
+      let match_start = '\<\%(disable\s\+\)\@<!fork\>'
+      let match_mid   = ''
+      let match_end   = '\<\(join\|join_none\|join_any\)\>'
+      let msg = "fork ... join"
 
-  elseif match_result =~ '}'
-    let match_start = '{'
-    let match_mid   = ''
-    let match_end   = '}'
-    let msg = "{ ... }"
+    elseif match_result =~ '}'
+      let match_start = '{'
+      let match_mid   = ''
+      let match_end   = '}'
+      let msg = "{ ... }"
 
-  elseif match_result =~ '\(`endif\|`elsif\|`else\)'
-    let match_start = '\(`ifdef\|`ifndef\)'
-    let match_mid   = ''
-    let match_end   = '\(`endif\|`elsif\|`else\)'
-    let msg = "`ifdef ... `endif"
+    elseif match_result =~ '\(`endif\|`elsif\|`else\)'
+      let match_start = '\(`ifdef\|`ifndef\)'
+      let match_mid   = ''
+      let match_end   = '\(`endif\|`elsif\|`else\)'
+      let msg = "`ifdef ... `endif"
 
-    "    elseif match_result =~ '\<begin\>'
-    "      let match_start = '\<\(module\|task\|function\|if\|else\)'
-    "      let match_mid   = ''
-    "      let match_end   = '\<begin\>'
-    "      let msg = "module|task ... begin"
+      "    elseif match_result =~ '\<begin\>'
+      "      let match_start = '\<\(module\|task\|function\|if\|else\)'
+      "      let match_mid   = ''
+      "      let match_end   = '\<begin\>'
+      "      let msg = "module|task ... begin"
 
-  else
-    " match <anything> with end<anything>
-    let match_start = substitute(match_result,'^end','','')
-    let match_start = '\<' . match_start . '\>'
-    let match_mid   = ''
-    let match_end   = '\<' . match_result. '\>'
-    let msg = "begin ... end"
-  endif
+    else
+      " match <anything> with end<anything>
+      let match_start = substitute(match_result,'^end','','')
+      let match_start = '\<' . match_start . '\>'
+      let match_mid   = ''
+      let match_end   = '\<' . match_result. '\>'
+      let msg = "begin ... end"
+    endif
 
 
-  "if msg !~ "" "if message is not empty we have found a match
+    "if msg !~ "" "if message is not empty we have found a match
     " Place the cursor in position 1 of the line
     call cursor(v:lnum,1)
 
@@ -264,11 +264,13 @@ function! GetVerilog_SystemVerilogIndent()
       return ind
     endif
 
-  "endif
-  endif
+  endif " len(match_result) > 0
 
+  "----------------------
+  " Indent begin
+  "----------------------
   let regexp_begin = '^\s*\%(\h\w*\s*:\s*\)\=\<begin\>\%(\s*:\s*\h\w*\)\='
- 
+
   " This line matches "id:begin", "begin:id" and "begin" in a line
   if curr_line =~ regexp_begin
     let msg = "Found begin"
@@ -286,7 +288,8 @@ function! GetVerilog_SystemVerilogIndent()
     echo msg." (matching line ".v:lnum.")"
     return ind
   endif
-  
+
+
   " =================================================================
   "  Calculate indentation according to the content of previous line
   " =================================================================
@@ -296,17 +299,16 @@ function! GetVerilog_SystemVerilogIndent()
   let prev_line      = substitute(prev_line_s,'^\s*','','')
 
 
-
   " if previous line is a begin of a block
   " This line matches "id:begin", "begin:id" and "begin" in a line
-  if prev_line =~ regexp_begin
+  if ( prev_line =~ regexp_begin )
     let msg = "First line after block begin"
     let ind = ind + offset_be
 
-  " if previous line is the end of a block
-  " Indentazione dopo un end e' la stessa di end se il corrispondente begin e' su una linea insieme a altre keyword
-  " altrimenti si deve togliere un livello di indentazione
-  elseif prev_line =~ '\<end\>'
+    " if previous line is the end of a block
+    " Indentazione dopo un end e' la stessa di end se il corrispondente begin e' su una linea insieme a altre keyword
+    " altrimenti si deve togliere un livello di indentazione
+  elseif ( prev_line =~ '\<end\>' )
     let msg = "First line after block end"
     " move cursor to the previous line (Important: set the cursor to column 1)
     " save current position
@@ -325,25 +327,25 @@ function! GetVerilog_SystemVerilogIndent()
     " indentation is the same
     "let msg = "|".prevnonblank(prevlnum-1)." ".begin_line_num."|".msg
 
-  " if previous line is the beginning of a block (begin or fork) or an expression
-  elseif prev_line =~ '\<\%(module\)\>' ||
-         prev_line =~ '\<\%(disable\s\+\)\@<!fork\>'
+    " if previous line is the beginning of a block (begin or fork) or an expression
+  elseif ( prev_line =~ '\<\%(module\)\>' ||
+         \ prev_line =~ '\<\%(disable\s\+\)\@<!fork\>' )
     let msg = "module|fork|{|( detected"
     let ind = ind + offset
 
-  " Indent after if/else/for/case/always/initial/specify/fork blocks
-  " .*\(\(;\)\@!.\)$ means "not followed by ; before the end of the line
-  elseif (prev_line =~ '`\@<!\<\(if\|else\)\>.*;\@!.*$' ||
-        \ prev_line =~ '\<\(initial\|final\|forever\|always\|always_comb\|always_ff\|always_latch\|constraint\)\>' ||
-        \ prev_line =~ '\<\%(disable\s\+\)\@<!fork\>' ||
-        \ prev_line =~ '\<\(for\|foreach\|repeat\|while\|do\)\>' ||
-        \ prev_line =~ ':\s*$')
+    " Indent after if/else/for/case/always/initial/specify/fork blocks
+    " .*\(\(;\)\@!.\)$ means "not followed by ; before the end of the line
+  elseif ( prev_line =~ '`\@<!\<\(if\|else\)\>.*;\@!.*$' ||
+         \ prev_line =~ '\<\%(initial\|final\|forever\|always\|always_comb\|always_ff\|always_latch\|constraint\)\>' ||
+         \ prev_line =~ '\<\%(disable\s\+\)\@<!fork\>' ||
+         \ prev_line =~ '\<\%(for\|foreach\|repeat\|while\|do\)\>' ||
+         \ prev_line =~ ':\s*$')
     let msg = "if|always|for detected"
     let ind = ind + offset
 
-  elseif (prev_line =~ '\<\(case\%[[zx]]\|class\|interface\|clocking\|randcase\|package\|specify\)\>' || 
-        \ prev_line =~ '\%(extern\s\+\|extern\s\+virtual\s\+\|end\|\S\)\@<!\%(task\|function\)\>' ||
-        \ prev_line =~ '^\s*\(\w\+\s*:\)\=\s*\<covergroup\>')
+  elseif ( prev_line =~ '\<\%(case\%[[zx]]\|interface\|class\|clocking\|randcase\|package\|specify\)\>' ||
+         \ prev_line =~ '\%(extern\s\+\|extern\s\+virtual\s\+\|end\|\S\)\@<!\%(task\|function\)\>' ||
+         \ prev_line =~ '^\s*\(\w\+\s*:\)\=\s*\<covergroup\>')
     let msg = "task|function"
     let ind = ind + offset
 

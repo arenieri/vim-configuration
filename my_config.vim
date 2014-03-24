@@ -6,7 +6,8 @@ runtime mswin.vim
 behave mswin
 
 " install pathogen
-execute pathogen#infect('bundle/{}', 'git-bundle/{}', '~/.vim/others/powerline/powerline/bindings/{}')
+"execute pathogen#infect('bundle/{}', 'git-bundle/{}', '~/.vim/others/powerline/powerline/bindings/{}')
+execute pathogen#infect('bundle/{}', 'git-bundle/{}')
 syntax on
 filetype plugin indent on
 
@@ -25,7 +26,7 @@ if has("gui_running")
     else
         set guifont=Courier:h9:cANSI
     endif
-endif 
+endif
 
 
 " Color
@@ -51,8 +52,8 @@ set ruler           " show the cursor position all the time
 set showcmd         " display incomplete commands
 set incsearch       " do incremental searching
 
-set encoding=utf8   " Set character encoding
-"encoding=utf8 is required by powerline when gvim is started from inside certain applications (Eg. vmanager)
+set encoding=utf-8   " Set character encoding
+"encoding=utf-8 is required by powerline when gvim is started from inside certain applications (Eg. vmanager)
 
 " Folding
 set foldmethod=marker
@@ -66,6 +67,18 @@ setlocal guioptions+=b
 set titlestring=%t\ %M\ %<(%F)\ -\ %{v:servername}
 "set titlestring=%t\ %M\ %<(%{expand(\"%:~:h\")})
 "set titlestring=%t\ %m\ %r
+
+" create directories for backup, swap and undo files
+if has('unix')
+    if !isdirectory($HOME."/.vim-tmp/undo")
+        if exists("*mkdir")
+            echo "Created ~/.vim-tmp and ~/.vim-tmp/undo"
+            call mkdir($HOME."/.vim-tmp/undo", "p")
+        else
+            echo "Please create directories ~/.vim-tmp and ~/.vim-tmp/undo"
+        endif
+    endif
+endif
 
 " Set directory for backup and swap files
 set directory=~/.vim-tmp

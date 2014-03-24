@@ -2,7 +2,9 @@
 " Plugins Configuration "
 "-----------------------"
 
-" Configuration for NERDCommenter
+"---------------
+" NERDCommenter
+"---------------
 nmap <silent> <C-SPACE>       <plug>NERDCommenterInvert
 vmap <silent> <C-SPACE>       <plug>NERDCommenterInvert
 imap <silent> <C-SPACE> <Esc> <plug>NERDCommenterInvert i
@@ -18,15 +20,21 @@ vmap <silent> <C-L>           <plug>NERDCommenterUncomment
 imap <silent> <C-L>     <Esc> <plug>NERDCommenterUncomment i
 smap <silent> <C-L>     <C-G> <plug>NERDCommenterUncomment<CR>
 
-" Configuration for indent guide plugin
+"-------------
+" IndentGuide
+"-------------
 let g:indent_guides_guide_size = 1
 let g:indent_guides_start_level = 2
 "let g:indent_guides_enable_on_vim_startup = 1
 
-" Configuration for rainbow parentheses
+"---------------------
+" Rainbow parentheses
+"---------------------
 let g:rainbow_active = 1
 
-" Configuration for CTAGS
+"-------
+" CTAGS
+"-------
 if has('unix')
     let g:Tlist_Ctags_Cmd     = '/users/arenieri/bin/ctags'
     let g:tagbar_ctags_bin  = '/users/arenieri/bin/ctags'
@@ -46,3 +54,8 @@ let tlist_systemverilog_settings = 'systemverilog;a:access;b:always;c:assertion;
                         \ 'O:qualifier;P:randsequence;Q:seqblk;R:sequence;S:specify;T:string;' .
                         \ 'U:strunion;V:table;W:task;X:timespec;Y:typedef;Z:void'
 
+"---------
+" Airline
+"---------
+let g:airline_powerline_fonts = 1
+"let g:airline#extensions#tabline#enabled = 1

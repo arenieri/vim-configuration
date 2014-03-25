@@ -5,18 +5,18 @@
 "     b:verilog_indent_width   : indenting width(default value: shiftwidth)
 "
 " Install:
-"     Drop it to ~/.vim/indent 
+"     Drop it to ~/.vim/indent
 " Known Limitations:
 "     This indent file can not work well, when you break the long line into
 "     multi-line manually, such as:
-"      always @(posedge a or posedge b 
+"      always @(posedge a or posedge b
 "          or posedge c ) begin
 "         //...
-"      end 
+"      end
 "     Recommend to use the coding style(wraped by vim automatically) as following:
 "       always @(posedge a or posedge b or posedge c ) begin
 "         //...
-"       end 
+"       end
 
 " Only load this indent file when no other was loaded.
 if exists("b:did_indent")
@@ -50,7 +50,7 @@ set cpo-=C
 function! s:comment_line_type(lnum) "{{{
   let line = getline(a:lnum)
 
-  " check if current ine is a complete line comment ('//') 
+  " check if current ine is a complete line comment ('//')
   if line =~ '^\s*\/\/'
     return -1
   endif
@@ -62,7 +62,7 @@ function! s:comment_line_type(lnum) "{{{
   endif
 
   " find the position of end of line
-  let endPos   = match(line,'\s*$') 
+  let endPos   = match(line,'\s*$')
 
   let flag1 = 0
   let flag2 = 0
@@ -122,7 +122,7 @@ function! s:prevnonblanknoncomment(lnum) "{{{
 endfunction "}}}
 
 " This function remove comments present in a line that contains also some code
-" and returns only the code portion of the line 
+" and returns only the code portion of the line
 function! s:removecommment(line,comment_line_type) "{{{
 
   " not a comment line
@@ -344,7 +344,7 @@ function! GetVerilog_SystemVerilogIndent()
     let ind = ind + offset
 
   elseif ( prev_line =~ '\<\%(case\%[[zx]]\|interface\|class\|clocking\|randcase\|package\|specify\)\>' ||
-         \ prev_line =~ '\%(extern\s\+\|extern\s\+virtual\s\+\|end\|\S\)\@<!\%(task\|function\)\>' ||
+         \ prev_line =~ '\%(extern\s\+\|extern\s\+virtual\s\+\|end\|\S\)\@<!\%(task\|function\|program\)\>' ||
          \ prev_line =~ '^\s*\(\w\+\s*:\)\=\s*\<covergroup\>')
     let msg = "task|function"
     let ind = ind + offset
@@ -355,7 +355,7 @@ function! GetVerilog_SystemVerilogIndent()
   "  Calculate indentation according to the content of previous line
   "                         EXCEPTIONS
   " =================================================================
-  
+
   " Remove previous indentation in case of interface instance
   if (prev_line =~ '\<\(interface\)\s\+\w\+\s\+\w\+\s*;')
     let msg ="interface instance"
@@ -371,8 +371,8 @@ function! GetVerilog_SystemVerilogIndent()
     let prev2_line_type = s:comment_line_type(prevlnum2)
     let prev2_line_s    = s:removecommment(getline(prevlnum2),prev2_line_type)
     let prev2_line      = substitute(prev2_line_s,'^\s*','','')
-    
-    " TODO questa linea dovrebbe fare il match di tutti i comandi che possono prevedere 
+
+    " TODO questa linea dovrebbe fare il match di tutti i comandi che possono prevedere
     " un comando singolo subito dopo. Le regexp sono gia' utilizzate quando si fa' l' indentazione
     " Assegnare le regexp a delle variabili per eviare duplicazioni
     if (  prev2_line =~ '`\@<!\<\(if\|else\)\>.*;\@!.*$')

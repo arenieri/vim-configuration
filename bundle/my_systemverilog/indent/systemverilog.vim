@@ -275,11 +275,20 @@ function! GetVerilog_SystemVerilogIndent()
   if curr_line =~ regexp_begin
     let msg = "Found begin"
     " check if we are inside a fork..join
-    let match_line_num = SearchPairNoComment('\<\%(disable\s\+\)\@<!fork\>','','\<\(join\|join_none\|join_any\)\>')
-    if match_line_num > 0
-      " we are inside a fork..join
-      let ind = indent(match_line_num)+offset_be
-      let msg = msg." inside fork..join at line ".match_line_num
+    let match_line_num = SearchPairNoComment('\<\%(disable\s\+\)\@<!fork\>','','\<\%(join\|join_none\|join_any\)\>')
+    "Be sure that the cursor is in position 1
+    call cursor(v:lnum,1)
+    let begin_in_fork_line_num = SearchPairNoComment('\<begin\>','','\<end\>')
+
+    if (match_line_num > 0)
+      if (match_line_num > begin_in_fork_line_num)
+        " we are inside a fork..join
+        let ind = indent(match_line_num)+offset_be
+        let msg = msg." inside fork..join at line ".match_line_num
+      else
+        " we are in a fork..join but this is an inner begin..end block
+        let ind = indent(prevlnum)+offset_be
+      endif
     else
       " we are not in a fork..join
       let ind = indent(prevlnum)+offset_be
@@ -338,7 +347,7 @@ function! GetVerilog_SystemVerilogIndent()
   elseif ( prev_line =~ '`\@<!\<\(if\|else\)\>.*;\@!.*$' ||
          \ prev_line =~ '\<\%(initial\|final\|forever\|always\|always_comb\|always_ff\|always_latch\|constraint\)\>' ||
          \ prev_line =~ '\<\%(disable\s\+\)\@<!fork\>' ||
-         \ prev_line =~ '\<\%(for\|foreach\|repeat\|while\|do\)\>' ||
+         \ prev_line =~ '\<\%(for/s*\(\|foreach\|repeat\|while\|do\)\>' ||
          \ prev_line =~ ':\s*$')
     let msg = "if|always|for detected"
     let ind = ind + offset

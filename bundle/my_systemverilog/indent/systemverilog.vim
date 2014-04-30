@@ -161,8 +161,9 @@ function! GetLineStrip(lnum) "{{{
     let this_line_type  = s:comment_line_type(a:lnum)
     let this_line       = s:removecommment(getline(a:lnum),this_line_type)
     " remove the blanks at the beginning of the line
-    let this_line_strip = substitute(this_line,'^\s*','','')
-    return this_line_strip
+    "let this_line_strip = substitute(this_line,'^\s*','','')
+    "return this_line_strip
+    return this_line
 endfunction "}}}
 
 
@@ -201,9 +202,21 @@ function! GetVerilog_SystemVerilogIndent()
   " ================================================================
   "  Calculate indentation according to the content of current line
   " ================================================================
-  let match_result = matchstr(curr_line,'\<\(end\%(case\|task\|function\|clocking\|interface\|module\|program\|class\|specify\|package\|sequence\|group\|property\)\|end\|else\|join\|join_any\|join_none\)\>\|^}\|`endif\|`else')
+  let regexp_str = '\<\(end\%(case\|task\|function\|clocking\|interface\|module\|program\|class\|specify\|package\|sequence\|group\|property\)\|end\|else\|join\|join_any\|join_none\)\>\|^}\|`endif\|`else'
+  let match_result = matchstr(curr_line, regexp_str)
+  let matchpos_result = match(curr_line, regexp_str)
 
-  "let match_found = 0
+  "let msg1 = " " . match_result . " ".matchpos_result." ".col(".")
+  "let msg1 = msg1 . synIDattr(synID(line("."), col("."), 0), "name")
+  "let msg1 = msg1 . synIDattr(synID(line("."), matchpos_result, 0), "name")
+
+  " TODO: regexp must be searched 2 times: one to find the string and the other to find the position inside the line.
+  "       This should be done only one time.
+  if synIDattr(synID(line("."), matchpos_result, 0), "name") =~? "String"
+    " Matched result is inside a string and must be ignored
+    let match_result = ""
+  end
+
   if len(match_result) > 0
     if match_result =~ '\<end\>'
       let match_start = '\<begin\>'
@@ -247,7 +260,7 @@ function! GetVerilog_SystemVerilogIndent()
       let match_start = '\<' . match_start . '\>'
       let match_mid   = ''
       let match_end   = '\<' . match_result. '\>'
-      let msg = "begin ... end"
+      let msg = "<anything> ... end<anything>"
     endif
 
 

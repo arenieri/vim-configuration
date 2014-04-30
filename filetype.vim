@@ -14,5 +14,7 @@ augroup filetypedetect
     au BufNewFile,BufRead *.ctl         setfiletype tcl
     au BufNewFile,BufRead *.log         setfiletype log
     au BufNewFile,BufRead *.rpt         setfiletype log
+    au BufNewFile,BufRead *.icf         setfiletype icf
+    au BufNewFile,BufRead *.vsif        setfiletype vsif
 augroup END
 

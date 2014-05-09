@@ -18,9 +18,11 @@ setlocal commentstring=//%s
 syntax match    vsifInclude    "^#.*"
 syntax match    vsifKey        "^.*:"
 syntax match    vsifEnvvar     "$[a-zA-Z0-9_()]\+"
-syntax keyword  vsifSection    session group
+syntax keyword  vsifSection    session group header session_output
+syntax keyword  vsifSection    run extend failure filter
 
-syntax match    vsifComment    "//.*"
+"syntax match    vsifComment    "\s*//.*"
+syntax match    vsifComment    "\s*\/\/.*"
 
 highlight default link vsifInclude      Include
 highlight default link vsifKey          Type

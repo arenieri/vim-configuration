@@ -11,6 +11,16 @@ let b:current_syntax = "log"
 " case insensitive
 syntax case ignore
 
+" Remove ',' as allowed character in filenames
+" This is needed to correctly identify filenames in log files when using 'gf'
+" to open filename under cursor.
+setlocal isfname-=,
+
+" gf -> go to file under cursor
+" gF -> go to file under cursor at line after filename
+" remap gf to gF
+nnoremap gf gF
+
 "-------------------------------------------------------------------------
 " Syntax
 syntax match beLogSourceStart       /^Start:\s\+Sourcing.*$/

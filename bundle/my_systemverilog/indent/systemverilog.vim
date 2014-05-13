@@ -202,7 +202,7 @@ function! GetVerilog_SystemVerilogIndent()
   " ================================================================
   "  Calculate indentation according to the content of current line
   " ================================================================
-  let regexp_str = '\<\(end\%(case\|task\|function\|clocking\|interface\|module\|program\|class\|specify\|package\|sequence\|group\|property\)\|end\|else\|join\|join_any\|join_none\)\>\|^}\|`endif\|`else'
+  let regexp_str = '\<\(end\%(case\|task\|function\|clocking\|interface\|module\|program\|class\|specify\|package\|sequence\|group\|property\)\|end\|else\|join\|join_any\|join_none\)\>\|^\s*}\|`endif\|`else'
   let match_result = matchstr(curr_line, regexp_str)
   let matchpos_result = match(curr_line, regexp_str)
 

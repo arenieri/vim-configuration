@@ -162,6 +162,10 @@ syn match  verilogMethod       "\.purge\>"
 syn match  verilogMethod       "\.start\>"
 syn match  verilogMethod       "\.finish\>"
 
+syn match  verilogPragma       "//.*pragma.*$"
+
+" Color definition fro Pragmas
+highlight verilogPragma_hi      guifg=#80A0FF   guibg=DarkMagenta
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
@@ -177,6 +181,7 @@ if version >= 508 || !exists("did_verilog_syn_inits")
    " The default highlighting.
    HiLink verilogMethod          Function
    HiLink verilogTypeDef         TypeDef
+   HiLink verilogPragma          verilogPragma_hi
 
    delcommand HiLink
 endif

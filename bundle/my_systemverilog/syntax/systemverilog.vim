@@ -162,7 +162,8 @@ syn match  verilogMethod       "\.purge\>"
 syn match  verilogMethod       "\.start\>"
 syn match  verilogMethod       "\.finish\>"
 
-syn match  verilogPragma       "//.*pragma.*$"
+" The following regexp matches '// pragma' but does not match commented pragmas '//// pragma'
+syn match  verilogPragma       "\%(//\)\@<!//\s*pragma.*$"
 
 " Color definition fro Pragmas
 highlight verilogPragma_hi      guifg=#80A0FF   guibg=DarkMagenta

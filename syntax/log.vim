@@ -30,19 +30,23 @@ syntax match beLogDSourceStart      /.*Information:\s\+Starting\sscript.*$/
 syntax match beLogDSourceStop       /.*Information:\s\+Finished\sscript.*$/
 syntax match beLogDSourceOpt        /.*Information:\s\+Optional\sscript.*$/
 
-syntax match beLogInformation       /Information\>/
-syntax match beLogWarning           /Warning\>/
-syntax match beLogError             /Error\>/
+syntax keyword beLogInformation     Information
+syntax keyword beLogWarning         Warning
+syntax keyword beLogError           Error
 syntax match beLogSevereError       /Severe\sError\>/
 
+syntax match cdsLogNote             /.*\*N,.*$/
 syntax match cdsLogError            /.*\*E,.*$/
 syntax match cdsLogWarning          /.*\*W,.*$/
+syntax match cdsLogFatal            /.*\*F,.*$/
 
 
-syntax match uvmInfo                /UVM_INFO/
-syntax match uvmWarning             /UVM_WARNING/
-syntax match uvmError               /UVM_ERROR/
-syntax match uvmFatal               /UVM_FATAL/
+syntax keyword uvmInfo              UVM_INFO
+syntax keyword uvmWarning           UVM_WARNING
+syntax keyword uvmError             UVM_ERROR
+syntax keyword uvmFatal             UVM_FATAL
+
+syntax keyword genericInfo          INFO NOTE
 
 
 "-------------------------------------------------------------------------
@@ -55,8 +59,11 @@ highlight beLogInformation_hi       guifg=Cyan
 highlight beLogWarning_hi           guifg=Orange
 highlight beLogError_hi             guifg=Red
 
+
+highlight cdsLogNote_hi             guifg=Cyan          guibg=Black
 highlight cdsLogError_hi            guifg=Red           guibg=Black
 highlight cdsLogWarning_hi          guifg=Orange        guibg=Black
+highlight cdsLogFatal_hi            guifg=Magenta       guibg=Black
 
 highlight uvmInfo_hi                guifg=Cyan
 highlight uvmWarning_hi             guifg=Orange
@@ -75,11 +82,16 @@ highlight default link beLogWarning         beLogWarning_hi
 highlight default link beLogError           beLogError_hi
 highlight default link beLogSevereError     beLogError_hi
 
-highlight default link cdsLogError          cdsLogError_hi
+
+highlight default link cdsLogNote           cdsLogNote_hi
 highlight default link cdsLogWarning        cdsLogWarning_hi
+highlight default link cdsLogError          cdsLogError_hi
+highlight default link cdsLogFatal          cdsLogFatal_hi
 
 highlight default link uvmInfo              uvmInfo_hi
 highlight default link uvmWarning           uvmWarning_hi
 highlight default link uvmError             uvmError_hi
 highlight default link uvmFatal             uvmFatal_hi
+
+highlight default link genericInfo          uvmInfo_hi
 

@@ -34,7 +34,7 @@ colorscheme darkblue
 
 
 " Configuration
-set textwidth=120   " Text width
+set textwidth=0     " Text width (A longer line will be broken after white space. 0 means disabled)
 set tabstop=8       " Number of spaces that a <Tab> in the file counts for (!!! do not modify this !!!)
 set softtabstop=4   " Number of spaces that a <Tab> counts for while performing editing operations
 set shiftwidth=4    " Number of spaces to use for each step of (auto)indent

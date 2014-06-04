@@ -48,6 +48,8 @@ syntax keyword uvmFatal             UVM_FATAL
 
 syntax keyword genericInfo          INFO NOTE
 
+syntax keyword simSuccess           SUCCESS
+
 
 "-------------------------------------------------------------------------
 " Highlight color definition
@@ -69,6 +71,8 @@ highlight uvmInfo_hi                guifg=Cyan
 highlight uvmWarning_hi             guifg=Orange
 highlight uvmError_hi               guifg=Red
 highlight uvmFatal_hi               guifg=Magenta
+
+highlight simSuccess_hi             guifg=green
 
 "-------------------------------------------------------------------------
 " Highlight definition
@@ -94,4 +98,6 @@ highlight default link uvmError             uvmError_hi
 highlight default link uvmFatal             uvmFatal_hi
 
 highlight default link genericInfo          uvmInfo_hi
+
+highlight default link simSuccess           simSuccess_hi
 

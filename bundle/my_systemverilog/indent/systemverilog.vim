@@ -279,6 +279,10 @@ function! GetVerilog_SystemVerilogIndent()
 
   endif " len(match_result) > 0
 
+  " ================================================================
+  "  Calculate indentation according to the content of current line
+  "                         SPECIAL CASES
+  " ================================================================
   "----------------------
   " Indent begin
   "----------------------
@@ -288,26 +292,39 @@ function! GetVerilog_SystemVerilogIndent()
   if curr_line =~ regexp_begin
     let msg = "Found begin"
     " check if we are inside a fork..join
-    let match_line_num = SearchPairNoComment('\<\%(disable\s\+\)\@<!fork\>','','\<\%(join\|join_none\|join_any\)\>')
+    let fork_match_line_num = SearchPairNoComment('\<\%(disable\s\+\)\@<!fork\>','','\<\%(join\|join_none\|join_any\)\>')
+    " check if we are inside a case..endcase
+    let case_match_line_num = SearchPairNoComment('\<case\>','','\<endcase\>')
     "Be sure that the cursor is in position 1
     call cursor(v:lnum,1)
-    let begin_in_fork_line_num = SearchPairNoComment('\<begin\>','','\<end\>')
+    let inner_begin_line_num = SearchPairNoComment('\<begin\>','','\<end\>')
 
-    if (match_line_num > 0)
-      if (match_line_num > begin_in_fork_line_num)
-        " we are inside a fork..join
-        let ind = indent(match_line_num)+offset_be
-        let msg = msg." inside fork..join at line ".match_line_num
-      else
-        " we are in a fork..join but this is an inner begin..end block
-        let ind = indent(prevlnum)+offset_be
-      endif
+    if (fork_match_line_num > inner_begin_line_num)
+      " we are inside a fork..join
+      let ind = indent(fork_match_line_num)+offset_be
+      let msg = msg." inside fork..join at line ".fork_match_line_num
+    elseif (case_match_line_num > inner_begin_line_num)
+      " we are inside a case..endcase
+      let ind = indent(case_match_line_num)+offset_be
+      let msg = msg." inside case..endcase at line ".case_match_line_num
     else
-      " we are not in a fork..join
+      " we are in a fork..join but this is an inner begin..end block
+      " or we are not in a fork..join, case..endcase
       let ind = indent(prevlnum)+offset_be
     endif
 
     echo msg." (matching line ".v:lnum.")"
+    return ind
+  endif
+
+  "------------------------------
+  " Indent default (inside case)
+  "------------------------------
+  if curr_line =~ '^\s*default\>'
+    let msg = "Found default"
+    let case_match_line_num = SearchPairNoComment('\<case\>','','\<endcase\>')
+    let ind = indent(case_match_line_num)+offset_be
+    echo msg." inside case..endcase at line ".case_match_line_num
     return ind
   endif
 

@@ -63,6 +63,7 @@ syn keyword verilogStatement   wildcard within
 syn keyword verilogStatement   triggered
 syn keyword verilogStatement   std
 syn keyword verilogStatement   new
+syn keyword verilogStatement   implements interconnect nettype soft
 
 syn keyword verilogTypeDef     typedef enum
 

@@ -328,6 +328,30 @@ function! GetVerilog_SystemVerilogIndent()
     return ind
   endif
 
+  "------------------------
+  " Indent port assignment
+  "------------------------
+  " line starts with .something
+  if curr_line =~ '^\s*\.\w\+'
+    let msg = "Found port assignment"
+    if getline(prevlnum) =~ '^\s*\.\w\+'
+      let ind = indent(prevlnum)
+    else
+      let ind = indent(prevlnum)+offset
+    endif
+  else
+  "-------------------------------------------
+  " DeIndent after instance (port assignment)
+  "-------------------------------------------
+    if getline(prevlnum) =~ '^\s*\.\w\+'
+      let msg = "Found statement after port assignment"
+      let ind = indent(prevlnum)-offset
+    endif
+  endif
+
+
+
+
 
   " =================================================================
   "  Calculate indentation according to the content of previous line
@@ -369,7 +393,7 @@ function! GetVerilog_SystemVerilogIndent()
     " if previous line is the beginning of a block (begin or fork) or an expression
   elseif ( prev_line =~ '\<\%(module\)\>' ||
          \ prev_line =~ '\<\%(disable\s\+\)\@<!fork\>' )
-    let msg = "module|fork|{|( detected"
+    let msg = "module|fork detected"
     let ind = ind + offset
 
     " Indent after if/else/for/case/always/initial/specify/fork blocks
@@ -385,7 +409,11 @@ function! GetVerilog_SystemVerilogIndent()
   elseif ( prev_line =~ '\<\%(case\%[[zx]]\|interface\|class\|clocking\|randcase\|package\|specify\)\>' ||
          \ prev_line =~ '\%(extern\s\+\|extern\s\+virtual\s\+\|end\|\S\)\@<!\%(task\|function\|program\)\>' ||
          \ prev_line =~ '^\s*\(\w\+\s*:\)\=\s*\<covergroup\>')
-    let msg = "task|function"
+    let msg = "task|function detected"
+    let ind = ind + offset
+
+  elseif ( prev_line =~ '{' && prev_line !~ '}' )
+    let msg = "{ detected in previous line"
     let ind = ind + offset
 
   endif

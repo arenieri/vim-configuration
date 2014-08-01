@@ -68,6 +68,12 @@ set titlestring=%t\ %M\ %<(%F)\ -\ %{v:servername}
 "set titlestring=%t\ %M\ %<(%{expand(\"%:~:h\")})
 "set titlestring=%t\ %m\ %r
 
+
+" The following line enables virtualedit in block mode to edit several lines
+" beyond the last character when the editor is in block mode
+set virtualedit+=block,onemore
+
+
 " create directories for backup, swap and undo files
 if has('unix')
     if !isdirectory($HOME."/.vim-tmp/undo")

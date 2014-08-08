@@ -31,12 +31,14 @@ let b:did_indent = 1
 
 
 setlocal indentexpr=GetVerilog_SystemVerilogIndent()
-setlocal indentkeys=!^F,o,O,0),0},0{,=begin,=end,=fork,=join,=endcase,=join_any,=join_none,=else
+setlocal indentkeys=!^F,o,O,0),0},0{
+setlocal indentkeys+==begin,=end,=fork,=join,=endcase,=join_any,=join_none,=else
 setlocal indentkeys+==endmodule,=endfunction,=endtask,=endspecify
 setlocal indentkeys+==endclass,=endpackage,=endsequence,=endclocking
 setlocal indentkeys+==endinterface,=endgroup,=endprogram,=endproperty
-setlocal indentkeys+==`else,=`endif
-
+setlocal indentkeys+==`else,=`endif,.
+" indent when pressing return
+setlocal indentkeys+=*<return>
 
 set cpo-=C
 
@@ -332,7 +334,8 @@ function! GetVerilog_SystemVerilogIndent()
   " Indent port assignment
   "------------------------
   " line starts with .something
-  if curr_line =~ '^\s*\.\w\+'
+  "if curr_line =~ '^\s*\.\w\+'
+  if curr_line =~ '^\s*\.'
     let msg = "Found port assignment"
     if getline(prevlnum) =~ '^\s*\.\w\+'
       let ind = indent(prevlnum)

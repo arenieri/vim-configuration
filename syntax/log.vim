@@ -21,6 +21,9 @@ setlocal isfname-=,
 " remap gf to gF
 nnoremap gf gF
 
+" wrap long lines
+set wrap
+
 "-------------------------------------------------------------------------
 " Syntax
 syntax match beLogSourceStart       /^Start:\s\+Sourcing.*$/

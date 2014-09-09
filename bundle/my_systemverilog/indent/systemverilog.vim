@@ -197,14 +197,53 @@ function! GetVerilog_SystemVerilogIndent()
   " remove comments from current line and return only the code
   let curr_line  = GetLineStrip(v:lnum)
 
+  " remove comments from current line and return only the code
+  let prev_line_type = s:comment_line_type(prevlnum)
+  let prev_line_s    = s:removecommment(getline(prevlnum),prev_line_type)
+  let prev_line      = substitute(prev_line_s,'^\s*','','')
+
   " -----------------------------------------------------------
   " curr_line has the meaningful content of the line on
   " which we have to decide indentation
 
+  " IMPORTANT: if the previous line is an end of a block we remove indentation
+  " and we avoid to search matching strings
+  " In realta' la cosa corretta da fare sarebbe ignorare tutto cio' che sta'
+  " all' interno del blocco begin end
+  " Esempio
+  " if (a=1)
+  "   begin
+  "     if ()
+  "     else if ()
+  "   end
+  " else if ()
+  "
+  " L'ultimo else if, senza le linee di codice qui sotto, verrebbe allineato
+  " all' else if all' interno del begin end
+  " Un' eccezione `e rappresentata da end che deve essere indentato come il
+  " begin con cui fa coppia e non in base all' end che lo precede.
+  " Es.
+  "     begin
+  "       if ()
+  "         begin
+  "           ...
+  "         end
+  "       else if ()
+  "         begin
+  "           ...
+  "         end
+  "     end "<- This is the exception
+
+  if ( prev_line =~ '\<end\>' && (curr_line !~ '\<end\>' || curr_line !~ '\<endmodule\>')
+    echo "First line after block end"
+    let ind = ind - offset_be
+    return ind
+  endif
   " ================================================================
   "  Calculate indentation according to the content of current line
   " ================================================================
   let regexp_str = '\<\(end\%(case\|task\|function\|clocking\|interface\|module\|program\|class\|specify\|package\|sequence\|group\|property\)\|end\|else\|join\|join_any\|join_none\)\>\|^\s*}\|`endif\|`else'
+
   let match_result = matchstr(curr_line, regexp_str)
   let matchpos_result = match(curr_line, regexp_str)
 
@@ -359,10 +398,6 @@ function! GetVerilog_SystemVerilogIndent()
   " =================================================================
   "  Calculate indentation according to the content of previous line
   " =================================================================
-
-  let prev_line_type = s:comment_line_type(prevlnum)
-  let prev_line_s    = s:removecommment(getline(prevlnum),prev_line_type)
-  let prev_line      = substitute(prev_line_s,'^\s*','','')
 
 
   " if previous line is a begin of a block

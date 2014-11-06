@@ -64,6 +64,8 @@ syn keyword verilogStatement   triggered
 syn keyword verilogStatement   std
 syn keyword verilogStatement   new
 syn keyword verilogStatement   implements interconnect nettype soft
+syn keyword verilogStatement   checker endchecker
+
 
 syn keyword verilogTypeDef     typedef enum
 
@@ -166,8 +168,9 @@ syn match  verilogMethod       "\.finish\>"
 " The following regexp matches '// pragma' but does not match commented pragmas '//// pragma'
 syn match  verilogPragma       "\%(//\)\@<!//\s*pragma.*$"
 
-" Color definition fro Pragmas
+" Color definition for Pragmas
 highlight verilogPragma_hi      guifg=#80A0FF   guibg=DarkMagenta
+
 
 " Define the default highlighting.
 " For version 5.7 and earlier: only when not done already
@@ -181,9 +184,9 @@ if version >= 508 || !exists("did_verilog_syn_inits")
    endif
 
    " The default highlighting.
-   HiLink verilogMethod          Function
-   HiLink verilogTypeDef         TypeDef
-   HiLink verilogPragma          verilogPragma_hi
+   HiLink verilogMethod         Function
+   HiLink verilogTypeDef        TypeDef
+   HiLink verilogPragma         verilogPragma_hi
 
    delcommand HiLink
 endif

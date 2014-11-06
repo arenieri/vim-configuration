@@ -446,6 +446,7 @@ function! GetVerilog_SystemVerilogIndent()
 
   elseif ( prev_line =~ '\<\%(case\%[[zx]]\|interface\|class\|clocking\|randcase\|package\|specify\)\>' ||
          \ prev_line =~ '\%(extern\s\+\|extern\s\+virtual\s\+\|end\|\S\)\@<!\%(task\|function\|program\)\>' ||
+         \ prev_line =~ '\<\%(assert\s\+\)\@<!property\>' ||
          \ prev_line =~ '^\s*\(\w\+\s*:\)\=\s*\<covergroup\>')
     let msg = "task|function detected"
     let ind = ind + offset

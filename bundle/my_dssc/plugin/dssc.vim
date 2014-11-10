@@ -69,9 +69,9 @@ amenu DSSC.-sep1-               :
 amenu DSSC.ls                   :DSSCls<CR>
 amenu DSSC.ls\ tags             :DSSClstags<CR>
 amenu DSSC.vhist                :DSSCvhist<CR>
-amenu DSSC.diff                 :DSSCdiff<CR>
+"amenu DSSC.diff                 :DSSCdiff<CR>
 amenu DSSC.diff\ gui            :DSSCdiffgui<CR>
-amenu DSSC.diff\ Latest         :DSSCdiffLatest<CR>
+"amenu DSSC.diff\ Latest         :DSSCdiffLatest<CR>
 amenu DSSC.diff\ Latest\ gui    :DSSCdiffLatestgui<CR>
 
 amenu DSSC.-sep2-           :

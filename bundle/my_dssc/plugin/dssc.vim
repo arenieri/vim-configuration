@@ -72,7 +72,7 @@ amenu DSSC.vhist                :DSSCvhist<CR>
 "amenu DSSC.diff                 :DSSCdiff<CR>
 amenu DSSC.diff\ gui            :DSSCdiffgui<CR>
 "amenu DSSC.diff\ Latest         :DSSCdiffLatest<CR>
-amenu DSSC.diff\ Latest\ gui    :DSSCdiffLatestgui<CR>
+"amenu DSSC.diff\ Latest\ gui    :DSSCdiffLatestgui<CR>
 
 amenu DSSC.-sep2-           :
 amenu DSSC.cancel           :DSSCcancel<CR>

@@ -33,7 +33,7 @@ let b:did_indent = 1
 setlocal indentexpr=GetVerilog_SystemVerilogIndent()
 setlocal indentkeys=!^F,o,O,0),0},0{
 setlocal indentkeys+==begin,=end,=fork,=join,=endcase,=join_any,=join_none,=else
-setlocal indentkeys+==endmodule,=endfunction,=endtask,=endspecify
+setlocal indentkeys+==endmodule,=endfunction,=endtask,=endspecify,=endgenerate
 setlocal indentkeys+==endclass,=endpackage,=endsequence,=endclocking
 setlocal indentkeys+==endinterface,=endgroup,=endprogram,=endproperty
 setlocal indentkeys+==`else,=`endif,.
@@ -242,7 +242,7 @@ function! GetVerilog_SystemVerilogIndent()
   " ================================================================
   "  Calculate indentation according to the content of current line
   " ================================================================
-  let regexp_str = '\<\(end\%(case\|task\|function\|clocking\|interface\|module\|program\|class\|specify\|package\|sequence\|group\|property\)\|end\|else\|join\|join_any\|join_none\)\>\|^\s*}\|`endif\|`else'
+  let regexp_str = '\<\(end\%(case\|task\|function\|clocking\|interface\|generate\|module\|program\|class\|specify\|package\|sequence\|group\|property\)\|end\|else\|join\|join_any\|join_none\)\>\|^\s*}\|`endif\|`else'
 
   let match_result = matchstr(curr_line, regexp_str)
   let matchpos_result = match(curr_line, regexp_str)
@@ -447,7 +447,7 @@ function! GetVerilog_SystemVerilogIndent()
   elseif ( prev_line =~ '\<\%(case\%[[zx]]\|interface\|class\|clocking\|randcase\|package\|specify\)\>' ||
          \ prev_line =~ '\%(extern\s\+\|extern\s\+virtual\s\+\|end\|\S\)\@<!\%(task\|function\|program\)\>' ||
          \ prev_line =~ '\<\%(assert\s\+\)\@<!property\>' ||
-         \ prev_line =~ '\<\%(sequence\)\>' ||
+         \ prev_line =~ '\<\%(sequence\|generate\)\>' ||
          \ prev_line =~ '^\s*\(\w\+\s*:\)\=\s*\<covergroup\>')
     let msg = "task|function detected"
     let ind = ind + offset

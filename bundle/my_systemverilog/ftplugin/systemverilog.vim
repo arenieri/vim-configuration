@@ -14,6 +14,7 @@ if exists("loaded_matchit")
   let b:match_words=
     \ '\%(\<disable\s\+\)\@<!\<fork\>:\<join\>\|\<join_any\>\|\<join_none\>,' .
     \ '\<program\>:\<endprogram\>,' .
+    \ '\<class\>:\<endclass\>,' .
     \ b:match_words
 endif
 

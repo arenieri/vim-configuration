@@ -12,6 +12,7 @@ runtime! ftplugin/verilog.vim
 if exists("loaded_matchit")
   let b:match_ignorecase=0
   let b:match_words=
+    \ '\%(\<disable\s\+\)\@<!\<fork\>:\<join\>\|\<join_any\>\|\<join_none\>,' .
     \ '\<begin\>:\<end\>,' .
     \ '\<case\>\|\<casex\>\|\<casez\>:\<endcase\>,' .
     \ '\<module\>:\<endmodule\>,' .
@@ -20,7 +21,6 @@ if exists("loaded_matchit")
     \ '`ifdef\>\|`ifndef\>:`else\>:`endif\>,' .
     \ '\<task\>:\<endtask\>,' .
     \ '\<specify\>:\<endspecify\>' .
-    \ '\%(\<disable\s\+\)\@<!\<fork\>:\<join\>\|\<join_any\>\|\<join_none\>,' .
     \ '\<program\>:\<endprogram\>,' .
     \ '\<class\>:\<endclass\>'
 endif

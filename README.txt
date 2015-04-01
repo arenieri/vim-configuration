@@ -1,3 +1,6 @@
+- To download the basic scripts
+    git clone git://github.com/arenieri/vim-configuration.git
+
 - To install all plugins run
     git-clone.csh
 

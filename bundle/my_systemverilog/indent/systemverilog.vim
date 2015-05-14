@@ -191,6 +191,19 @@ function! GetVerilog_SystemVerilogIndent()
     return 0
   endif
 
+  "----------------------
+  " Indent pragmas
+  "----------------------
+  " This is a special case because we have to indent a comment
+  let curr_line_also_comment = getline(v:lnum)
+  if curr_line_also_comment =~ '^\s*\/\/\s*pragma\s\+'
+    let msg = "Found pragma"
+    echo msg." (matching line ".v:lnum.")"
+    let ind = 0
+    return ind
+  end
+  "----------------------
+
   " Set default indentation (the same of previous line)
   let ind  = indent(prevlnum)
 

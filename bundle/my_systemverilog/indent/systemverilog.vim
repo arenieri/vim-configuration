@@ -327,7 +327,7 @@ function! GetVerilog_SystemVerilogIndent()
   "----------------------
   " Indent begin
   "----------------------
-  let regexp_begin = '^\s*\%(\h\w*\s*:\s*\)\=\<begin\>\%(\s*:\s*\h\w*\)\='
+  let regexp_begin = '^\s*\%(\`*\h\w*\s*:\s*\)\=\<begin\>\%(\s*:\s*\h\w*\)\='
 
   " This line matches "id:begin", "begin:id" and "begin" in a line
   if curr_line =~ regexp_begin
@@ -346,8 +346,17 @@ function! GetVerilog_SystemVerilogIndent()
       let msg = msg." inside fork..join at line ".fork_match_line_num
     elseif (case_match_line_num > inner_begin_line_num)
       " we are inside a case..endcase
-      let ind = indent(case_match_line_num)+offset_be
-      let msg = msg." inside case..endcase at line ".case_match_line_num
+      " Now check if previous line is a case label
+      if prev_line =~ '^\s*\%(\`*\h\w*\s*:\s*\)' || prev_line =~ '^\s*default\s*:\>'
+        " previous line is a case label
+        let case_label_offset = 4
+      else
+        let case_label_offset = 0
+      endif
+        " previous line is not a case label
+        let ind = indent(case_match_line_num)+offset_be+case_label_offset
+        let msg = msg." inside case..endcase at line ".case_match_line_num
+
     else
       " we are in a fork..join but this is an inner begin..end block
       " or we are not in a fork..join, case..endcase
@@ -359,11 +368,27 @@ function! GetVerilog_SystemVerilogIndent()
   endif
 
   "------------------------------
+  " Indent case label
+  "------------------------------
+  if curr_line =~ '^\s*\%(\`*\h\w*\s*:\s*\)'
+    let msg = "Found case label"
+    " check if we are inside a case..endcase
+    let case_match_line_num = SearchPairNoComment('\<case\%[[zx]]\>','','\<endcase\>')
+    if (case_match_line_num > 0)
+      " we are inside a case..endcase
+      let ind = indent(case_match_line_num)+offset_be
+      let msg = msg." inside case..endcase at line ".case_match_line_num
+      echo msg." (matching line ".v:lnum.")"
+      return ind
+    endif
+  endif
+
+  "------------------------------
   " Indent default (inside case)
   "------------------------------
-  if curr_line =~ '^\s*default\>'
-    let msg = "Found default"
-    let case_match_line_num = SearchPairNoComment('\<case\>','','\<endcase\>')
+  if curr_line =~ '^\s*default\s*:'
+    let msg = "Found case default label"
+    let case_match_line_num = SearchPairNoComment('\<case\%[[zx]]\>','','\<endcase\>')
     let ind = indent(case_match_line_num)+offset_be
     echo msg." inside case..endcase at line ".case_match_line_num
     return ind
@@ -444,7 +469,8 @@ function! GetVerilog_SystemVerilogIndent()
     let msg = "if|always|for detected"
     let ind = ind + offset
 
-  elseif ( prev_line =~ '\<\%(case\%[[zx]]\|interface\|class\|clocking\|randcase\|package\|specify\)\>' ||
+    " case\%[[zx]]\|
+  elseif ( prev_line =~ '\<\%(interface\|class\|clocking\|randcase\|package\|specify\)\>' ||
          \ prev_line =~ '\%(extern\s\+\|extern\s\+virtual\s\+\|end\|\S\)\@<!\%(task\|function\|program\)\>' ||
          \ prev_line =~ '\<\%(assert\s\+\)\@<!property\>' ||
          \ prev_line =~ '\<\%(sequence\|generate\)\>' ||

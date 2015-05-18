@@ -389,7 +389,7 @@ function! GetVerilog_SystemVerilogIndent()
     let case_match_line_num = SearchPairNoComment('\<case\%[[zx]]\>','','\<endcase\>')
     if (case_match_line_num > 0)
       " we are inside a case..endcase
-      let ind = indent(case_match_line_num)+offset_be
+      let ind = indent(case_match_line_num)+offset
       let msg = msg." inside case..endcase at line ".case_match_line_num
       echo msg." (matching line ".v:lnum.")"
       return ind
@@ -402,7 +402,7 @@ function! GetVerilog_SystemVerilogIndent()
   if curr_line =~ '^\s*default\s*:'
     let msg = "Found case default label"
     let case_match_line_num = SearchPairNoComment('\<case\%[[zx]]\>','','\<endcase\>')
-    let ind = indent(case_match_line_num)+offset_be
+    let ind = indent(case_match_line_num)+offset
     echo msg." inside case..endcase at line ".case_match_line_num
     return ind
   endif
@@ -495,6 +495,11 @@ function! GetVerilog_SystemVerilogIndent()
     let msg = "{ detected in previous line"
     let ind = ind + offset
 
+  elseif ( prev_line =~ ')\s*;$' )
+    " Previous line is the end of module port declaration, so it endes with );
+    let msg = "); detected in previous line"
+    let ind = ind - offset
+
   endif
 
   " =================================================================
@@ -519,7 +524,7 @@ function! GetVerilog_SystemVerilogIndent()
     let prev2_line      = substitute(prev2_line_s,'^\s*','','')
 
     " TODO questa linea dovrebbe fare il match di tutti i comandi che possono prevedere
-    " un comando singolo subito dopo. Le regexp sono gia' utilizzate quando si fa' l' indentazione
+    " un comando singolo subito dopo. Le regexp sono gia' utilizzate quando si fa' l'indentazione
     " Assegnare le regexp a delle variabili per eviare duplicazioni
     if (  prev2_line =~ '`\@<!\<\(if\|else\)\>.*;\@!.*$')
       if ( (prev_line !~ '\<begin\>') && (prev2_line !~ '\<begin\>') )

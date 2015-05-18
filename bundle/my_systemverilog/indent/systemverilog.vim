@@ -37,6 +37,7 @@ setlocal indentkeys+==endmodule,=endfunction,=endtask,=endspecify,=endgenerate
 setlocal indentkeys+==endclass,=endpackage,=endsequence,=endclocking
 setlocal indentkeys+==endinterface,=endgroup,=endprogram,=endproperty
 setlocal indentkeys+==`else,=`endif,.
+setlocal indentkeys+==~pragma
 " indent when pressing return
 setlocal indentkeys+=*<return>
 
@@ -196,7 +197,7 @@ function! GetVerilog_SystemVerilogIndent()
   "----------------------
   " This is a special case because we have to indent a comment
   let curr_line_also_comment = getline(v:lnum)
-  if curr_line_also_comment =~ '^\s*\/\/\s*pragma\s\+'
+  if curr_line_also_comment =~ '^\s*\/\/\s*pragma'
     let msg = "Found pragma"
     echo msg." (matching line ".v:lnum.")"
     let ind = 0

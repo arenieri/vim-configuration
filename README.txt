@@ -13,3 +13,10 @@
     git clone git://github.com/Lokaltog/powerline-fonts.git
 
 
+NOTE: If you are behind a firewall you could need to disable SSL verification.
+To do this simply add to ~/.gitconfig the following section
+
+[http]
+        sslVerify = false
+
+

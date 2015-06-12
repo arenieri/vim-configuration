@@ -1,0 +1,15 @@
+*commands.txt* Help about commands
+*commands*
+
+* Move lines ...................... |Alt + Up/Down|
+* Duplicate lines ................. Ctrl + D
+* Erase lines ..................... Ctrl + E
+* Erase line content .............. Ctrl + W
+* Indent lines .................... Ctrl + Tab
+* De-indent lines ................. Ctrl + Shift + Tab
+* Remove trailing spaces .......... F2
+* Search and replace selection .... Ctrl + R
+
+* Highlight current word .......... h (Normal Mode)
+
+vim:tw=78:ts=8:ft=help:norl:

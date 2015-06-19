@@ -496,7 +496,7 @@ function! GetVerilog_SystemVerilogIndent()
     let msg = "{ detected in previous line"
     let ind = ind + offset
 
-  elseif ( prev_line =~ ')\s*;$' )
+  elseif ( prev_line =~ '^\s*\%(input\|output\|inout\)\=\s*.*)\s*;$' )
     " Previous line is the end of module port declaration, so it endes with );
     let msg = "); detected in previous line"
     let ind = ind - offset

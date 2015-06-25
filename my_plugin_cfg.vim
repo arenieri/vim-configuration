@@ -32,6 +32,11 @@ let g:indent_guides_start_level = 2
 "---------------------
 let g:rainbow_active = 1
 
+" Pathch to disable rainbow parentheses on TT2 files
+" (TT2 syntax highlight does not work properly)
+autocmd BufEnter  *.tt2  :RainbowToggleOff
+autocmd BufLeave  *.tt2  :RainbowToggleOn
+
 "---------
 " Airline
 "---------

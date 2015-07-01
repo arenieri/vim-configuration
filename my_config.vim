@@ -42,7 +42,7 @@ set expandtab       " Convert tab into spaces
 set showtabline=1   " Show tabs (0: do not show tabs; 1: show tabs only if present; 2: always show tabs)
 set scrolloff=1     " Start to scroll text when cursor reaches n lines from border
 set laststatus=2    " show status line (0: never; 1: if more than one window; 2: always)
-set columns=125     " Editor width
+set columns=130     " Editor width
 set nowrap          " Wrap long lines
 set number          " Show line numbers
 set hlsearch        " Highlight search patterns

@@ -6,6 +6,8 @@ if exists("b:did_ftplugin")
   finish
 endif
 
+setlocal textwidth=120
+
 " Behaves just like Verilog
 runtime! ftplugin/verilog.vim
 

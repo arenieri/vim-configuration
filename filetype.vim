@@ -17,5 +17,6 @@ augroup filetypedetect
     au BufNewFile,BufRead *.icf         setfiletype icf
     au BufNewFile,BufRead *.vsif        setfiletype vsif
     au BufNewFile,BufRead *.tt2         setfiletype tt2
+    au BufNewFile,BufRead module_hrefs  setfiletype module_hrefs
 augroup END
 

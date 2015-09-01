@@ -22,7 +22,7 @@ if has("gui_running")
     elseif has("x11")
         set guifont=-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-8,-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-1
     elseif has("win32")
-        set guifont=Courier:h9:cANSI,\ -adobe-courier-medium-r-normal-*-*-140-*-*-m-*-iso10646-1	
+        set guifont=Courier:h9:cANSI,\ -adobe-courier-medium-r-normal-*-*-140-*-*-m-*-iso10646-1
     else
         set guifont=Courier:h9:cANSI
     endif

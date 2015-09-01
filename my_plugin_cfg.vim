@@ -41,8 +41,9 @@ autocmd BufLeave  *.tt2  :RainbowToggleOn
 " Airline
 "---------
 let g:airline_powerline_fonts = 1
-"let g:airline#extensions#tabline#enabled = 1
-
+let g:airline_extensions = ['whitespace']
+"let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
+let g:airline#extensions#whitespace#checks = [ 'trailing' ]
 
 "-----------------
 " MiniBufExplorer

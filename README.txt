@@ -20,3 +20,19 @@ To do this simply add to ~/.gitconfig the following section
         sslVerify = false
 
 
+=============================================================
+.gitconfig example
+This file is intended to be in ~ directory
+
+[user]
+	name = Alessandro Renieri
+	email = my.email@gmail.com
+[core]
+	editor = `which gvim` -f
+[push]
+        default = simple
+
+; HTTP
+[http]
+        sslVerify = false
+

@@ -10,7 +10,7 @@ let b:current_syntax = "module_hrefs"
 " case insensitive
 syntax case ignore
 
-syntax keyword mhStatement   name realpath url
+syntax keyword mhStatement   name relpath url
 syntax keyword mhLatest      Latest
 
 " matches from ; to "

@@ -36,7 +36,9 @@ syntax match beLogDSourceOpt        /.*Information:\s\+Optional\sscript.*$/
 syntax keyword beLogInformation     Information
 syntax keyword beLogWarning         Warning
 syntax keyword beLogError           Error
-syntax match beLogSevereError       /Severe\sError\>/
+syntax keyword beLogMET             MET
+syntax keyword beLogViolated        Violated
+syntax match   beLogSevereError     /Severe\sError\>/
 
 syntax match cdsLogNote             /.*\*N,.*$/
 syntax match cdsLogError            /.*\*E,.*$/
@@ -60,6 +62,7 @@ highlight beLogSourceStart_hi       guifg=LightGray     guibg=DarkGreen
 highlight beLogSourceStop_hi        guifg=LightGray     guibg=DarkRed
 highlight beLogSourceOpt_hi         guifg=LightGray     guibg=DarkCyan
 
+highlight beLogSuccess_hi           guifg=Green
 highlight beLogInformation_hi       guifg=Cyan
 highlight beLogWarning_hi           guifg=Orange
 highlight beLogError_hi             guifg=Red
@@ -88,6 +91,9 @@ highlight default link beLogInformation     beLogInformation_hi
 highlight default link beLogWarning         beLogWarning_hi
 highlight default link beLogError           beLogError_hi
 highlight default link beLogSevereError     beLogError_hi
+
+highlight default link beLogMET             beLogSuccess_hi
+highlight default link beLogViolated        beLogError_hi
 
 
 highlight default link cdsLogNote           cdsLogNote_hi

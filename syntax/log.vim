@@ -45,11 +45,12 @@ syntax match cdsLogError            /.*\*E,.*$/
 syntax match cdsLogWarning          /.*\*W,.*$/
 syntax match cdsLogFatal            /.*\*F,.*$/
 
-
 syntax keyword uvmInfo              UVM_INFO
 syntax keyword uvmWarning           UVM_WARNING
 syntax keyword uvmError             UVM_ERROR
 syntax keyword uvmFatal             UVM_FATAL
+
+syntax keyword lintError            ERR
 
 syntax keyword genericInfo          INFO NOTE
 
@@ -58,15 +59,14 @@ syntax keyword simSuccess           SUCCESS
 
 "-------------------------------------------------------------------------
 " Highlight color definition
-highlight beLogSourceStart_hi       guifg=LightGray     guibg=DarkGreen
-highlight beLogSourceStop_hi        guifg=LightGray     guibg=DarkRed
-highlight beLogSourceOpt_hi         guifg=LightGray     guibg=DarkCyan
+highlight beLogSourceStart_hi       guifg=LightGray     guibg=ForestGreen
+highlight beLogSourceStop_hi        guifg=LightGray     guibg=OrangeRed
+highlight beLogSourceOpt_hi         guifg=LightGray     guibg=DodgerBlue3
 
 highlight beLogSuccess_hi           guifg=Green
 highlight beLogInformation_hi       guifg=Cyan
 highlight beLogWarning_hi           guifg=Orange
 highlight beLogError_hi             guifg=Red
-
 
 highlight cdsLogNote_hi             guifg=Cyan          guibg=Black
 highlight cdsLogError_hi            guifg=Red           guibg=Black
@@ -77,6 +77,8 @@ highlight uvmInfo_hi                guifg=Cyan
 highlight uvmWarning_hi             guifg=Orange
 highlight uvmError_hi               guifg=Red
 highlight uvmFatal_hi               guifg=Magenta
+
+highlight lintError_hi              guifg=Red
 
 highlight simSuccess_hi             guifg=green
 
@@ -95,7 +97,6 @@ highlight default link beLogSevereError     beLogError_hi
 highlight default link beLogMET             beLogSuccess_hi
 highlight default link beLogViolated        beLogError_hi
 
-
 highlight default link cdsLogNote           cdsLogNote_hi
 highlight default link cdsLogWarning        cdsLogWarning_hi
 highlight default link cdsLogError          cdsLogError_hi
@@ -105,6 +106,8 @@ highlight default link uvmInfo              uvmInfo_hi
 highlight default link uvmWarning           uvmWarning_hi
 highlight default link uvmError             uvmError_hi
 highlight default link uvmFatal             uvmFatal_hi
+
+highlight default link lintError            lintError_hi
 
 highlight default link genericInfo          uvmInfo_hi
 

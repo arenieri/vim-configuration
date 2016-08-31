@@ -53,7 +53,7 @@ set showcmd         " display incomplete commands
 set incsearch       " do incremental searching
 
 set encoding=utf-8   " Set character encoding
-"encoding=utf-8 is required by powerline when gvim is started from inside certain applications (Eg. vmanager)
+" encoding=utf-8 is required by powerline when gvim is started from inside certain applications (Eg. vmanager)
 
 " Folding
 set foldmethod=marker

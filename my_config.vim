@@ -14,11 +14,13 @@ filetype plugin indent on
 runtime my_commands.vim
 runtime my_menu.vim
 
-" Font
+" Fonts
 " Use different font on different platforms
 if has("gui_running")
     if has("gui_gtk2")
-        set guifont=Monospace\ 10
+        set guifont=Hack\ 10
+        "set guifont=Courier\ 10\ Pitch\ 10
+        "set guifont=Monospace\ 10
     elseif has("x11")
         set guifont=-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-8,-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-1
     elseif has("win32")

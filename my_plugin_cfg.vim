@@ -41,7 +41,7 @@ autocmd BufLeave  *.tt2  :RainbowToggleOn
 " Airline
 "---------
 let g:airline_powerline_fonts = 1
-let g:airline_extensions = ['whitespace']
+"let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
 let g:airline#extensions#whitespace#checks = [ 'trailing' ]
 
@@ -61,16 +61,16 @@ hi def link MBEVisibleActiveChanged  Error
 "-------
 " CTAGS
 "-------
-if has('unix')
-    let g:Tlist_Ctags_Cmd   = $HOME.'/bin/ctags'
-    let g:tagbar_ctags_bin  = $HOME.'/bin/ctags'
-endif
+"if has('unix')
+"    let g:Tlist_Ctags_Cmd   = $HOME.'/bin/ctags'
+"    let g:tagbar_ctags_bin  = $HOME.'/bin/ctags'
+"endif
 
 
 " Configuration for TAGLIST
 " Configure CTAGS for systemverilog
-let tlist_systemverilog_settings = 'systemverilog;c:class;t:task;f:function' .
-            \ 'm:module;p:program;i:interface;e:typedef;P:property'
+"let tlist_systemverilog_settings = 'systemverilog;c:class;t:task;f:function' .
+"            \ 'm:module;p:program;i:interface;e:typedef;P:property'
 
 "let tlist_systemverilog_settings = 'systemverilog;a:access;b:always;c:assertion;' .
 "                        \ 'd:case;e:clocking;f:chandle;g:checker;h:config;i:constant;' .

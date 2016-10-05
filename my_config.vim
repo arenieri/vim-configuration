@@ -19,7 +19,7 @@ runtime my_menu.vim
 if has("gui_running")
     if has("gui_gtk2")
         set guifont=Hack\ 10
-        "set guifont=Courier\ 10\ Pitch\ 10
+        "set guifont=Courier\ 10\ Pitch\ 11
         "set guifont=Monospace\ 10
     elseif has("x11")
         set guifont=-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-8,-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-1

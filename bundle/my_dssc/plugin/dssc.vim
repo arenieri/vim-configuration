@@ -9,7 +9,12 @@ if v:version < 700
     finish
 endif
 
-let s:module_cmd = "cad modules; module load sync;"
+" Specify that the shell used to execute commands (with :!{cmd}) is 
+" tcsh started in fast mode
+set shell=/bin/tcsh\ -f
+
+"let s:module_cmd = "cad modules; module load sync;"
+let s:module_cmd = ""
 
 function s:DSSCcommand(cmd_opt)
     " get the full path of the current buffer

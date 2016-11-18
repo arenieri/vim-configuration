@@ -8,8 +8,8 @@ endif
 
 runtime! syntax/tcl.vim
 
-setlocal comments=://,:#
-setlocal commentstring=//%s
+setlocal comments=:#
+setlocal commentstring=#%s
 
 unlet b:current_syntax
 let b:current_syntax = "f"

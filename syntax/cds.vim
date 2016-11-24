@@ -12,14 +12,14 @@ let b:current_syntax = "cds"
 syntax case ignore
 
 syntax keyword cdsStatement DEFINE SOFTDEFINE INCLUDE SOFTINCLUDE UNDEFINE
-syntax match   cdsVar		 "\$\w*"
-syntax match   cdsVar		 "\$(.*)"
-syntax match   cdsVar		 "\${.*}"
+syntax match   cdsVar       "\$\w*"
+syntax match   cdsVar       "\$(.*)"
+syntax match   cdsVar       "\${.*}"
 
 " Comments
-syntax match cdsComment  /^#.*/
-syntax match cdsComment  /^--.*/
-syntax match cdsComment  /^\/\/.*/
+syntax match cdsComment     /^#.*/
+syntax match cdsComment     /^--.*/
+syntax match cdsComment     /^\/\/.*/
 
 highlight link cdsComment Comment
 highlight link cdsStatement Statement

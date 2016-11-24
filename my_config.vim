@@ -88,9 +88,12 @@ if has('unix')
     endif
 endif
 
-" Set directory for backup and swap files
+" Set directory for swap files
 set directory=~/.vim-tmp
+" Set directory for backup files
 set backupdir=~/.vim-tmp
+" Activate backup (default is off)
+set backup
 
 " Set directory for persistent undo
 if has("persistent_undo")

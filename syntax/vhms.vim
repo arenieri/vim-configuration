@@ -12,17 +12,17 @@ endif
 syn keyword vhmsStatement   terminal quantity across through nature tolerance reference break
 syn keyword vhmsNature	    electrical rotational translational translational_velocity rotational_velocity
 
-"name		the name of the syntax item
-"fg		foreground color (GUI: color name used to set the color, cterm: color number as a string, term: empty string)
-"bg		background color (like fg)
-"fg#		like fg, but for the GUI and the GUI is running the name in #RRGGBB form
-"bg#		like fg# for bg
-"bold		1 if bold
-"italic		1 if italic
-"reverse	1 if reverse
-"inverse	1 if inverse (= reverse)
-"underline	1 if underlined
-		
+"name           the name of the syntax item
+"fg             foreground color (GUI: color name used to set the color, cterm: color number as a string, term: empty string)
+"bg             background color (like fg)
+"fg#            like fg, but for the GUI and the GUI is running the name in #RRGGBB form
+"bg#            like fg# for bg
+"bold           1 if bold
+"italic         1 if italic
+"reverse        1 if reverse
+"inverse        1 if inverse (= reverse)
+"underline      1 if underlined
+
 "let b:test = synIDattr(synIDtrans(hlID("vhdlType")), "fg")
 "hi vhmsStatement  gui=underline
 

@@ -33,7 +33,7 @@ git clone git://github.com/nathanaelkane/vim-indent-guides.git
 git clone git://github.com/vim-perl/vim-perl.git
 git clone git://github.com/fholgado/minibufexpl.vim.git
 git clone git://github.com/vim-scripts/mru.vim.git
-#git clone git://github.com/majutsushi/tagbar.git
+git clone git://github.com/majutsushi/tagbar.git
 git clone git://github.com/luochen1990/rainbow.git
 #git clone git://github.com/powerman/vim-plugin-AnsiEsc.git
 #git clone git://github.com/uguu-org/vim-matrix-screensaver.git

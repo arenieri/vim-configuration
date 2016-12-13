@@ -12,6 +12,8 @@ runtime! syntax/tcl.vim
 unlet b:current_syntax
 let b:current_syntax = "xdc"
 
+setlocal comments=:#
+setlocal commentstring=#%s
 
 syntax keyword xdcStatement     set_disable_timing set_property define_global_attribute
 syntax keyword xdcStatement     create_clock create_generated_clock set_clock_groups

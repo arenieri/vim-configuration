@@ -37,7 +37,6 @@ highlight link mhTag            Special
 syntax match   mhReleaseTag     contained /[A-Za-z0-9_.]\+/
 syntax match   mhString         /"[A-Za-z0-9_.-]\+"/ contains=mhReleaseTag
 
-
 highlight mhLatest_hi           guifg=darkgray          guibg=darkgreen
 
 highlight link mhTodo           Todo

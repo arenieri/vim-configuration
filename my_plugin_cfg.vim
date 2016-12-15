@@ -45,7 +45,11 @@ autocmd BufLeave  *.tt2  :RainbowToggleOn
 "---------
 " Airline
 "---------
-let g:airline_powerline_fonts = 1
+if isdirectory($HOME."/.fonts/powerline-fonts")
+    let g:airline_powerline_fonts = 1
+else
+    let g:airline_powerline_fonts = 0
+endif
 "let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
 let g:airline#extensions#whitespace#checks = [ 'trailing' ]

@@ -18,8 +18,13 @@ runtime my_menu.vim
 " Use different font on different platforms
 if has("gui_running")
     if has("gui_gtk2")
-        set guifont=Hack\ 10
-        "set guifont=Courier\ 10\ Pitch\ 11
+        if isdirectory($HOME."/.fonts/powerline-fonts/Hack/")
+            " Use Hack font if available
+            set guifont=Hack\ 10
+        else
+            " Otherwise use courier
+            set guifont=Courier\ 10\ Pitch\ 11
+        endif
         "set guifont=Monospace\ 10
     elseif has("x11")
         set guifont=-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-8,-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-1

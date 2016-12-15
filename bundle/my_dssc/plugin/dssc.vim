@@ -31,7 +31,7 @@ function s:DSSCcommand_chmod_w(cmd_opt)
     exec "! ".lnx_cmd
 endfunction
 
-" Commands for non-module based environment
+" Commands for file based environment
 command DSSCget     call s:DSSCcommand_chmod_w("co -get -nocomment")
 command DSSClock    call s:DSSCcommand("co -lock -nocomment")
 command DSSCmerge   call s:DSSCcommand("co -merge")
@@ -39,8 +39,8 @@ command DSSCci      call s:DSSCcommand("ci")
 
 " Commands for module based environment
 command DSSCmodget     call s:DSSCcommand_chmod_w("pop -get -unify")
+command DSSCmodmerge   call s:DSSCcommand("pop -merge")
 command DSSCmodlock    call s:DSSCcommand("pop -lock")
-"command DSSCmerge   call s:DSSCcommand("co -merge")
 command DSSCmodci      call s:DSSCcommand("ci -nonew -iflock")
 
 
@@ -61,12 +61,13 @@ command DSSCpopunifyforce   call s:DSSCcommand("pop -unify -force")
 
 
 
-amenu DSSC.noModule.get         :DSSCget<CR>
-amenu DSSC.noModule.lock        :DSSClock<CR>
-amenu DSSC.noModule.merge       :DSSCmerge<CR>
-amenu DSSC.noModule.commit      :DSSCci<CR>
+amenu DSSC.File.get             :DSSCget<CR>
+amenu DSSC.File.lock            :DSSClock<CR>
+amenu DSSC.File.merge           :DSSCmerge<CR>
+amenu DSSC.File.commit          :DSSCci<CR>
 
 amenu DSSC.module\ get          :DSSCmodget<CR>
+amenu DSSC.module\ merge        :DSSCmodmerge<CR>
 amenu DSSC.module\ lock         :DSSCmodlock<CR>
 amenu DSSC.module\ commit       :DSSCmodci<CR>
 

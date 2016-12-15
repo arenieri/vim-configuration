@@ -46,8 +46,10 @@ autocmd BufLeave  *.tt2  :RainbowToggleOn
 " Airline
 "---------
 if isdirectory($HOME."/.fonts/powerline-fonts")
+    " Enable powerline fonts
     let g:airline_powerline_fonts = 1
 else
+    " Use ASCII characters
     let g:airline_powerline_fonts = 0
 endif
 "let g:airline#extensions#tabline#enabled = 1

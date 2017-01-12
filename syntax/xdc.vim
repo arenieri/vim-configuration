@@ -18,7 +18,7 @@ setlocal commentstring=#%s
 syntax keyword xdcStatement     set_disable_timing set_property define_global_attribute
 syntax keyword xdcStatement     create_clock create_generated_clock set_clock_groups
 syntax keyword xdcStatement     set_false_path set_input_delay set_output_delay
-syntax keyword xdcStatement     get_nets get_ports get_clocks
+syntax keyword xdcStatement     get_nets get_ports get_pins get_clocks
 
 syntax keyword xdcBoolean       true false
 

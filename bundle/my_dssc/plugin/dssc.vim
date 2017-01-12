@@ -9,9 +9,10 @@ if v:version < 700
     finish
 endif
 
-" Specify that the shell used to execute commands (with :!{cmd}) is 
+" Specify that the shell used to execute commands (with :!{cmd}) is
 " tcsh started in fast mode
-set shell=/bin/tcsh\ -f
+set shell=/bin/tcsh
+set shellcmdflag=-fc
 
 "let s:module_cmd = "cad modules; module load sync;"
 let s:module_cmd = ""

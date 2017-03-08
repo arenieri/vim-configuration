@@ -1,5 +1,11 @@
 " DesignSync Commands
 "
+
+" Skip this plugin in Windows
+if has('win32')
+    finish
+endif
+
 if exists('loaded_dssc')
     finish
 endif
@@ -11,7 +17,7 @@ endif
 
 " Specify that the shell used to execute commands (with :!{cmd}) is
 " tcsh started in fast mode
-set shell=/bin/tcsh
+"set shell=/bin/tcsh
 set shellcmdflag=-fc
 
 "let s:module_cmd = "cad modules; module load sync;"

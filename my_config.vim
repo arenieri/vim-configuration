@@ -81,7 +81,7 @@ set titlestring=%t\ %M\ %<(%F)\ -\ %{v:servername}
 set virtualedit+=block,onemore
 
 
-" create directories for backup, swap and undo files
+" create and configure directories for backup, swap and undo files
 if has('unix')
     if !isdirectory($HOME."/.vim-tmp/undo")
         if exists("*mkdir")
@@ -91,19 +91,36 @@ if has('unix')
             echo "Please create directories ~/.vim-tmp and ~/.vim-tmp/undo"
         endif
     endif
+
+    " Set directory for swap files
+    set directory=~/.vim-tmp
+    " Set directory for backup files
+    set backupdir=~/.vim-tmp
+    " Activate backup (default is off)
+    set backup
+
+    " Set directory for persistent undo
+    if has("persistent_undo")
+        set undodir=~/.vim-tmp/undo
+        set undofile
+    endif
+
 endif
 
-" Set directory for swap files
-set directory=~/.vim-tmp
-" Set directory for backup files
-set backupdir=~/.vim-tmp
-" Activate backup (default is off)
-set backup
+" configure for backup, swap and undo files
+if has('win32')
+    " Set directory for swap files
+    set directory=$HOMEDRIVE\$HOMEPATH\vim-tmp
+    " Set directory for backup files
+    set backupdir=$HOMEDRIVE\$HOMEPATH\vim-tmp
+    " Activate backup (default is off)
+    set backup
 
-" Set directory for persistent undo
-if has("persistent_undo")
-    set undodir=~/.vim-tmp/undo
-    set undofile
+    " Set directory for persistent undo
+    if has("persistent_undo")
+        set undodir=$HOMEDRIVE\$HOMEPATH\vim-tmp\undo
+        set undofile
+    endif
 endif
 
 " Don't use Ex mode, use Q for formatting

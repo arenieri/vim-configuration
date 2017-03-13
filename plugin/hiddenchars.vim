@@ -1,5 +1,5 @@
 "Show trailing spaces with ASCII middle dot (dec183), tabs with double angle quotes (dec187)
-function s:showhiddenchars()
+function! s:showhiddenchars()
     " Use these echos for debug
     "echo &ft
     "echo index(g:nohiddenchars_ftypes, &ft)
@@ -19,5 +19,5 @@ let g:showtrailspacesonly_ftypes    = ['make',]
 " NOTE: the filetype of help files is text
 let g:nohiddenchars_ftypes          = ['log', 'text']
 
-autocmd BufNewFile,BufRead  *  call s:showhiddenchars()
+autocmd! BufNewFile,BufRead  *  call s:showhiddenchars()
 

@@ -28,7 +28,7 @@ vnoremap <silent> <C-Tab>    :><CR>gv
 vnoremap <silent> <C-S-Tab>  :<<CR>gv
 
 " Remove trailing spaces
-command -range=% RTS <line1>,<line2>s/\s\+$//|norm!``
+command! -range=% RTS <line1>,<line2>s/\s\+$//|norm!``
 map <F2> :RTS<CR>
 
 " Search and replace current selection

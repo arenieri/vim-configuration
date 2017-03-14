@@ -19,6 +19,7 @@ call plug#begin('~/.vim/plugged')
     " Note: dev is the default branch for vim-perl
     Plug 'vim-perl/vim-perl',       { 'branch': 'dev' }
     Plug 'majutsushi/tagbar'
+    "Plug 'tpope/vim-fugitive'
 
 " Add plugins to &runtimepath
 call plug#end()

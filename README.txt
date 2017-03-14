@@ -15,7 +15,9 @@ To Start
     " The file is located in vim-configuration
     runtime my_config.vim
 
-- start gvim and type :PlugInstall
+- The first time only:
+    start gvim              - plug.vim script will be downloaded
+    close and restsrt gvim  - type :PlugInstall
 
 - additional plugins can be found in 
     ~/.vim/plugged/vim-configuration/vimrc
@@ -25,6 +27,9 @@ To Start
     :PlugUpdate
     :PlugClean
     
+    if you edit vimrc to add or remove plugins you have to restart gvim and type 
+    :PlugInstall/:PlugUpdate/:PlugClean to update the plugins
+
     Additional info at https://github.com/junegunn/vim-plug
 
 - To install powerline/airline fonts (Optional)

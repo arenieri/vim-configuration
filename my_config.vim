@@ -6,7 +6,6 @@ runtime mswin.vim
 behave mswin
 
 " install pathogen
-"execute pathogen#infect('bundle/{}', 'git-bundle/{}', '~/.vim/others/powerline/powerline/bindings/{}')
 execute pathogen#infect('bundle/{}', 'git-bundle/{}')
 syntax on
 filetype plugin indent on

@@ -5,9 +5,13 @@ set nocompatible
 runtime mswin.vim
 behave mswin
 
-" install pathogen
-"execute pathogen#infect('bundle/{}', 'git-bundle/{}', '~/.vim/others/powerline/powerline/bindings/{}')
-execute pathogen#infect('bundle/{}', 'git-bundle/{}')
+
+if exists('g:loaded_plug')
+    exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_dssc'
+    exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_systemverilog'
+    exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_vhdl'
+endif
+
 syntax on
 filetype plugin indent on
 

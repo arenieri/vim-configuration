@@ -1,13 +1,33 @@
-- To download the basic scripts
-    git clone git://github.com/arenieri/vim-configuration.git
+To Start
+- Copy this minimal vimrc in ~/.vim/vimrc
 
-- To install all plugins run
-    git-clone.csh
+    " Load vim-plug
+    if empty(glob("~/.vim/autoload/plug.vim"))
+        execute '!curl -kfLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    endif
 
-- To update all plugins run
-    git-pull.csh
+    " install plugins using vim-plug
+    call plug#begin('~/.vim/plugged')
+        Plug 'arenieri/vim-configuration'
+    call plug#end()
 
-- To install powerline/airline fonts
+    " source main configuration file 
+    " The file is located in vim-configuration
+    runtime my_config.vim
+
+- start gvim and type :PlugInstall
+
+- additional plugins can be found in 
+    ~/.vim/plugged/vim-configuration/vimrc
+
+- Use the following command to install/update/remove plugins
+    :PlugInstall
+    :PlugUpdate
+    :PlugClean
+    
+    Additional info at https://github.com/junegunn/vim-plug
+
+- To install powerline/airline fonts (Optional)
     mkdir ~/.fonts
     cd ~/.fonts
     git clone git://github.com/Lokaltog/powerline-fonts.git

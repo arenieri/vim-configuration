@@ -117,7 +117,7 @@ endfunction
 
 map <silent> -          : call <SID>SetSmallerFont()<CR>
 map <silent> +          : call <SID>SetLargerFont()<CR>
-map <silent> =          : call <SID>SetOriginalFont()<CR>
+map <silent> 0          : call <SID>SetOriginalFont()<CR>
 
 " map CTRL+mousewheel
 nnoremap <silent> <C-MouseUp>    : call <SID>SetSmallerFont()<CR>

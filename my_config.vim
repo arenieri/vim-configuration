@@ -16,7 +16,6 @@ syntax on
 filetype plugin indent on
 
 runtime my_commands.vim
-runtime my_menu.vim
 
 " Fonts
 " Use different font on different platforms
@@ -132,4 +131,6 @@ map Q gq
 
 " Load plugins configuration
 runtime my_plugin_cfg.vim
+" Load Menu
+runtime my_menu.vim
 

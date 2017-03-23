@@ -163,7 +163,7 @@ syn match  verilogPragma       "\%(//\)\@<!//\s*pragma.*$"
 "--------------------
 
 " Color definition for Pragmas
-highlight systemverilogPragma_hi      guifg=#80A0FF   guibg=DarkMagenta
+highlight verilogPragma_hi      guifg=#80A0FF   guibg=DarkMagenta
 
 
 " Verilog default highlighting.

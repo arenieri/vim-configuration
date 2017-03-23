@@ -40,7 +40,7 @@ endif
 
 
 " Color
-colorscheme darkblue
+colorscheme mydarkblue
 
 
 " Configuration

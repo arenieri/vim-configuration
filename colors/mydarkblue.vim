@@ -48,7 +48,7 @@ hi Cursor           guifg=black     guibg=yellow                            cter
 hi lCursor          guifg=black     guibg=white                             ctermfg=black       ctermbg=white
 
 
-hi Comment          guifg=#80a0ff                      gui=italic           ctermfg=darkred
+hi Comment          guifg=#80a0ff                       gui=italic          ctermfg=darkred
 hi Constant         guifg=#ffa0a0                                           ctermfg=magenta                         cterm=none
 hi Special          guifg=Orange                        gui=none            ctermfg=brown                           cterm=none
 hi Identifier       guifg=#40ffff                                           ctermfg=cyan                            cterm=none

@@ -52,7 +52,12 @@ else
     " Use ASCII characters
     let g:airline_powerline_fonts = 0
 endif
-"let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
+
+" Shortcuts to change buffers
+noremap <C-N> :bnext<CR>
+noremap <C-B> :bprev<CR>
+
 "let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
 let g:airline#extensions#whitespace#checks = [ 'trailing' ]
 
@@ -60,14 +65,23 @@ let g:airline#extensions#whitespace#checks = [ 'trailing' ]
 " MiniBufExplorer
 "-----------------
 let g:did_minibufexplorer_syntax_inits = 1
+"let g:miniBufExplDebugMode  = 2
+"let g:miniBufExplDebugLevel = 10
 
-hi def link MBENormal                Comment
-hi def link MBEChanged               String
-hi def link MBEVisibleNormal         Special
-hi def link MBEVisibleChanged        Statement
-hi def link MBEVisibleActiveNormal   Type
-hi def link MBEVisibleActiveChanged  Error
+"                                   Changed             Visible             Active
+hi MBENormal_hi                     guifg=#80a0ff                           gui=italic          ctermbg=darkblue
+hi MBEChanged_hi                    guifg=Orange                            gui=italic          ctermbg=darkblue
+hi MBEVisibleNormal_hi              guifg=#80a0ff       guibg=#004080                           ctermbg=darkblue
+hi MBEVisibleChanged_hi             guifg=Orange        guibg=#004080                           ctermbg=darkblue
+hi MBEVisibleActiveNormal_hi        guifg=#80a0ff       guibg=#004080       gui=underline,bold  ctermbg=darkblue
+hi MBEVisibleActiveChanged_hi       guifg=Orange        guibg=#004080       gui=underline,bold  ctermbg=darkblue
 
+hi def link MBENormal                MBENormal_hi
+hi def link MBEChanged               MBEChanged_hi
+hi def link MBEVisibleNormal         MBEVisibleNormal_hi
+hi def link MBEVisibleChanged        MBEVisibleChanged_hi
+hi def link MBEVisibleActiveNormal   MBEVisibleActiveNormal_hi
+hi def link MBEVisibleActiveChanged  MBEVisibleActiveChanged_hi
 
 "-------
 " CTAGS

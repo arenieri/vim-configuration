@@ -109,17 +109,14 @@ endfunction
 function! s:SetOriginalFont()
     if s:originalFontSize != 0
         call s:SetFontSize(s:originalFontSize)
-    else
-        echoerr "Original font size is unknown"
     endif
 endfunction
 
 
-"map <silent> -          : call <SID>SetSmallerFont()<CR>
-"map <silent> +          : call <SID>SetLargerFont()<CR>
-"map <silent> 0          : call <SID>SetOriginalFont()<CR>
-
 " map CTRL+mousewheel
 nnoremap <silent> <C-MouseUp>    : call <SID>SetSmallerFont()<CR>
 nnoremap <silent> <C-MouseDown>  : call <SID>SetLargerFont()<CR>
+
+" command to reset font size
+command ResetFontSize   call <SID>SetOriginalFont()
 

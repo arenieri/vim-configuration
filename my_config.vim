@@ -99,25 +99,32 @@ if has('unix')
     set directory=~/.vim-tmp
     " Set directory for backup files
     set backupdir=~/.vim-tmp
-    " Activate backup (default is off)
-    set backup
 
-    " Set directory for persistent undo
+    " 'backup' 'writebackup'    action
+    "  off      off             no backup made
+    "  off      on              backup current file, deleted afterwards (default)
+    "  on       off             delete old backup, backup current file
+    "  on       on              delete old backup, backup current file
+    " Activate backup only while editing
+    "set nobackup
+    "set writebackup
+
+    " If vim is compiled with persistent undo option
     if has("persistent_undo")
+        " Set directory for persistent undo
         set undodir=~/.vim-tmp/undo
+        " Activate persistent undo
         set undofile
     endif
 
 endif
 
-" configure for backup, swap and undo files
+" create and configure directories for backup, swap and undo files
 if has('win32')
     " Set directory for swap files
     set directory=$HOMEDRIVE\$HOMEPATH\vim-tmp
     " Set directory for backup files
     set backupdir=$HOMEDRIVE\$HOMEPATH\vim-tmp
-    " Activate backup (default is off)
-    set backup
 
     " Set directory for persistent undo
     if has("persistent_undo")

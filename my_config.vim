@@ -12,6 +12,10 @@ if exists('g:loaded_plug')
     exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_vhdl'
 endif
 
+" Add Matchit package
+packadd! matchit
+
+
 syntax on
 filetype plugin indent on
 

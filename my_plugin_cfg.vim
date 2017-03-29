@@ -2,11 +2,6 @@
 " Plugins Configuration "
 "-----------------------"
 
-" ---------
-"  Matchit
-" ---------
-packadd! matchit
-
 "---------------
 " NERDCommenter
 "---------------

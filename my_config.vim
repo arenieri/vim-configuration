@@ -5,12 +5,10 @@ set nocompatible
 runtime mswin.vim
 behave mswin
 
-
-if exists('g:loaded_plug')
-    exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_dssc'
-    exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_systemverilog'
-    exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_vhdl'
-endif
+" Add some additional package to runtimepath
+exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_dssc'
+exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_systemverilog'
+exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_vhdl'
 
 " Add Matchit package
 packadd! matchit

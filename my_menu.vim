@@ -2,7 +2,7 @@
 
 " Assign funcion keys to specific functions
 noremap <F6>  :RainbowToggle<CR>
-noremap <F7>  :NERDTreeToggle %<CR>
+noremap <F7>  :NERDTreeToggle %:p:h<CR>
 noremap <F9>  :TagbarToggle<CR>
 noremap <F11> :UndotreeToggle<CR>
 noremap <F12> :IndentGuidesToggle<CR>

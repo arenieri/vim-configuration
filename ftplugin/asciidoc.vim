@@ -7,5 +7,6 @@ endif
 let b:did_ftplugin = 1
 
 " Run asciidoc to compile asciidoc file
-setlocal makeprg=asciidoc\ -a\ icons\ %
+setlocal makeprg=asciidoc\ %
+"setlocal makeprg=asciidoc\ -a\ icons\ %
 

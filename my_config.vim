@@ -34,7 +34,7 @@ if has("gui_running")
     elseif has("x11")
         set guifont=-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-8,-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-1
     elseif has("win32")
-        set guifont=Lucida_Console:h9:cANSI:qDRAFT
+        set guifont=Consolas:h9:cANSI:qDRAFT
     else
         set guifont=Courier:h9:cANSI
     endif

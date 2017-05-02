@@ -59,7 +59,6 @@ let g:airline#extensions#whitespace#checks = [ 'trailing' ]
 "-----------------
 " MiniBufExplorer
 "-----------------
-"let g:miniBufExplDebugMode  = 2
 "let g:miniBufExplDebugLevel = 10
 
 "-------

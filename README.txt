@@ -17,7 +17,7 @@ To Start
 
 - The first time only:
     start gvim              - plug.vim script will be downloaded
-    close and restsrt gvim  - type :PlugInstall
+    close and restart gvim  - type :PlugInstall
 
 - additional plugins can be found in 
     ~/.vim/plugged/vim-configuration/vimrc

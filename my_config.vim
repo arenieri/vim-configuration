@@ -31,10 +31,12 @@ if has("gui_running")
             set guifont=Courier\ 10\ Pitch\ 11
         endif
         "set guifont=Monospace\ 10
-    elseif has("x11")
-        set guifont=-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-8,-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-1
+    elseif has("gui_macvim")
+        set guifont=PT\ Mono\ 10
     elseif has("win32")
         set guifont=Consolas:h9:cANSI:qDRAFT
+    elseif has("x11")
+        set guifont=-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-8,-misc-fixed-medium-r-semicondensed-*-*-120-*-*-c-*-iso8859-1
     else
         set guifont=Courier:h9:cANSI
     endif
@@ -121,7 +123,8 @@ if has('unix')
 
 endif
 
-" create and configure directories for backup, swap and undo files
+" Configure directories for backup, swap and undo files
+" Folders have to be created manually
 if has('win32')
     " Set directory for swap files
     set directory=$HOMEDRIVE\$HOMEPATH\vim-tmp

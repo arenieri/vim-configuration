@@ -1,8 +1,8 @@
 " DesignSync Commands
 "
 
-" Skip this plugin in Windows
-if has('win32')
+" Skip this plugin in Windows and MacOS
+if ! has('linux') || has('macunix')
     finish
 endif
 

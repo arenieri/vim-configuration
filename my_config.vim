@@ -32,7 +32,7 @@ if has("gui_running")
         endif
         "set guifont=Monospace\ 10
     elseif has("gui_macvim")
-        set guifont=PT\ Mono\ 10
+        set guifont=Menlo\ 11
     elseif has("win32")
         set guifont=Consolas:h9:cANSI:qDRAFT
     elseif has("x11")

@@ -2,7 +2,7 @@
 "
 
 " Skip this plugin in Windows and MacOS
-if ! has('linux') || has('macunix')
+if has('win32') || has('macunix')
     finish
 endif
 

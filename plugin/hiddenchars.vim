@@ -15,9 +15,9 @@ endfunction
 
 " filetypes for which only the trailing spaces are shown
 let g:showtrailspacesonly_ftypes    = ['make',]
+
 " filetypes for which hidden chars are not shown
-" NOTE: the filetype of help files is text
-let g:nohiddenchars_ftypes          = ['log', 'text']
+let g:nohiddenchars_ftypes          = ['log', 'text', 'help', 'gitcommit']
 
 autocmd! BufNewFile,BufRead  *  call s:showhiddenchars()
 

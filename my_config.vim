@@ -23,16 +23,18 @@ runtime my_commands.vim
 " Use different font on different platforms
 if has("gui_running")
     if has("gui_gtk2")
-        if isdirectory($HOME."/.fonts/powerline-fonts/Hack/")
+        if isdirectory($HOME."/.fonts/Hack0/")
             " Use Hack font if available
-            set guifont=Hack\ 10
+            set guifont=Hack0\ 10
+            let g:airline_powerline_fonts = 1
         else
             " Otherwise use courier
             set guifont=Courier\ 10\ Pitch\ 11
         endif
         "set guifont=Monospace\ 10
     elseif has("gui_macvim")
-        set guifont=Menlo\ 11
+        "set guifont=Menlo\ Regular:h11
+        set guifont=Hack0\ Regular:h11
     elseif has("win32")
         set guifont=Consolas:h9:cANSI:qDRAFT
     elseif has("x11")

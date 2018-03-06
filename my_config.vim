@@ -13,7 +13,7 @@ exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_vhdl'
 " Add Matchit package
 packadd! matchit
 
-
+"fi
 syntax on
 filetype plugin indent on
 
@@ -23,9 +23,10 @@ runtime my_commands.vim
 " Use different font on different platforms
 if has("gui_running")
     if has("gui_gtk2")
-        if isdirectory($HOME."/.fonts/Hack0/")
+        if isdirectory($HOME."/.fonts/Hack/")
             " Use Hack font if available
             set guifont=Hack0\ 10
+            " Enable powerline fonts
             let g:airline_powerline_fonts = 1
         else
             " Otherwise use courier

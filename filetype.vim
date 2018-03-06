@@ -20,5 +20,6 @@ augroup filetypedetect
     au BufNewFile,BufRead *.xdc             setfiletype xdc
     au BufNewFile,BufRead module_hrefs      setfiletype module_hrefs
     au BufNewFile,BufRead *_module_hrefs    setfiletype module_hrefs
+    au BufNewFile,BufRead library.setup     setfiletype tcl
 augroup END
 

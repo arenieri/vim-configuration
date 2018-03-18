@@ -23,7 +23,7 @@ runtime my_commands.vim
 " Use different font on different platforms
 if has("gui_running")
     if has("gui_gtk2")
-        if isdirectory($HOME."/.fonts/Hack/")
+        if isdirectory($HOME."/.fonts/Hack0/")
             " Use Hack font if available
             set guifont=Hack0\ 10
             " Enable powerline fonts

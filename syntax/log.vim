@@ -21,6 +21,9 @@ setlocal isfname-=,
 " remap gf to gF
 nnoremap gf gF
 
+" Search and jump to meaningful content in a log file
+nnoremap <F4>   :echo search('Starting\\|Finished\\|Sourcing\\|Warning\\|Error', 'w')<CR>
+
 " wrap long lines
 set wrap
 

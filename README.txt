@@ -32,25 +32,33 @@ To Start
 
     Additional info at https://github.com/junegunn/vim-plug
 
-- To install powerline/airline fonts (Optional)
-    mkdir ~/.fonts
-    cd ~/.fonts
-    git clone git://github.com/Lokaltog/powerline-fonts.git
+- To install Hack0 font (Suggested)
+    * Linux
+        cp ˜/.vim/plugged/vim-configuration/fonts/Hack0  ˜/.fonts
+    * Mac
+        Open 'Font Book' and drag&drop files from Finder
+      
+
+- To install other powerline/airline fonts (Optional)
+    * Linux
+        mkdir ~/.fonts
+        cd ~/.fonts
+        git clone git://github.com/Lokaltog/powerline-fonts.git
 
 
+=============================================================
 NOTE: If you are behind a firewall you could need to disable SSL verification.
 To do this simply add to ~/.gitconfig the following section
 
 [http]
         sslVerify = false
 
-
 =============================================================
 .gitconfig example
 This file is intended to be in ~ directory
 
 [user]
-	name = Alessandro Renieri
+	name = Your Name
 	email = my.email@gmail.com
 [core]
 	editor = `which gvim` -f

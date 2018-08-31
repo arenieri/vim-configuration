@@ -32,10 +32,10 @@ if has("gui_running")
             " Otherwise use courier
             set guifont=Courier\ 10\ Pitch\ 11
         endif
-        "set guifont=Monospace\ 10
     elseif has("gui_macvim")
         "set guifont=Menlo\ Regular:h11
         set guifont=Hack0\ Regular:h11
+        let g:airline_powerline_fonts = 1
     elseif has("win32")
         set guifont=Consolas:h9:cANSI:qDRAFT
     elseif has("x11")

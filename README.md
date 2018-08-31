@@ -44,7 +44,8 @@
     * Mac
     
         Open 'Font Book' and drag&drop files from Finder
-      
+    
+    Information about Hack font can be found here https://sourcefoundry.org/hack/
 
 - To install other powerline/airline fonts (Optional)
     * Linux

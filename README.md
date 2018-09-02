@@ -34,7 +34,7 @@
     if you edit vimrc to add or remove plugins you have to restart gvim and type 
     :PlugInstall/:PlugUpdate/:PlugClean to update the plugins
 
-    Additional info at https://github.com/junegunn/vim-plug
+    :information_source: Additional info at https://github.com/junegunn/vim-plug
 
 - To install Hack0 font (Suggested)
     * Linux
@@ -45,7 +45,7 @@
     
         Open 'Font Book' and drag&drop files from Finder
     
-    Information about Hack font can be found here https://sourcefoundry.org/hack/
+    :information_source: Information about Hack font can be found here https://sourcefoundry.org/hack/
 
 - To install other powerline/airline fonts (Optional)
     * Linux

@@ -11,9 +11,14 @@ exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_systemverilog'
 exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_vhdl'
 
 " Add Matchit package
-packadd! matchit
+if version < 800
+    " gvim version 7.x and below
+    runtime! macros/matchit.vim
+else
+    " gvim version 8.x and above
+    packadd! matchit
+endif
 
-"fi
 syntax on
 filetype plugin indent on
 

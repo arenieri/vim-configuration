@@ -14,7 +14,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'scrooloose/nerdtree',     { 'on':  'NERDTreeToggle' }
     Plug 'scrooloose/nerdcommenter'
     Plug 'mbbill/undotree'
-    Plug 'bling/vim-airline'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
     Plug 'luochen1990/rainbow'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'vim-scripts/mru.vim'

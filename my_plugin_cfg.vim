@@ -41,7 +41,12 @@ autocmd BufLeave  *.tt2  :RainbowToggleOn
 " Airline
 "---------
 " Set g:airline_powerline_fonts = 1 when setting the font if the selected font
-" contatins the airline special characters
+" contains the airline special characters (in my_config.vim)
+
+" Select Airline theme
+let g:airline_theme='light'
+
+" Disable tabline
 let g:airline#extensions#tabline#enabled = 0
 
 " Shortcuts to change buffers

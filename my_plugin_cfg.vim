@@ -66,9 +66,11 @@ let g:airline#extensions#whitespace#checks = [ 'trailing' ]
 "-------
 " remove helpline at the top
 let g:tagbar_compact = 1
+" Ensure that the correct ctags is used (Universal Ctags)
+let g:tagbar_ctags_bin = '~/bin/ctags'
 " Hierarchy definition
 let g:tagbar_type_systemverilog = {
-    \ 'ctagstype': 'systemverilog',
+    \ 'ctagstype': 'SystemVerilog',
     \ 'kinds' : [
          \'A:assertions',
          \'C:classes',

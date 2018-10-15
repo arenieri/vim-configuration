@@ -62,69 +62,57 @@ let g:airline#extensions#whitespace#checks = [ 'trailing' ]
 "let g:miniBufExplDebugLevel = 10
 
 "-------
-" CTAGS
+" Tagbar
 "-------
-"if has('unix')
-"    let g:Tlist_Ctags_Cmd   = $HOME.'/bin/ctags'
-"    let g:tagbar_ctags_bin  = $HOME.'/bin/ctags'
-"endif
+" remove helpline at the top
+let g:tagbar_compact = 1
+" Hierarchy definition
+let g:tagbar_type_systemverilog = {
+    \ 'ctagstype': 'systemverilog',
+    \ 'kinds' : [
+         \'A:assertions',
+         \'C:classes',
+         \'E:enumerators',
+         \'I:interfaces',
+         \'K:packages',
+         \'M:modports',
+         \'P:programs',
+         \'Q:prototypes',
+         \'R:properties',
+         \'S:structs and unions',
+         \'T:type declarations',
+         \'V:covergroups',
+         \'b:blocks',
+         \'c:constants',
+         \'e:events',
+         \'f:functions',
+         \'m:modules',
+         \'n:net data types',
+         \'p:ports',
+         \'r:register data types',
+         \'t:tasks',
+     \],
+     \ 'sro': '.',
+     \ 'kind2scope' : {
+        \ 'K' : 'package',
+        \ 'C' : 'class',
+        \ 'm' : 'module',
+        \ 'P' : 'program',
+        \ 'I' : 'interface',
+        \ 'M' : 'modport',
+        \ 'f' : 'function',
+        \ 't' : 'task',
+     \},
+     \ 'scope2kind' : {
+        \ 'package'   : 'K',
+        \ 'class'     : 'C',
+        \ 'module'    : 'm',
+        \ 'program'   : 'P',
+        \ 'interface' : 'I',
+        \ 'modport'   : 'M',
+        \ 'function'  : 'f',
+        \ 'task'      : 't',
+     \ },
+     \}
 
-
-" Configuration for TAGLIST
-" Configure CTAGS for systemverilog
-"let tlist_systemverilog_settings = 'systemverilog;c:class;t:task;f:function' .
-"            \ 'm:module;p:program;i:interface;e:typedef;P:property'
-
-"let tlist_systemverilog_settings = 'systemverilog;a:access;b:always;c:assertion;' .
-"                        \ 'd:case;e:clocking;f:chandle;g:checker;h:config;i:constant;' .
-"                        \ 'j:constraint;l:covergroup;m:coverpoint;n:coverbin;o:class;' .
-"                        \ 'p:enum;q:event;r:final;s:fork;t:function;u:generate;v:imexport;' .
-"                        \ 'w:implementation;x:include;y:inheritance;z:initial;A:interface;' .
-"                        \ 'B:int_atomic;C:int_vector;E:lifetime;F:linkage;G:module;H:net;' .
-"                        \ 'I:non-integral;J:package;K:port;L:primitive;M:program;N:property;' .
-"                        \ 'O:qualifier;P:randsequence;Q:seqblk;R:sequence;S:specify;T:string;' .
-"                        \ 'U:strunion;V:table;W:task;X:timespec;Y:typedef;Z:void'
-
-" Configuration for TAGBAR
-"let g:tagbar_type_systemverilog = {
-"    \ 'ctagstype'   : 'systemverilog',
-"    \ 'kinds'       : [
-"        \ 'c:class','t:task','f:function','m:module','p:program','i:interface','e:typedef','P:property'
-"        \ ],
-"    \ 'sro'         : '::',
-"    \ 'kind2scope' : {
-"        \ 'class'       : 'c',
-"        \ 'task'        : 't',
-"        \ 'function'    : 'f',
-"        \ 'module'      : 'm',
-"        \ 'program'     : 'p',
-"        \ 'interface'   : 'i',
-"        \ 'typedef'     : 'e',
-"        \ 'property'    : 'P'
-"        \ },
-"    \ 'scope2kind' : {
-"        \ 'c' : 'class'    ,
-"        \ 't' : 'task'     ,
-"        \ 'f' : 'function' ,
-"        \ 'm' : 'module'   ,
-"        \ 'p' : 'program'  ,
-"        \ 'i' : 'interface',
-"        \ 'e' : 'typedef'  ,
-"        \ 'P' : 'property'
-"        \ }
-"    \}
-
-"let g:tagbar_type_systemverilog = {
-"    \ 'ctagstype': 'Systemverilog',
-"    \ 'kinds': [
-"        \ 'a:access', 'b:always:0:0', 'c:assertion', 'd:case:0:0', 'e:clocking', 'f:chandle', 'g:checker',
-"        \ 'h:config', 'i:constant:0:0', 'j:constraint', 'k:controlstatement:0:0', 'l:covergroup', 'm:coverpoint',
-"        \ 'n:coverbin', 'o:class', 'p:enum', 'q:event', 'r:final', 's:fork', 't:function', 'u:generate',
-"        \ 'v:imexport', 'w:implementation', 'x:include', 'y:inheritance', 'z:initial', 'A:interface',
-"        \ 'B:int_atomic', 'C:int_vector', 'D:libraries', 'E:lifetime', 'F:linkage', 'G:module', 'H:net',
-"        \ 'I:non-integral', 'J:package', 'K:port', 'L:primitive', 'M:program', 'N:property',
-"        \ 'O:qualifier', 'P:randsequence', 'Q:seqblk', 'R:sequence', 'S:specify', 'T:string',
-"        \ 'U:strunion', 'V:UDPtable', 'W:task', 'X:timespec', 'Y:typedef', 'Z:void'
-"    \]
-"\}
 

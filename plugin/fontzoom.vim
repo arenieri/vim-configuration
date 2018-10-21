@@ -61,7 +61,7 @@ function! s:GetFontSize()
     if has("gui_gtk")
         let sizealmost = matchstr(&guifont, s:fontpat_gtk)
         let size = matchstr(sizealmost, s:decimalpat . '$')
-    elseif has("gui_win32")
+    elseif has("gui_win32") || has("gui_macvim")
         let sizealmost = matchstr(&guifont, s:fontpat_win32)
         let size = matchstr(sizealmost, s:decimalpat)
     elseif has("x11")
@@ -83,7 +83,7 @@ endfunction
 function! s:SetFontSize(size)
     if has("gui_gtk")
         let guifont = substitute(&guifont, s:fontpat_gtk, '\1' . a:size, "")
-    elseif has("win32")
+    elseif has("win32") || has("gui_macvim")
         let guifont = substitute(&guifont, s:fontpat_win32, '\1' . a:size . '\3', "")
     elseif has("x11")
         let guifont = substitute(&guifont, s:fontpat_x11, '\1' . a:size, "")
@@ -119,4 +119,6 @@ nnoremap <silent> <C-MouseDown>  : call <SID>SetLargerFont()<CR>
 
 " command to reset font size
 command ResetFontSize   call <SID>SetOriginalFont()
+command SetLargerFont   call <SID>SetLargerFont()
+command SetSmallerFont  call <SID>SetSmallerFont()
 

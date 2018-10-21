@@ -25,13 +25,15 @@ amenu Misc.Reset\ Font\ Size                :ResetFontSize<CR>
 "amenu Misc.Matrix                          :Matrix<CR>
 
 " MacBook Touchbar
-if has("gui_macvim")
-    :an TouchBar.NTree          :NERDTreeToggle %:p:h<CR>
-    :an TouchBar.UndoTree       :UndotreeToggle<CR>
-    :an TouchBar.TagBar         :TagbarToggle<CR>
-    :an TouchBar.CurLine        :set cursorline!<CR>
-    :an TouchBar.IndGuide       :IndentGuidesToggle<CR>
-    :an TouchBar.RTS            :RTS<CR>
+if has("touchbar")
+    :an TouchBar.-flexspace1-   <Nop>
+    :an icon=NSTouchBarFolderTemplate   TouchBar.NTree          :NERDTreeToggle %:p:h<CR>
+    :an                                 TouchBar.UndoTree       :UndotreeToggle<CR>
+    :an                                 TouchBar.TagBar         :TagbarToggle<CR>
+    :an                                 TouchBar.CurLine        :set cursorline!<CR>
+    :an                                 TouchBar.IndGuide       :IndentGuidesToggle<CR>
+    :an                                 TouchBar.RTS            :RTS<CR>
     ":an TouchBar.MRU            :MRU<CR>
+    :an TouchBar.-flexspace2-   <Nop>
 
 endif

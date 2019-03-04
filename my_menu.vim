@@ -17,23 +17,27 @@ amenu Misc.Undo\ Tree<Tab>F11               :UndotreeToggle<CR>
 amenu Misc.Indent\ Guide<Tab>F12            :IndentGuidesToggle<CR>
 amenu Misc.MRU                              :MRU<CR>
 amenu Misc.Remove\ Trailing\ Spaces\ (RTS)  :RTS<CR>
-amenu Misc.-Sep1-                           :
+amenu Misc.-Sep1-                           <Nop>
 amenu Misc.Increase\ Font\ Size             :SetLargerFont<CR>
 amenu Misc.Decrease\ Font\ Size             :SetSmallerFont<CR>
 amenu Misc.Reset\ Font\ Size                :ResetFontSize<CR>
+amenu Misc.-Sep2-                           <Nop>
+amenu Misc.Open\ Configuration\ Files       :NERDTree $HOME/.vim/plugged/vim-configuration/<CR>
 
 "amenu Misc.Matrix                          :Matrix<CR>
 
 " MacBook Touchbar
 if has("touchbar")
-    :an TouchBar.-flexspace1-   <Nop>
-    :an icon=NSTouchBarFolderTemplate   TouchBar.NTree          :NERDTreeToggle %:p:h<CR>
-    :an                                 TouchBar.UndoTree       :UndotreeToggle<CR>
-    :an                                 TouchBar.TagBar         :TagbarToggle<CR>
-    :an                                 TouchBar.CurLine        :set cursorline!<CR>
-    :an                                 TouchBar.IndGuide       :IndentGuidesToggle<CR>
-    :an                                 TouchBar.RTS            :RTS<CR>
-    ":an TouchBar.MRU            :MRU<CR>
-    :an TouchBar.-flexspace2-   <Nop>
+    amenu  TouchBar.-flexspace1-   <Nop>
+    "amenu icon=twotone_label_white_48dp    TouchBar.NTree          :NERDTreeToggle %:p:h<CR>
+    amenu   TouchBar.NTree          :NERDTreeToggle %:p:h<CR>
+    amenu   TouchBar.UndoTree       :UndotreeToggle<CR>
+    amenu   TouchBar.TagBar         :TagbarToggle<CR>
+    amenu   TouchBar.CurLine        :set cursorline!<CR>
+    amenu   TouchBar.IndGuide       :IndentGuidesToggle<CR>
+    amenu   TouchBar.RTS            :RTS<CR>
+    ":amenu  TouchBar.MRU            :MRU<CR>
+    amenu   TouchBar.-flexspace2-   <Nop>
 
 endif
+

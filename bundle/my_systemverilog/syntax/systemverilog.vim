@@ -164,7 +164,7 @@ syn match  verilogPragma       "\%(//\)\@<!//\s*pragma.*$"
 
 " Color definition for Pragmas
 highlight verilogPragma_hi      guifg=#80A0FF   guibg=DarkMagenta
-
+highlight BeginEnd_hi           guifg=Green     gui=italic,bold
 
 " Verilog default highlighting.
 hi def link verilogCharacter            Character
@@ -174,7 +174,8 @@ hi def link verilogString               String
 hi def link verilogTodo                 Todo
 hi def link verilogComment              Comment
 hi def link verilogConstant             Constant
-hi def link verilogLabel                Label
+"hi def link verilogLabel                Label
+hi def link verilogLabel                BeginEnd_hi
 hi def link verilogNumber               Number
 hi def link verilogOperator             Special
 hi def link verilogStatement            Statement
@@ -187,7 +188,8 @@ hi def link systemverilogStatement      Statement
 hi def link systemverilogTypeDef        TypeDef
 hi def link systemverilogConditional    Conditional
 hi def link systemverilogRepeat         Repeat
-hi def link systemverilogLabel          Label
+"hi def link systemverilogLabel          Label
+hi def link systemverilogLabel          BeginEnd_hi
 hi def link systemverilogGlobal         Define
 hi def link systemverilogNumber         Number
 

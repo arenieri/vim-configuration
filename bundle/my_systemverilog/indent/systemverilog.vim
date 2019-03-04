@@ -192,11 +192,39 @@ function! GetVerilog_SystemVerilogIndent()
     return 0
   endif
 
-  "----------------------
-  " Indent pragmas
-  "----------------------
-  " This is a special case because we have to indent a comment
+
+  "------------------------------
+  " Indentation of comment lines
+  "------------------------------
   let curr_line_also_comment = getline(v:lnum)
+  "------------------------
+  " Indent separator lines
+  "------------------------
+  if 0 "disabled
+  if curr_line_also_comment =~ '^\s*\/\/\s*[-=]\+\s*$'
+    let msg = "Found Separator Line"
+    echo msg." (matching line ".v:lnum.")"
+    let ind = 0
+    return ind
+  end
+  end
+
+  "------------------------
+  " Indent comment lines
+  "------------------------
+  " A comment line is indented as comment at previous line
+  if curr_line_also_comment =~ '^\s*\/\/\s*'
+    if getline(v:lnum - 1) =~ '^\s*\/\/\s*'
+      let msg = "Found consecutive comment lines"
+      echo msg." (matching line ".v:lnum.")"
+      let ind = indent(v:lnum - 1)
+      return ind
+    end
+  end
+
+  "------------------------
+  " Indent pragmas
+  "------------------------
   if curr_line_also_comment =~ '^\s*\/\/\s*pragma'
     let msg = "Found pragma"
     echo msg." (matching line ".v:lnum.")"
@@ -421,6 +449,7 @@ function! GetVerilog_SystemVerilogIndent()
       let ind = indent(prevlnum)+offset
     endif
   else
+
   "-------------------------------------------
   " DeIndent after instance (port assignment)
   "-------------------------------------------
@@ -433,11 +462,9 @@ function! GetVerilog_SystemVerilogIndent()
 
 
 
-
   " =================================================================
   "  Calculate indentation according to the content of previous line
   " =================================================================
-
 
   " if previous line is a begin of a block
   " This line matches "id:begin", "begin:id" and "begin" in a line

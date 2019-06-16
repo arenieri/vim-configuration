@@ -16,6 +16,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'mbbill/undotree'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    " In case of problems with airline you can try lightline
+    "Plug 'itchyny/lightline.vim'
     Plug 'luochen1990/rainbow'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'vim-scripts/mru.vim'

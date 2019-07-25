@@ -6,9 +6,14 @@ runtime mswin.vim
 behave mswin
 
 " Add some additional package to runtimepath
-exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_dssc'
+"exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_dssc'
 exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_systemverilog'
 exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_vhdl'
+
+if version < 800
+    " in givim 7.x the ftdetect file needs to be sourced explicitly
+    exe 'source ' . expand('<sfile>:p:h') . '/bundle/my_systemverilog/ftdetect/systemverilog.vim'
+endif
 
 " Add Matchit package
 if version < 800

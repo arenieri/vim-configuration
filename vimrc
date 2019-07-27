@@ -26,8 +26,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'majutsushi/tagbar',       { 'on': 'TagbarToggle' }
     Plug 'tpope/vim-fugitive'
     Plug 'istepura/vim-toolbar-icons-silk'
+    "Start Screen
+    Plug 'mhinz/vim-startify'
     "Beautify nerdtree (keep this at the end)
     Plug 'ryanoasis/vim-devicons'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Add plugins to &runtimepath
 call plug#end()

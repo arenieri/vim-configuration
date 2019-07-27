@@ -25,6 +25,9 @@ call plug#begin('~/.vim/plugged')
     Plug 'vim-perl/vim-perl',       { 'branch': 'dev' }
     Plug 'majutsushi/tagbar',       { 'on': 'TagbarToggle' }
     Plug 'tpope/vim-fugitive'
+    Plug 'istepura/vim-toolbar-icons-silk'
+    "Beautify nerdtree (keep this at the end)
+    Plug 'ryanoasis/vim-devicons'
 
 " Add plugins to &runtimepath
 call plug#end()

@@ -44,7 +44,8 @@ if has("gui_running")
         endif
     elseif has("gui_macvim")
         "set guifont=Menlo\ Regular:h11
-        set guifont=Hack0\ Regular:h11
+        "set guifont=Hack0\ Regular:h11
+        set guifont=HackNerdFontComplete-Regular:h11
         let g:airline_powerline_fonts = 1
     elseif has("win32")
         set guifont=Consolas:h9:cANSI:qDRAFT

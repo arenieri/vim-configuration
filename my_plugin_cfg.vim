@@ -56,6 +56,77 @@ noremap <C-B> :bprev<CR>
 "let g:airline#extensions#whitespace#checks = [ 'indent', 'trailing' ]
 let g:airline#extensions#whitespace#checks = [ 'trailing' ]
 
+"---------------------------
+" NERDTree Syntax Highlight
+"---------------------------
+" Configuration of vim-nerdtree-syntax-highlight plugin
+" Help: https://github.com/tiagofumo/vim-nerdtree-syntax-highlight
+let s:brown = "905532"
+let s:aqua =  "3AFFDB"
+let s:blue = "689FB6"
+let s:darkBlue = "44788E"
+let s:purple = "834F79"
+let s:lightPurple = "834F79"
+let s:red = "AE403F"
+let s:beige = "F5C06F"
+let s:yellow = "F09F17"
+let s:orange = "D4843E"
+let s:darkOrange = "F16529"
+let s:pink = "CB6F6F"
+let s:salmon = "EE6E73"
+let s:green = "8FAA54"
+let s:lightGreen = "31B53E"
+let s:white = "FFFFFF"
+let s:rspec_red = 'FE405F'
+let s:git_orange = 'F54D27'
+
+" Initialize some arrays
+" "{{{
+" Extension
+if !exists('g:NERDTreeExtensionHighlightColor')
+  let g:NERDTreeExtensionHighlightColor = {}
+endif
+if !exists('g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols')
+  let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
+endif
+" Exact match
+if !exists('g:NERDTreeExactMatchHighlightColor')
+  let g:NERDTreeExactMatchHighlightColor = {}
+endif
+if !exists('g:WebDevIconsUnicodeDecorateFileNodesExactSymbols')
+  let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {}
+endif
+" Pattern match
+if !exists('g:NERDTreePatternMatchHighlightColor')
+  let g:NERDTreePatternMatchHighlightColor = {}
+endif
+if !exists('g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols')
+  let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {}
+endif
+"}}}
+
+let g:NERDTreeExtensionHighlightColor['sv'] = s:lightGreen " sets the color of sv files
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sv'] =  ''
+
+let g:NERDTreeExtensionHighlightColor['svh'] = s:lightGreen " sets the color of sv files
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['svh'] =  ''
+
+let g:NERDTreeExtensionHighlightColor['v'] = s:lightGreen " sets the color of sv files
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['v'] =  ''
+
+
+"let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error
+"let g:NERDTreeExactMatchHighlightColor['.gitignore'] = s:git_orange " sets the color for .gitignore files
+
+"let g:NERDTreePatternMatchHighlightColor = {} " this line is needed to avoid error
+"let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
+
+" Enable the highlight of the full name
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+
+
 "-----------------
 " MiniBufExplorer
 "-----------------

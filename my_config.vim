@@ -10,10 +10,8 @@ behave mswin
 exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_systemverilog'
 exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_vhdl'
 
-if version < 800
-    " in givim 7.x the ftdetect file needs to be sourced explicitly
-    exe 'source ' . expand('<sfile>:p:h') . '/bundle/my_systemverilog/ftdetect/systemverilog.vim'
-endif
+" re-source ftdetect files for modules added to runtime path 
+runtime ftdetect/systemverilog.vim
 
 " Add Matchit package
 if version < 800

@@ -106,13 +106,13 @@ endif
 "}}}
 
 let g:NERDTreeExtensionHighlightColor['sv'] = s:lightGreen " sets the color of sv files
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sv'] =  ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['sv'] =  ''
 
 let g:NERDTreeExtensionHighlightColor['svh'] = s:lightGreen " sets the color of sv files
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['svh'] =  ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['svh'] =  ''
 
 let g:NERDTreeExtensionHighlightColor['v'] = s:lightGreen " sets the color of sv files
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['v'] =  ''
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['v'] =  ''
 
 
 "let g:NERDTreeExactMatchHighlightColor = {} " this line is needed to avoid error

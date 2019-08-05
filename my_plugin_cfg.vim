@@ -138,9 +138,9 @@ let g:NERDTreePatternMatchHighlightFullName   = 1
 if ! has("gui_running")
   " Assume that terminal does not have special characters of NerdHack font and
   " disable webdevicons
-  let g:webdevicons_enable           = 0
-  let g:webdevicons_enable_nerdtree           = 0
-  let g:webdevicons_enable_startify           = 0
+  let g:webdevicons_enable          = 0
+  let g:webdevicons_enable_nerdtree = 0
+  let g:webdevicons_enable_startify = 0
 endif
 
 "-----------------

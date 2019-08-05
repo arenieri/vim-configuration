@@ -131,10 +131,17 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['v'] =  ''
 "let g:NERDTreePatternMatchHighlightColor['.*_spec\.rb$'] = s:rspec_red " sets the color for files ending with _spec.rb
 
 " Enable the highlight of the full name
-let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName = 1
-let g:NERDTreePatternMatchHighlightFullName = 1
+let g:NERDTreeFileExtensionHighlightFullName  = 1
+let g:NERDTreeExactMatchHighlightFullName     = 1
+let g:NERDTreePatternMatchHighlightFullName   = 1
 
+if ! has("gui_running")
+  " Assume that terminal does not have special characters of NerdHack font and
+  " disable webdevicons
+  let g:webdevicons_enable           = 0
+  let g:webdevicons_enable_nerdtree           = 0
+  let g:webdevicons_enable_startify           = 0
+endif
 
 "-----------------
 " MiniBufExplorer

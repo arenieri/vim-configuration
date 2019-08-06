@@ -10,6 +10,8 @@ function! s:showhiddenchars()
             set listchars=tab:»·,trail:·
         endif
         set list
+    else
+        set nolist
     endif
 endfunction
 

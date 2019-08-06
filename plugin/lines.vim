@@ -1,3 +1,12 @@
+"
+" Various key mappings to work with lines
+"
+
+if exists("loaded_lines")
+    finish
+endif
+let loaded_lines = 1
+
 " Move lines with Alt + Up/Down
 nnoremap <silent> <A-Down> :m .+1<CR>==
 nnoremap <silent> <A-Up>   :m .-2<CR>==

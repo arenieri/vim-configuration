@@ -1,4 +1,15 @@
-"Show trailing spaces with ASCII middle dot (dec183), tabs with double angle quotes (dec187)
+"
+" Automatically enable/disable hidden characters for specific filetypes
+" when a buffer is read
+
+if exists("loaded_showhidden")
+    finish
+endif
+let loaded_showhidden = 1
+
+
+"Show trailing spaces with ASCII middle dot (dec183),
+"     tabs with double angle quotes (dec187)
 function! s:showhiddenchars()
     " Use these echos for debug
     "echo &ft

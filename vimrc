@@ -32,6 +32,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'ryanoasis/vim-devicons'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+    "Some colorschemes
+    Plug 'lifepillar/vim-wwdc16-theme'
+    Plug 'lifepillar/vim-gruvbox8'
+    Plug 'lifepillar/vim-solarized8'
+
 " Add plugins to &runtimepath
 call plug#end()
 

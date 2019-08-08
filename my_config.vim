@@ -60,7 +60,7 @@ if has("gui_running")
 else
     " gui not running
     " Set terminal number of colors
-    set t_Co = 256
+    set t_Co=256
     " Use only ASCII symbols in terminal
     let g:airline_symbols_ascii = 1
 endif

@@ -64,8 +64,8 @@ endif
 
 
 " Color
-if filereadable("~/.vim/my_colorscheme.vim")
-    source "~/.vim/my_colorscheme.vim"
+if filereadable(expand('~/.vim/my_colorscheme.vim'))
+    source ~/.vim/my_colorscheme.vim
 else
     colorscheme mydarkblue
 endif

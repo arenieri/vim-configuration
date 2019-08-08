@@ -10,7 +10,7 @@ behave mswin
 exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_systemverilog'
 exe 'set runtimepath^=' . expand('<sfile>:p:h') . '/bundle/my_vhdl'
 
-" re-source ftdetect files for modules added to runtime path 
+" re-source ftdetect files for modules added to runtime path
 runtime ftdetect/systemverilog.vim
 
 " Add Matchit package

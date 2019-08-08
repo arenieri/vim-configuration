@@ -59,16 +59,15 @@ if has("gui_running")
     endif
 else
     " gui not running
+    " Set terminal number of colors
+    set t_Co = 256
+    " Use only ASCII symbols in terminal
     let g:airline_symbols_ascii = 1
 endif
 
 
-" Color
-if filereadable(expand('~/.vim/my_colorscheme.vim'))
-    source ~/.vim/my_colorscheme.vim
-else
-    colorscheme mydarkblue
-endif
+" Colorscheme
+colorscheme mydarkblue
 
 
 " Configuration

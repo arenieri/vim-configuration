@@ -57,11 +57,18 @@ if has("gui_running")
     else
         set guifont=Courier:h9:cANSI
     endif
+else
+    " gui not running
+    let g:airline_symbols_ascii = 1
 endif
 
 
 " Color
-colorscheme mydarkblue
+if filereadable("~/.vim/my_colorscheme.vim")
+    source "~/.vim/my_colorscheme.vim"
+else
+    colorscheme mydarkblue
+endif
 
 
 " Configuration

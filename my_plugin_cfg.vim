@@ -43,7 +43,7 @@ let g:rainbow_conf = {
 \   'separately': {
 \       'nerdtree' : 0,
 \            'tt2' : 0,
-\.           'log' : 0,
+\            'log' : 0,
 \   }
 \}
 

@@ -68,7 +68,11 @@ endif
 
 " Colorscheme
 colorscheme mydarkblue
+"colorscheme rigel
 
+" Airline theme
+let g:airline_theme = 'light'
+"let g:airline_theme = 'rigel'
 
 " Configuration
 set textwidth=0     " Text width (A longer line will be broken after white space. 0 means disabled)

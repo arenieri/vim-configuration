@@ -36,6 +36,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'lifepillar/vim-wwdc16-theme'
     Plug 'lifepillar/vim-gruvbox8'
     Plug 'lifepillar/vim-solarized8'
+    Plug 'Rigellute/rigel'
 
 " Add plugins to &runtimepath
 call plug#end()

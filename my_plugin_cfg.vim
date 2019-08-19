@@ -54,7 +54,9 @@ let g:rainbow_conf = {
 " contains the airline special characters (in my_config.vim)
 
 " Select Airline theme
-let g:airline_theme='light'
+"let g:airline_theme='light'
+"let g:rigel_airline = 1
+"let g:airline_theme = 'rigel'
 
 " Disable tabline
 let g:airline#extensions#tabline#enabled = 0

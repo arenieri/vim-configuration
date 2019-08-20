@@ -19,7 +19,7 @@ function s:SetMBEColors()
 endfunction
 
 
-if execute("colorscheme") =~? "mydarkblue"
+if g:airline_theme == 'light'
     "                                   Changed             Visible             Active
     hi MBENormal_hi                     guifg=#80a0ff                           gui=italic          ctermbg=darkblue
     hi MBEChanged_hi                    guifg=Orange                            gui=italic          ctermbg=darkblue

@@ -149,7 +149,21 @@ endif
 "-----------------
 " MiniBufExplorer
 "-----------------
-"let g:miniBufExplDebugLevel = 10
+" 0 = debug to a window
+" 1 = use vim's echo facility
+" 2 = write to a file named MiniBufExplorer.DBG
+"     in the directory where vim was started
+"     THIS IS VERY SLOW
+" 3 = Write into g:miniBufExplDebugOutput
+"     global variable [This is the default]
+"let g:miniBufExplDebugMode = 3
+
+"----
+" 0 = no logging
+" 1=5 = errors ; 1 is the most important
+" 5-9 = info ; 5 is the most important
+" 10 = Entry/Exit
+"let g:miniBufExplDebugLevel = 9
 
 "-------
 " Tagbar

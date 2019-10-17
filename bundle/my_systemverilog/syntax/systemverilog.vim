@@ -175,7 +175,7 @@ hi def link verilogTodo                 Todo
 hi def link verilogComment              Comment
 hi def link verilogConstant             Constant
 "hi def link verilogLabel                Label
-hi def link verilogLabel                BeginEnd_hi
+hi     link verilogLabel                BeginEnd_hi
 hi def link verilogNumber               Number
 hi def link verilogOperator             Special
 hi def link verilogStatement            Statement
@@ -189,7 +189,7 @@ hi def link systemverilogTypeDef        TypeDef
 hi def link systemverilogConditional    Conditional
 hi def link systemverilogRepeat         Repeat
 "hi def link systemverilogLabel          Label
-hi def link systemverilogLabel          BeginEnd_hi
+hi     link systemverilogLabel          BeginEnd_hi
 hi def link systemverilogGlobal         Define
 hi def link systemverilogNumber         Number
 

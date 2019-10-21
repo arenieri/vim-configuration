@@ -41,10 +41,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'Rigellute/rigel'
     
     " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
-    Plug 'junegunn/fzf'
     "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     " Both options are optional. You don't have to install fzf in ~/.fzf
     " and you don't have to run the install script if you use fzf only in Vim.
+    Plug 'junegunn/fzf'
+    
+    " Enhanced fzf vim plugin
+    Plug 'junegunn/fzf.vim'
 
 " Add plugins to &runtimepath
 call plug#end()

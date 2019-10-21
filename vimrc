@@ -1,4 +1,3 @@
-
 " Load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
     execute '!curl --create-dirs -kfLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -26,10 +25,10 @@ call plug#begin('~/.vim/plugged')
     Plug 'antoinemadec/vim-verilog-instance'
     Plug 'majutsushi/tagbar',       { 'on': 'TagbarToggle' }
     Plug 'tpope/vim-fugitive'
-    Plug 'istepura/vim-toolbar-icons-silk'
-
+    
     "Start Screen
     Plug 'mhinz/vim-startify'
+    Plug 'istepura/vim-toolbar-icons-silk'
     "Beautify nerdtree (keep this at the end)
     Plug 'ryanoasis/vim-devicons'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -40,6 +39,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'lifepillar/vim-solarized8'
     Plug 'Rigellute/rigel'
 
+    Plug 'antoinemadec/vim-verilog-instance'
+    
     " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
     Plug 'junegunn/fzf'
     "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -53,8 +54,28 @@ call plug#end()
 " The file is located in vim-configuration
 runtime my_config.vim
 
-
+"------------------------------------------
 "Uncomment to change colorscheme
 colorscheme rigel
 let g:airline_theme = 'rigel'
 
+"------------------------------------------
+" Colorscheme and Airline theme
+colorscheme rigel
+let g:airline_theme = 'rigel'
+
+" Change default cursor
+hi Cursor guifg=NONE ctermfg=NONE guibg=#c43060 ctermbg=209 gui=NONE cterm=NONE
+
+" Change Airline Theme
+let g:airline_theme_patch_func = 'AirlineThemePatch'
+function! AirlineThemePatch(palette)
+    if g:airline_theme == 'rigel'
+        " Patch rigel airline palette
+        let a:palette.inactive['airline_c'] = [ "#77929e", "#002E3E", 246, 235 ]
+    endif
+endfunction
+
+"------------------------------------------
+" Force cursor blinking
+"set guicursor-=a:blinkon0

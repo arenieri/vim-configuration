@@ -9,25 +9,26 @@ call plug#begin('~/.vim/plugged')
     Plug 'arenieri/vim-configuration'
     Plug 'arenieri/vim-plugin-minibufexpl'
     "Plug 'fholgado/minibufexpl.vim'
-
     Plug 'scrooloose/nerdtree',     { 'on':  'NERDTreeToggle' }
     Plug 'scrooloose/nerdcommenter'
     Plug 'mbbill/undotree'
+    Plug 'vim-scripts/mru.vim'
+    " Note: dev is the default branch for vim-perl
+    Plug 'vim-perl/vim-perl',       { 'branch': 'dev' }
+    Plug 'majutsushi/tagbar',       { 'on': 'TagbarToggle' }
+    Plug 'tpope/vim-fugitive'
+    Plug 'luochen1990/rainbow'
+    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'antoinemadec/vim-verilog-instance'
+
+    "Start Screen
+    Plug 'mhinz/vim-startify'
+
+    " Some graphical improvement
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     " In case of problems with airline you can try lightline
     "Plug 'itchyny/lightline.vim'
-    Plug 'luochen1990/rainbow'
-    Plug 'nathanaelkane/vim-indent-guides'
-    Plug 'vim-scripts/mru.vim'
-    " Note: dev is the default branch for vim-perl
-    Plug 'vim-perl/vim-perl',       { 'branch': 'dev' }
-    Plug 'antoinemadec/vim-verilog-instance'
-    Plug 'majutsushi/tagbar',       { 'on': 'TagbarToggle' }
-    Plug 'tpope/vim-fugitive'
-    
-    "Start Screen
-    Plug 'mhinz/vim-startify'
     Plug 'istepura/vim-toolbar-icons-silk'
     "Beautify nerdtree (keep this at the end)
     Plug 'ryanoasis/vim-devicons'
@@ -38,8 +39,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'lifepillar/vim-gruvbox8'
     Plug 'lifepillar/vim-solarized8'
     Plug 'Rigellute/rigel'
-
-    Plug 'antoinemadec/vim-verilog-instance'
     
     " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
     Plug 'junegunn/fzf'

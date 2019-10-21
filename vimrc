@@ -21,6 +21,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'antoinemadec/vim-verilog-instance'
 
+    " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
+    "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    " Both options are optional. You don't have to install fzf in ~/.fzf
+    " and you don't have to run the install script if you use fzf only in Vim.
+    " fzf only for vim
+    Plug 'junegunn/fzf'
+
+    " Enhanced fzf vim plugin
+    Plug 'junegunn/fzf.vim'
+
     "Start Screen
     Plug 'mhinz/vim-startify'
 
@@ -39,15 +49,6 @@ call plug#begin('~/.vim/plugged')
     Plug 'lifepillar/vim-gruvbox8'
     Plug 'lifepillar/vim-solarized8'
     Plug 'Rigellute/rigel'
-    
-    " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
-    "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-    " Both options are optional. You don't have to install fzf in ~/.fzf
-    " and you don't have to run the install script if you use fzf only in Vim.
-    Plug 'junegunn/fzf'
-    
-    " Enhanced fzf vim plugin
-    Plug 'junegunn/fzf.vim'
 
 " Add plugins to &runtimepath
 call plug#end()
@@ -57,17 +58,15 @@ call plug#end()
 runtime my_config.vim
 
 "------------------------------------------
-"Uncomment to change colorscheme
-colorscheme rigel
-let g:airline_theme = 'rigel'
-
-"------------------------------------------
 " Colorscheme and Airline theme
 colorscheme rigel
 let g:airline_theme = 'rigel'
 
-" Change default cursor
-hi Cursor guifg=NONE ctermfg=NONE guibg=#c43060 ctermbg=209 gui=NONE cterm=NONE
+if g:airline_theme == 'rigel'
+    " Change Rigel colors
+    hi Cursor guifg=NONE ctermfg=NONE guibg=#c43060 ctermbg=209 gui=NONE cterm=NONE
+    hi FoldColumn guifg=#77929e ctermfg=246 guibg=#01384d ctermbg=235 gui=NONE cterm=NONE
+endif
 
 " Change Airline Theme
 let g:airline_theme_patch_func = 'AirlineThemePatch'

@@ -1,0 +1,205 @@
+# vim: ft=colortemplate fdm=marker cc=22,40,58 et ts=2 sw=2
+
+# Information {{{
+# Mandatory
+Full name:     Dark_A
+Short name:    dark_a
+Author:        Myself <myself@somewhere.org>
+# Optional
+Maintainer:    Myself <myself@somewhere.org>
+Website:       https://me.org
+Description:   Dark A colorscheme
+License:       Public domain
+# Prefix for options: short name is used if this key is not present:
+Option Prefix: dark
+# }}}
+
+# Documentation {{{
+Include: _help.colortemplate
+# }}}
+
+# Common linked groups {{{
+QuickFixLine      -> Search
+StatusLineTerm    -> StatusLine
+StatusLineTermNC  -> StatusLineNC
+Character         -> Constant
+Conditional       -> Statement
+Define            -> PreProc
+Debug             -> PreProc
+Delimiter         -> Special
+#Exception         -> Statement
+Float             -> Constant
+#Function          -> Identifier
+#Include           -> PreProc
+Keyword           -> Statement
+Label             -> Statement
+Macro             -> PreProc
+Number            -> Constant
+Operator          -> Statement
+PreCondit         -> PreProc
+Repeat            -> Statement
+SpecialChar       -> Special
+SpecialComment    -> Special
+StorageClass      -> Type
+String            -> Constant
+Structure         -> Type
+Tag               -> Special
+Typedef           -> Type
+# See `:help lCursor`
+lCursor           -> Cursor
+# }}}
+
+Background: dark
+
+# Color palette {{{
+# Color name         GUI                     Base256     Base16 (optional)
+Color: black         rgb(  0,   0,   0)        ~         Black
+Color: red           rgb(255,   0,   0)        ~         DarkRed
+Color: green         rgb(  0, 255,   0)        ~         DarkGreen
+Color: yellow        rgb(255, 255,   0)        ~         DarkYellow
+Color: blue          rgb(  0,   0, 255)        ~         DarkBlue
+Color: magenta       rgb(255,   0, 255)        ~         DarkMagenta
+Color: cyan          rgb(  0, 255, 255)        ~         DarkCyan
+Color: white         rgb(235, 235, 235)        ~         LightGrey
+Color: brightblack   rgb(210, 210, 210)        ~         DarkGrey
+Color: brightred     rgb(255, 100,   0)        ~         LightRed
+Color: brightgreen   rgb(100, 255,   0)        ~         LightGreen
+Color: brightyellow  rgb(255, 255, 100)        ~         LightYellow
+Color: brightblue    rgb(  0, 100, 255)        ~         LightBlue
+Color: brightmagenta rgb(255, 100, 255)        ~         LightMagenta
+Color: brightcyan    rgb(100, 255, 255)        ~         LightCyan
+#
+Color: C001_DarkGreen      #001a25             ~         DarkGreen
+Color: C002_Orange         #f08e48             ~         LightRed
+Color: C003_LightGray      #b7cff9             ~         LightGrey
+Color: C004_LightGreen     #9cf087             ~         LightGreen
+Color: C005_DarkBlue       #002635             ~         DarkBlue
+Color: C006_LightGreen     #00cccc             ~         LightGreen
+Color: C007_Telemagenta    #c43060             ~         LightMagenta
+Color: C008_LightGrey      #e6e6dc             ~         LightGrey
+Color: C009_SquirrelGrey   #77929e             ~         LightGrey
+Color: C010_GreenBlue      #00384d             ~         DarkBlue
+Color: C011_ZinkYellow     #ffcc1b             ~         LightYellow
+Color: C012_PastelBlue     #517f8d             ~         LightBlue
+Color: C013_LightBlue      #1c8db2             ~         LightBlue
+Color: C014_WindowGrey     #fb94ff             ~         LightGrey
+Color: C015_AntiquePink    #ff5a67             ~         LightMagenta
+Color: C016_Telegrey4      #b7cff9             ~         LightBlue
+
+Color: C017_DustyGrey      #7f7f7f             ~         LightGrey
+Color: C018_Orange3        #ffa500             ~         LightRed
+Color: C019_Pink1     rgb(255, 128, 255)       ~         LightRed
+Color: C020_Cyan      rgb(  0, 255, 255)       ~         LightBlue
+Color: C021_Green     rgb( 47, 239,  88)       ~         DarkGreen
+Color: C022_White     rgb(230, 230, 220)       ~         LightGrey
+Color: C023_Green     rgb(  0, 255,   0)       ~         DarkGreen
+Color: C024_Red       rgb(255,   0,   0)       ~         DarkRed
+Color: C025_Grey      rgb(190, 190, 190)       ~         LightGrey
+Color: C026_White     rgb(255, 255, 255)       ~         LightGrey
+Color: C027_Grey      rgb(211, 211, 211)       ~         LightGrey
+Color: C028_Black     rgb(  0,   0,   0)       ~         Black
+Color: C029_Blue      rgb(109, 158, 179)       ~         LightBlue
+Color: C030_Red       rgb(196,  48,  96)       ~         LightRed
+Color: C031_Blue      rgb(  0, 200, 200)       ~         LightBlue
+Color: C032_Green     rgb(144, 239, 143)       ~         LightGreen
+
+
+
+
+# You may use hexadecimal values, too, and you may provide an explicit base-256 color:
+Color: brightwhite   #ffffff                  231        White
+# }}}
+# Terminal colors {{{
+Term colors: black red green yellow blue magenta cyan white
+Term colors: brightblack brightred brightgreen brightyellow
+Term colors: brightblue brightmagenta brightcyan brightwhite
+# }}}
+
+# Default highlight groups {{{
+Variant: gui
+#if get(g:, '@optionprefix_transp_bg', 0) && !has('gui_running')
+Variant: 256 8
+#if get(g:, '@optionprefix_transp_bg', 0)
+Variant: gui 256 8
+    Normal           white             none
+    Terminal         white             none
+#else
+    Normal           white             C005_DarkBlue
+    Terminal         white             C005_DarkBlue
+#endif
+
+# Group              Foreground         Background        Attributes
+ColorColumn          none               C001_DarkGreen
+Conceal              none               none
+Cursor               none               C007_Telemagenta
+CursorColumn         none               C001_DarkGreen
+CursorLine           none               C001_DarkGreen
+CursorLineNr         C003_LightGray     C001_DarkGreen
+DiffAdd              C004_LightGreen    C005_DarkBlue
+DiffChange           C006_LightGreen    C005_DarkBlue       underline
+DiffDelete           C007_Telemagenta   C005_DarkBlue
+DiffText             C008_LightGrey     none
+Directory            C020_Cyan          C005_DarkBlue
+EndOfBuffer          white              C005_DarkBlue
+ErrorMsg             C007_Telemagenta   none
+FoldColumn           C009_SquirrelGrey  C010_GreenBlue
+Folded               C009_SquirrelGrey  C010_GreenBlue
+IncSearch            C005_DarkBlue      C011_ZinkYellow
+LineNr               C009_SquirrelGrey  C005_DarkBlue
+MatchParen           C005_DarkBlue      C006_LightGreen
+ModeMsg              C022_White         C005_DarkBlue       bold
+MoreMsg              C021_Green         C005_DarkBlue       bold
+NonText              C012_PastelBlue    none
+Pmenu                C008_LightGrey     C010_GreenBlue
+PmenuSbar            C008_LightGrey     C025_Grey
+PmenuSel             C006_LightGreen    C012_PastelBlue
+PmenuThumb           C008_LightGrey              C026_White
+Question             C023_Green         C005_DarkBlue       bold
+Search               C005_DarkBlue      C002_Orange
+SignColumn           C003_LightGray     C005_DarkBlue
+SpecialKey           C020_Cyan          C005_DarkBlue
+SpellBad             C009_SquirrelGrey  none            s=red       undercurl
+SpellCap             C009_SquirrelGrey  none            s=blue      undercurl
+SpellLocal           C009_SquirrelGrey  none            s=magenta   undercurl
+SpellRare            C009_SquirrelGrey  none            s=cyan      undercurl reverse
+StatusLine           C005_DarkBlue      C032_Green
+StatusLineNC         C005_DarkBlue      C032_Green
+TabLine              C009_SquirrelGrey  C010_GreenBlue
+TabLineFill          none               C010_GreenBlue
+TabLineSel           C008_LightGrey     C013_LightBlue
+Title                C006_LightGreen    none
+VertSplit            C012_PastelBlue    C005_DarkBlue
+Visual               none               C012_PastelBlue
+VisualNOS            C022_White         C005_DarkBlue       underline bold
+WarningMsg           C024_Red           C005_DarkBlue
+WildMenu             C008_LightGrey     C012_PastelBlue
+# Other conventional group names (see `:help group-name`)
+Comment              C009_SquirrelGrey  none
+Constant             C002_Orange        none
+Error                C007_Telemagenta   none
+Exception            C030_Red           none
+Function             C029_Blue          none
+Identifier           C002_Orange        none
+Ignore               C009_SquirrelGrey  none
+Include              C031_Blue          none
+PreProc              C019_Pink1         none
+Special              C018_Orange3       none
+Statement            C013_LightBlue     none
+Todo                 C014_WindowGrey    none
+Type                 C015_AntiquePink   none
+Underlined           C016_Telegrey4     none                underline
+Boolean              C015_AntiquePink   none
+# See `:help CursorIM`
+CursorIM             none               fg
+# See `:help window-toolbar`
+ToolbarLine          C022_White         C017_DustyGrey
+ToolbarButton        C028_Black         C027_Grey           bold
+# }}}
+
+# Additional highlight groups {{{
+# Add additional highlight groups here if you want
+# }}}
+
+# B/W variant {{{
+Include: _bw.colortemplate
+# }}}

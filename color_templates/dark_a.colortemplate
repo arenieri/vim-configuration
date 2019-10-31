@@ -20,8 +20,8 @@ Include: _help.colortemplate
 
 # Common linked groups {{{
 QuickFixLine      -> Search
-StatusLineTerm    -> StatusLine
-StatusLineTermNC  -> StatusLineNC
+#StatusLineTerm    -> StatusLine
+#StatusLineTermNC  -> StatusLineNC
 Character         -> Constant
 Conditional       -> Statement
 Define            -> PreProc
@@ -162,8 +162,10 @@ SpellBad             C009_SquirrelGrey  none            s=red       undercurl
 SpellCap             C009_SquirrelGrey  none            s=blue      undercurl
 SpellLocal           C009_SquirrelGrey  none            s=magenta   undercurl
 SpellRare            C009_SquirrelGrey  none            s=cyan      undercurl reverse
-StatusLine           C005_DarkBlue      C032_Green
-StatusLineNC         C005_DarkBlue      C032_Green
+StatusLine           C022_White         C010_GreenBlue
+StatusLineNC         C022_White         C012_PastelBlue
+StatusLineTerm       C005_DarkBlue      C032_Green
+StatusLineTermNC     C005_DarkBlue         C032_Green
 TabLine              C009_SquirrelGrey  C010_GreenBlue
 TabLineFill          none               C010_GreenBlue
 TabLineSel           C008_LightGrey     C013_LightBlue

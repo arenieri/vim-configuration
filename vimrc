@@ -57,25 +57,29 @@ call plug#end()
 " The file is located in vim-configuration
 runtime my_config.vim
 
-"------------------------------------------
 " Colorscheme and Airline theme
 colorscheme rigel
 let g:airline_theme = 'rigel'
 
-if g:airline_theme == 'rigel'
-    " Change Rigel colors
-    hi Cursor guifg=NONE ctermfg=NONE guibg=#c43060 ctermbg=209 gui=NONE cterm=NONE
-    hi FoldColumn guifg=#77929e ctermfg=246 guibg=#01384d ctermbg=235 gui=NONE cterm=NONE
-endif
+"------------------------------------------
+" Colorscheme and Airline theme
+"colorscheme rigel
+"let g:airline_theme = 'rigel'
 
-" Change Airline Theme
-let g:airline_theme_patch_func = 'AirlineThemePatch'
-function! AirlineThemePatch(palette)
-    if g:airline_theme == 'rigel'
-        " Patch rigel airline palette
-        let a:palette.inactive['airline_c'] = [ "#77929e", "#002E3E", 246, 235 ]
-    endif
-endfunction
+"if g:airline_theme == 'rigel'
+"    " Change Rigel colors
+"    hi Cursor guifg=NONE ctermfg=NONE guibg=#c43060 ctermbg=209 gui=NONE cterm=NONE
+"    hi FoldColumn guifg=#77929e ctermfg=246 guibg=#01384d ctermbg=235 gui=NONE cterm=NONE
+"endif
+
+"" Change Airline Theme
+"let g:airline_theme_patch_func = 'AirlineThemePatch'
+"function! AirlineThemePatch(palette)
+"    if g:airline_theme == 'rigel'
+"        " Patch rigel airline palette
+"        let a:palette.inactive['airline_c'] = [ "#77929e", "#002E3E", 246, 235 ]
+"    endif
+"endfunction
 
 "------------------------------------------
 " Force cursor blinking

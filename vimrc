@@ -58,8 +58,8 @@ call plug#end()
 runtime my_config.vim
 
 " Colorscheme and Airline theme
-colorscheme rigel
-let g:airline_theme = 'rigel'
+colorscheme dark_a
+let g:airline_theme = 'dark_a'
 
 "------------------------------------------
 " Colorscheme and Airline theme

@@ -145,7 +145,7 @@ ErrorMsg             C007_Telemagenta   none
 FoldColumn           C009_SquirrelGrey  C010_GreenBlue
 Folded               C009_SquirrelGrey  C010_GreenBlue
 IncSearch            C005_DarkBlue      C011_ZinkYellow
-LineNr               C009_SquirrelGrey  C005_DarkBlue
+LineNr               C009_SquirrelGrey  C010_GreenBlue
 MatchParen           C005_DarkBlue      C006_LightGreen
 ModeMsg              C022_White         C005_DarkBlue       bold
 MoreMsg              C021_Green         C005_DarkBlue       bold

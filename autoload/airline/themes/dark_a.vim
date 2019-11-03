@@ -60,9 +60,13 @@ let g:airline#themes#dark_a#palette = {}
 " airline_x/y/z, respectively.
 
 " The dark_a.vim theme:
+
+"==============================
+" NORMAL
+"==============================
 let s:airline_a_normal   = [ "#002635", "#7eb2dd", 235, 110 ]
-let s:airline_b_normal   = [ "#002635", "#1c8db2", 235, 31 ]
-let s:airline_c_normal   = [ "#b7cff9", "#00384d", 153, 23 ]
+let s:airline_b_normal   = [ "#002635", "#1c8db2", 235,  31 ]
+let s:airline_c_normal   = [ "#b7cff9", "#00384d", 153,  23 ]
 
 let g:airline#themes#dark_a#palette.normal = airline#themes#generate_color_map(s:airline_a_normal, s:airline_b_normal, s:airline_c_normal)
 
@@ -93,54 +97,72 @@ let g:airline#themes#dark_a#palette.normal = airline#themes#generate_color_map(s
 " applied after g:airline#themes#dark_a#palette.normal, hence why only certain keys are
 " declared.
 let g:airline#themes#dark_a#palette.normal_modified = {
-      \ 'airline_c': [ '#ffffff' , '#cd2626' , 255     , 53      , ''     ] ,
+      \ 'airline_c': [ '#ff6080' , '#8b1a1a' , 255     , 53      , ''     ] ,
       \ }
 
+"==============================
+" INSERT
+"==============================
 let s:airline_a_insert = [ "#002635", "#ffcc1b", 235, 220 ]
 let s:airline_b_insert = [ "#002635", "#f08e48", 235, 209 ]
-let s:airline_c_insert = [ "#00ffff", "#00384d", 14, 23 ]
+let s:airline_c_insert = [ "#b7cff9", "#00384d",  14,  23 ]
 let g:airline#themes#dark_a#palette.insert = airline#themes#generate_color_map(s:airline_a_insert, s:airline_b_insert, s:airline_c_insert)
 
 let g:airline#themes#dark_a#palette.insert_modified = {
-      \ 'airline_c': [ '#ffffff' , '#8b1a1a' , 255     , 53      , ''     ] ,
+      \ 'airline_c': [ '#ff6080' , '#8b2500' , 255     , 53      , ''     ] ,
       \ }
 let g:airline#themes#dark_a#palette.insert_paste = {
       \ 'airline_a': [ s:airline_a_insert[0]   , '#d78700' , s:airline_a_insert[2] , 172     , ''     ] ,
       \ }
 
+"==============================
+" REPLACE
+"==============================
 let s:airline_a_replace = [ "#002635", "#ff5a67", 235, 203 ]
 let s:airline_b_replace = [ "#002635", "#f08e48", 235, 209 ]
-let s:airline_c_replace = [ "#ff5a67", "#00384d", 203, 23 ]
+let s:airline_c_replace = [ "#ff5a67", "#00384d", 203,  23 ]
 "let g:airline#themes#dark_a#palette.replace = copy(g:airline#themes#dark_a#palette.insert)
 "let g:airline#themes#dark_a#palette.replace.airline_a = [ s:airline_b_insert[0]   , '#af0000' , s:airline_b_insert[2] , 124     , ''     ]
 let g:airline#themes#dark_a#palette.replace = airline#themes#generate_color_map(s:airline_a_replace, s:airline_b_replace, s:airline_c_replace)
 let g:airline#themes#dark_a#palette.replace_modified = g:airline#themes#dark_a#palette.insert_modified
 
-
+"==============================
+" VISUAL
+"==============================
 let s:airline_a_visual = [ "#002635", "#fb94ff", 235, 213 ]
 let s:airline_b_visual = [ "#002635", "#c694ff", 235, 177 ]
 let s:airline_c_visual = [ "#c694ff", "#00384d", 177, 23 ]
 let g:airline#themes#dark_a#palette.visual = airline#themes#generate_color_map(s:airline_a_visual, s:airline_b_visual, s:airline_c_visual)
 let g:airline#themes#dark_a#palette.visual_modified = {
-      \ 'airline_c': [ '#ffffff' , '#8b1a1a' , 255     , 53      , ''     ] ,
+      \ 'airline_c': [ '#ff6080' , '#8b2500' , 255     , 53      , ''     ] ,
       \ }
 
-
+"==============================
+" INACTIVE
+"==============================
 let s:airline_a_inactive = [ "#00384d", "#517f8d", 23, 66 ]
 let s:airline_b_inactive = [ "#77929e", "#00384d", 246, 23 ]
 let s:airline_c_inactive = [ "#77929e", "#003040", 246, 235 ]
 let g:airline#themes#dark_a#palette.inactive = airline#themes#generate_color_map(s:airline_a_inactive, s:airline_b_inactive, s:airline_c_inactive)
 let g:airline#themes#dark_a#palette.inactive_modified = {
-      \ 'airline_c': [ '#77929e' , '#701a1a' , 97 , '' , '' ] ,
+      \ 'airline_c': [ '#ff6080' , '#600f00' , 97 , '' , '' ] ,
       \ }
 
+
+"==============================
+" COMMANDLINE
+"==============================
 " For commandline mode, we use the colors from normal mode, except the mode
 " indicator should be colored differently, e.g. light green
-let s:airline_a_commandline = [ '#0000ff' , '#0cff00' , 17  , 40 ]
-let s:airline_b_commandline = [ '#ffffff' , '#444444' , 255 , 238 ]
-let s:airline_c_commandline = [ '#9cffd3' , '#202020' , 85  , 234 ]
+let s:airline_a_commandline = [ '#002635' , "#3cc33c", 235, 110 ]
+let s:airline_b_commandline = [ '#002635' , "#1c8db2", 235,  31 ]
+let s:airline_c_commandline = [ '#b7cff9' , "#00384d", 153,  23 ]
 let g:airline#themes#dark_a#palette.commandline = airline#themes#generate_color_map(s:airline_a_commandline, s:airline_b_commandline, s:airline_c_commandline)
 
+
+"==============================
+" ACCENTS
+"==============================
 " Accents are used to give parts within a section a slightly different look or
 " color. Here we are defining a "red" accent, which is used by the 'readonly'
 " part by default. Only the foreground colors are specified, so the background
@@ -152,7 +174,9 @@ let g:airline#themes#dark_a#palette.accents = {
       \ 'red': [ '#ff0000' , '' , 160 , ''  ]
       \ }
 
-
+"==============================
+" CTRLP
+"==============================
 " Here we define the color map for ctrlp.  We check for the g:loaded_ctrlp
 " variable so that related functionality is loaded iff the user is using
 " ctrlp. Note that this is optional, and if you do not define ctrlp colors

@@ -104,11 +104,10 @@ Color: C31_Blue       rgb(  0, 200, 200)        ~         LightBlue
 Color: C32_Green      rgb(144, 239, 143)        ~         LightGreen
 Color: C33_Blue       rgb(  0,  68,  83)        ~         LightBlue
 Color: C34_Grey       rgb( 90,  90,  90)        ~         DarkGrey
-
 Color: C35_Orange     rgb(223,  95,   0)        ~         LightRed
 Color: C36_Red        rgb(153,   0,   0)        ~         DarkRed
 Color: C37_White      rgb(230, 230, 220)        ~         LightGrey
-
+Color: C38_test       rgb(240, 110, 255)        ~         LightMagenta
 
 # You may use hexadecimal values, too, and you may provide an explicit base-256 color:
 Color: brightwhite    #ffffff                  231        White
@@ -144,7 +143,7 @@ DiffChange            C06_LightGreen    C05_DarkBlue      underline
 DiffDelete            C07_Magenta       C05_DarkBlue
 DiffText              C08_LightGrey     none
 Directory             C20_Cyan          C05_DarkBlue
-EndOfBuffer           white             C05_DarkBlue
+EndOfBuffer           C37_White         C05_DarkBlue
 ErrorMsg              C07_Magenta       none
 FoldColumn            C09_Grey          C10_GreenBlue
 Folded                C09_Grey          C10_GreenBlue
@@ -159,7 +158,7 @@ PmenuSbar             C08_LightGrey     C25_Grey
 PmenuSel              C06_LightGreen    C12_PastelBlue
 PmenuThumb            C08_LightGrey     C26_White
 Question              C23_Green         C05_DarkBlue      bold
-Search                C05_DarkBlue      C02_Orange
+Search                C05_DarkBlue      C38_test
 SignColumn            C03_LightGray     C05_DarkBlue
 SpecialKey            C20_Cyan          C05_DarkBlue
 SpellBad              C09_Grey          none              s=red       undercurl

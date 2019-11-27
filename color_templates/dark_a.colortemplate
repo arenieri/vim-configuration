@@ -82,7 +82,7 @@ Color: C10_GreenBlue  rgb(  0,  56,  77)        ~         DarkBlue
 Color: C11_Yellow     rgb(255, 204,  27)        ~         LightYellow
 Color: C12_PastelBlue rgb( 81, 127, 141)        ~         LightBlue
 Color: C13_LightBlue  rgb( 28, 141, 178)        ~         LightBlue
-Color: C14_Pink       rgb(251, 148,  25)        ~         LightGrey
+Color: C14_Pink       rgb(251, 148,  25)        ~         LightMagenta
 Color: C15_Pink       rgb(255,  90, 103)        ~         LightMagenta
 Color: C16_Grey       rgb(183, 207, 249)        ~         LightBlue
 
@@ -191,7 +191,6 @@ PreProc               C19_Pink1         none
 Special               C18_Orange3       none
 Statement             C13_LightBlue     none
 String                C04_LightGreen    none
-#Todo                  C35_Orange       C36_Red            bold
 Todo                  C36_Red           C11_Yellow        bold
 Type                  C15_Pink          none
 Underlined            C16_Grey          none              underline

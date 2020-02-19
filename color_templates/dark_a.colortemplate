@@ -179,7 +179,7 @@ VisualNOS             C22_White         C05_DarkBlue      underline bold
 WarningMsg            C24_Red           C05_DarkBlue
 WildMenu              C08_LightGrey     C12_PastelBlue
 # Other conventional  group names (see `help group-name`)
-Comment               C09_Grey          none
+Comment               C09_Grey          none              italic
 Constant              C02_Orange        none
 Error                 C07_Magenta       none
 Exception             C30_Red           none

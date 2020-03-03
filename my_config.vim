@@ -92,6 +92,8 @@ set history=50      " keep 50 lines of command line history
 set ruler           " show the cursor position all the time
 set showcmd         " display incomplete commands
 set incsearch       " do incremental searching
+set ignorecase      " ignore case of letters during pattern search
+set smartcase       " ignore case when the pattern contains lowercase letters only
 
 set encoding=utf-8   " Set character encoding
 " encoding=utf-8 is required by powerline when gvim is started from inside certain applications (Eg. vmanager)

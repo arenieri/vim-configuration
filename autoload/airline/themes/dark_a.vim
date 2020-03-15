@@ -66,7 +66,7 @@ let g:airline#themes#dark_a#palette = {}
 "==============================
 let s:airline_a_normal   = [ "#002635", "#7eb2dd", 235, 110 ]
 let s:airline_b_normal   = [ "#002635", "#1c8db2", 235,  31 ]
-let s:airline_c_normal   = [ "#b7cff9", "#00384d", 153,  23 ]
+let s:airline_c_normal   = [ "#b7cff9", "#104560", 153,  23 ]
 
 let g:airline#themes#dark_a#palette.normal = airline#themes#generate_color_map(s:airline_a_normal, s:airline_b_normal, s:airline_c_normal)
 
@@ -105,11 +105,11 @@ let g:airline#themes#dark_a#palette.normal_modified = {
 "==============================
 let s:airline_a_insert = [ "#002635", "#ffcc1b", 235, 220 ]
 let s:airline_b_insert = [ "#002635", "#f08e48", 235, 209 ]
-let s:airline_c_insert = [ "#b7cff9", "#00384d",  14,  23 ]
+let s:airline_c_insert = [ "#b7cff9", "#104560",  14,  23 ]
 let g:airline#themes#dark_a#palette.insert = airline#themes#generate_color_map(s:airline_a_insert, s:airline_b_insert, s:airline_c_insert)
 
 let g:airline#themes#dark_a#palette.insert_modified = {
-      \ 'airline_c': [ '#ff6080' , '#8b2500' , 255     , 53      , ''     ] ,
+      \ 'airline_c': [ '#ff6080' , '#800000' , 255     , 53      , ''     ] ,
       \ }
 let g:airline#themes#dark_a#palette.insert_paste = {
       \ 'airline_a': [ s:airline_a_insert[0]   , '#d78700' , s:airline_a_insert[2] , 172     , ''     ] ,
@@ -120,7 +120,7 @@ let g:airline#themes#dark_a#palette.insert_paste = {
 "==============================
 let s:airline_a_replace = [ "#002635", "#ff5a67", 235, 203 ]
 let s:airline_b_replace = [ "#002635", "#f08e48", 235, 209 ]
-let s:airline_c_replace = [ "#ff5a67", "#00384d", 203,  23 ]
+let s:airline_c_replace = [ "#ff5a67", "#104560", 203,  23 ]
 "let g:airline#themes#dark_a#palette.replace = copy(g:airline#themes#dark_a#palette.insert)
 "let g:airline#themes#dark_a#palette.replace.airline_a = [ s:airline_b_insert[0]   , '#af0000' , s:airline_b_insert[2] , 124     , ''     ]
 let g:airline#themes#dark_a#palette.replace = airline#themes#generate_color_map(s:airline_a_replace, s:airline_b_replace, s:airline_c_replace)
@@ -131,7 +131,7 @@ let g:airline#themes#dark_a#palette.replace_modified = g:airline#themes#dark_a#p
 "==============================
 let s:airline_a_visual = [ "#002635", "#fb94ff", 235, 213 ]
 let s:airline_b_visual = [ "#002635", "#c694ff", 235, 177 ]
-let s:airline_c_visual = [ "#c694ff", "#00384d", 177, 23 ]
+let s:airline_c_visual = [ "#c694ff", "#104560", 177, 23 ]
 let g:airline#themes#dark_a#palette.visual = airline#themes#generate_color_map(s:airline_a_visual, s:airline_b_visual, s:airline_c_visual)
 let g:airline#themes#dark_a#palette.visual_modified = {
       \ 'airline_c': [ '#ff6080' , '#8b2500' , 255     , 53      , ''     ] ,
@@ -140,12 +140,12 @@ let g:airline#themes#dark_a#palette.visual_modified = {
 "==============================
 " INACTIVE
 "==============================
-let s:airline_a_inactive = [ "#00384d", "#517f8d", 23, 66 ]
-let s:airline_b_inactive = [ "#77929e", "#00384d", 246, 23 ]
-let s:airline_c_inactive = [ "#77929e", "#003040", 246, 235 ]
+let s:airline_a_inactive = [ "#10384d", "#517f8d", 23, 66 ]
+let s:airline_b_inactive = [ "#77929e", "#1a4e6a", 246, 23 ]
+let s:airline_c_inactive = [ "#77929e", "#104055", 246, 235 ]
 let g:airline#themes#dark_a#palette.inactive = airline#themes#generate_color_map(s:airline_a_inactive, s:airline_b_inactive, s:airline_c_inactive)
 let g:airline#themes#dark_a#palette.inactive_modified = {
-      \ 'airline_c': [ '#ff6080' , '#600f00' , 97 , '' , '' ] ,
+      \ 'airline_c': [ '#ff6080' , '#500000' , 97 , '' , '' ] ,
       \ }
 
 
@@ -156,7 +156,7 @@ let g:airline#themes#dark_a#palette.inactive_modified = {
 " indicator should be colored differently, e.g. light green
 let s:airline_a_commandline = [ '#002635' , "#3cc33c", 235, 110 ]
 let s:airline_b_commandline = [ '#002635' , "#1c8db2", 235,  31 ]
-let s:airline_c_commandline = [ '#b7cff9' , "#00384d", 153,  23 ]
+let s:airline_c_commandline = [ '#b7cff9' , "#10384d", 153,  23 ]
 let g:airline#themes#dark_a#palette.commandline = airline#themes#generate_color_map(s:airline_a_commandline, s:airline_b_commandline, s:airline_c_commandline)
 
 

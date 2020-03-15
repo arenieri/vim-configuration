@@ -70,7 +70,7 @@ Color: brightmagenta  rgb(255, 100, 255)        ~         LightMagenta
 Color: brightcyan     rgb(100, 255, 255)        ~         LightCyan
 #
 Color: C01_DarkGreen  rgb(  0,  26,  37)        ~         DarkGreen
-Color: C02_Orange     rgb(240, 142,  72)        ~         LightRed
+Color: C02_Orange     rgb(225, 130,  72)        ~         LightRed
 Color: C03_LightGray  rgb(183, 207, 249)        ~         LightGrey
 Color: C04_LightGreen rgb(156, 240, 135)        ~         LightGreen
 Color: C05_DarkBlue   rgb(  0,  38,  53)        ~         DarkBlue
@@ -87,7 +87,7 @@ Color: C15_Pink       rgb(255,  90, 103)        ~         LightMagenta
 Color: C16_Grey       rgb(183, 207, 249)        ~         LightBlue
 
 Color: C17_DustyGrey  rgb(127, 127, 127)        ~         LightGrey
-Color: C18_Orange3    rgb(255, 165,   0)        ~         LightRed
+Color: C18_Orange3    rgb(255, 190,   0)        ~         LightRed
 Color: C19_Pink1      rgb(255, 128, 255)        ~         LightRed
 Color: C20_Cyan       rgb(  0, 255, 255)        ~         LightBlue
 Color: C21_Green      rgb( 47, 239,  88)        ~         DarkGreen
@@ -175,7 +175,7 @@ TabLineSel            C08_LightGrey     C13_LightBlue
 Title                 C06_LightGreen    none
 VertSplit             C12_PastelBlue    C05_DarkBlue
 Visual                none              C12_PastelBlue
-VisualNOS             C22_White         C05_DarkBlue      underline bold
+VisualNOS             none              C12_PastelBlue    underline bold
 WarningMsg            C24_Red           C05_DarkBlue
 WildMenu              C08_LightGrey     C12_PastelBlue
 # Other conventional  group names (see `help group-name`)

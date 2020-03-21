@@ -107,7 +107,8 @@ Color: C34_Grey       rgb( 90,  90,  90)        ~         DarkGrey
 Color: C35_Orange     rgb(223,  95,   0)        ~         LightRed
 Color: C36_Red        rgb(153,   0,   0)        ~         DarkRed
 Color: C37_White      rgb(230, 230, 220)        ~         LightGrey
-Color: C38_test       rgb(240, 110, 255)        ~         LightMagenta
+Color: C38_Magenta    rgb(240, 110, 255)        ~         LightMagenta
+Color: C39_Orchid     rgb(137, 104, 205)        ~         LightMagenta
 
 # You may use hexadecimal values, too, and you may provide an explicit base-256 color:
 Color: brightwhite    #ffffff                  231        White
@@ -158,7 +159,7 @@ PmenuSbar             C08_LightGrey     C25_Grey
 PmenuSel              C06_LightGreen    C12_PastelBlue
 PmenuThumb            C08_LightGrey     C26_White
 Question              C23_Green         C05_DarkBlue      bold
-Search                C05_DarkBlue      C38_test
+Search                C05_DarkBlue      C38_Magenta
 SignColumn            C03_LightGray     C05_DarkBlue
 SpecialKey            C20_Cyan          C05_DarkBlue
 SpellBad              C09_Grey          none              s=red       undercurl
@@ -174,8 +175,8 @@ TabLineFill           none              C10_GreenBlue
 TabLineSel            C08_LightGrey     C13_LightBlue
 Title                 C06_LightGreen    none
 VertSplit             C12_PastelBlue    C05_DarkBlue
-Visual                none              C12_PastelBlue
-VisualNOS             none              C12_PastelBlue    underline bold
+Visual                C08_LightGrey     C39_Orchid
+VisualNOS             C08_LightGrey     C39_Orchid        underline bold
 WarningMsg            C24_Red           C05_DarkBlue
 WildMenu              C08_LightGrey     C12_PastelBlue
 # Other conventional  group names (see `help group-name`)

@@ -480,10 +480,11 @@ function! GetVerilog_SystemVerilogIndent()
     " move cursor to the previous line (Important: set the cursor to column 1)
     " save current position
     "let save_pos = getpos('.')
-    call setpos('.', [0, prevnonblank(prevlnum-1), 1, 0])
+    call setpos('.', [0, prevnonblank(prevlnum), 1, 0])
     " Search the line of the matching begin
     let begin_line_num = SearchPairNoComment('\<begin\>','','\<end\>')
     let this_line = GetLineStrip(begin_line_num)
+    let msg = msg . " (begin at line: " . begin_line_num . ")"
     " Check if the begin keyword is the only keyword in the line and de-dent
     if (this_line =~ regexp_begin)
       let ind = ind - offset_be
@@ -553,7 +554,7 @@ function! GetVerilog_SystemVerilogIndent()
 
     " TODO questa linea dovrebbe fare il match di tutti i comandi che possono prevedere
     " un comando singolo subito dopo. Le regexp sono gia' utilizzate quando si fa' l'indentazione
-    " Assegnare le regexp a delle variabili per eviare duplicazioni
+    " Assegnare le regexp a delle variabili per evitare duplicazioni
     if (  prev2_line =~ '`\@<!\<\(if\|else\)\>.*;\@!.*$')
       if ( (prev_line !~ '\<begin\>') && (prev2_line !~ '\<begin\>') )
         let ind = ind - offset

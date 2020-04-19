@@ -54,7 +54,7 @@ syn match   verilogOperator "[&|~><!)(*#%@+/=?:;}{,.\^\-\[\]]"
 syn region  verilogComment start="/\*" end="\*/" contains=verilogTodo,@Spell
 syn match   verilogComment "//.*" contains=verilogTodo,@Spell
 
-"syn match   verilogGlobal "`[a-zA-Z0-9_]\+\>"
+syn match   verilogGlobal "`[a-zA-Z0-9_]\+\>"
 syn match   verilogGlobal "`celldefine"
 syn match   verilogGlobal "`default_nettype"
 syn match   verilogGlobal "`define"

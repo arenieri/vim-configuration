@@ -40,29 +40,36 @@ call plug#begin('~/.vim/plugged')
     " In case of problems with airline you can try lightline
     "Plug 'itchyny/lightline.vim'
     Plug 'istepura/vim-toolbar-icons-silk'
-    "Beautify nerdtree (keep this at the end)
+
+    " Beautify nerdtree (keep this at the end)
     Plug 'ryanoasis/vim-devicons'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
     "Some colorschemes
-    Plug 'lifepillar/vim-wwdc16-theme'
-    Plug 'lifepillar/vim-gruvbox8'
-    Plug 'lifepillar/vim-solarized8'
-    Plug 'Rigellute/rigel'
+    "Plug 'lifepillar/vim-wwdc16-theme'
+    "Plug 'lifepillar/vim-gruvbox8'
+    "Plug 'lifepillar/vim-solarized8'
+    "Plug 'Rigellute/rigel'
+
+    " Plugin to create custom colorschemes
+    "Plug 'lifepillar/vim-colortemplate'
 
 " Add plugins to &runtimepath
 call plug#end()
 
-" source main configuration file 
+" Uncomment to use classic colorscheme
+let g:use_classic_colorscheme
+
+" source main configuration file
 " The file is located in vim-configuration
 runtime my_config.vim
 
-" Colorscheme and Airline theme
-colorscheme dark_a
-let g:airline_theme = 'dark_a'
+" Uncomment for dark blue colorscheme
+"colorscheme mydarkblue
+"let g:airline_theme = 'light'
 
 "------------------------------------------
-" Colorscheme and Airline theme
+" Override Colorscheme and Airline theme
 "colorscheme rigel
 "let g:airline_theme = 'rigel'
 
@@ -84,3 +91,4 @@ let g:airline_theme = 'dark_a'
 "------------------------------------------
 " Force cursor blinking
 "set guicursor-=a:blinkon0
+

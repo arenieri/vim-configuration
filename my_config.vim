@@ -66,13 +66,14 @@ else
 endif
 
 
-" Colorscheme
-colorscheme mydarkblue
-"colorscheme rigel
+" Colorscheme and Airline theme
+colorscheme dark_a
+let g:airline_theme = 'dark_a'
 
-" Airline theme
-let g:airline_theme = 'light'
-"let g:airline_theme = 'rigel'
+" Blue colorscheme
+"colorscheme mydarkblue
+"let g:airline_theme = 'light'
+
 
 " Configuration
 set textwidth=0     " Text width (A longer line will be broken after white space. 0 means disabled)

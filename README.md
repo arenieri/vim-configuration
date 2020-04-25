@@ -47,6 +47,7 @@
         Open 'Font Book' and drag&drop files from Finder
 
     :information_source: Information about Nerd fonts can be found here https://www.nerdfonts.com
+    
     :information_source: Information about Hack font can be found here https://sourcefoundry.org/hack/
 
 - To install other powerline/airline fonts (Optional)

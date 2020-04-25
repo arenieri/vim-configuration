@@ -3,7 +3,7 @@ To Start
 
     " Load vim-plug
     if empty(glob("~/.vim/autoload/plug.vim"))
-        execute '!curl -kfLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+        execute '!curl --create-dirs -kfLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
     endif
 
     " install plugins using vim-plug
@@ -23,21 +23,24 @@ To Start
     ~/.vim/plugged/vim-configuration/vimrc
 
 - Use the following command to install/update/remove plugins
-    :PlugInstall
-    :PlugUpdate
-    :PlugClean
+    :PlugInstall (Installs new plugins added in vimrc)
+    :PlugUpdate  (Updates installed plugins)
+    :PlugClean   (Removes plugins removed from vimrc)
+    :PlugUpgrade (Upgrades vimplug plugin)
     
     if you edit vimrc to add or remove plugins you have to restart gvim and type 
     :PlugInstall/:PlugUpdate/:PlugClean to update the plugins
 
     Additional info at https://github.com/junegunn/vim-plug
 
-- To install Hack0 font (Suggested)
+- To install HackNerd font and/or Hack0 font (Suggested)
     * Linux
-        cp ˜/.vim/plugged/vim-configuration/fonts/Hack0  ˜/.fonts
+        cp ˜/.vim/plugged/vim-configuration/fonts/HackNerd  ˜/.fonts
     * Mac
         Open 'Font Book' and drag&drop files from Finder
       
+    Information about Nerd fonts can be found here https://www.nerdfonts.com
+    Information about Hack font can be found here https://sourcefoundry.org/hack/
 
 - To install other powerline/airline fonts (Optional)
     * Linux

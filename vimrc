@@ -57,9 +57,6 @@ call plug#begin('~/.vim/plugged')
 " Add plugins to &runtimepath
 call plug#end()
 
-" Uncomment to use classic colorscheme
-let g:use_classic_colorscheme
-
 " source main configuration file
 " The file is located in vim-configuration
 runtime my_config.vim

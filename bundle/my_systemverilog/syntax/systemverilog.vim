@@ -14,7 +14,8 @@ syn sync lines=1000
 " Set the local value of the 'iskeyword' option.
 " NOTE: '?' was added so that verilogNumber would be processed correctly when
 "       '?' is the last character of the number.
-setlocal iskeyword=@,48-57,63,_,192-255
+"       '.' is added to help BallonExpr to detect module ports
+setlocal iskeyword=@,48-57,63,_,192-255,.
 
 "##########################################################
 "       Verilog Syntax

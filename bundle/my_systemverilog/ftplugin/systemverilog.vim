@@ -52,9 +52,14 @@ function! BalloonExpr()
     " If the word under cursor starts with a dot then search backward for module name
     " module name is the first line not starting with a dot
     let msg_mod = ''
+    "let wordUnderCursor = expand("<cword>")
     if (match(getline(v:beval_lnum), '\.\w\+') != -1 && v:beval_text=='.')
+        "If the pointer is on <.portName> then search for module name
         call setpos('.',[0,v:beval_lnum+1,1,0])
-        let l:modinst_lnum = search('^\s*\w\+','b')
+        "                    regular expression to identify module name
+        "let l:modinst_lnum = search('^\s*\w\+','b')
+        " Search backward for lines not starting with . and not containing '['
+        let l:modinst_lnum = search('^\(\s*\w\+\)\@>[ˆ\[]','b')
         let msg_mod = 'Module: '. Strip(getline(l:modinst_lnum)) . " (Line: " . l:modinst_lnum . ")\n"
         let msg = v:beval_text ."\n" . msg_mod
     else

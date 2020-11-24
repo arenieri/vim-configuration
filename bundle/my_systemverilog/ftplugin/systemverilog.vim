@@ -58,8 +58,14 @@ function! BalloonExpr()
         call setpos('.',[0,v:beval_lnum+1,1,0])
         "                    regular expression to identify module name
         "let l:modinst_lnum = search('^\s*\w\+','b')
-        " Search backward for lines not starting with . and not containing '['
-        let l:modinst_lnum = search('^\(\s*\w\+\)\@>[ˆ\[]','b')
+        "
+        " Search backward for block instance
+        " block_name  #(.PARAM1  (P1),
+        "               .PARAM2  (P2),
+        "               .PARAM3  (P3))
+        "  inst_name (
+
+        let l:modinst_lnum = search('^\s*\w\+\s*\%(#(\%(\s*.\w*\s*(\w\+)\s*\_W*\)*\)*\w\+\_s*(','b')
         let msg_mod = 'Module: '. Strip(getline(l:modinst_lnum)) . " (Line: " . l:modinst_lnum . ")\n"
         let msg = v:beval_text ."\n" . msg_mod
     else

@@ -61,11 +61,13 @@ function! BalloonExpr()
         "
         " Search backward for block instance
         " block_name  #(.PARAM1  (P1),
-        "               .PARAM2  (P2),
+        "               .PARAM2  (P2), // comment
         "               .PARAM3  (P3))
         "  inst_name (
 
-        let l:modinst_lnum = search('^\s*\w\+\s*\%(#(\%(\s*.\w*\s*(\w\+)\s*\_W*\)*\)*\w\+\_s*(','b')
+        "let l:block_inst_regexp = '^\s*\w\+\_s\+\%(#\_s*(\_s*\%(\_s*\.\w\+\s*(\s*[`A-Za-z_0-9+]\+\s*)\s*,*\_s*\%(\/\/.*\)*\_s*\)*)\)*\_s*\w\+\_s*'
+        let l:block_inst_regexp = '^\s*\w\+\_s\+\%(#\_s*(\_s*\%(\_s*\.\w\+\s*(\s*\S\+\s*)\s*,*\_s*\%(\/\/.*\)*\_s*\)*)\)*\_s*\w\+\_s*'
+        let l:modinst_lnum = search(l:block_inst_regexp,'b')
         let msg_mod = 'Module: '. Strip(getline(l:modinst_lnum)) . " (Line: " . l:modinst_lnum . ")\n"
         let msg = v:beval_text ."\n" . msg_mod
     else
@@ -119,5 +121,6 @@ if has("gui_win32")
   let b:browsefilter = "Systemverilog Source Files (*.v *.sv *.svi *.svh)\t*.v;*.sv;*.svi;*svh\n" .
 	\ "All Files (*.*)\t*.*\n"
 endif
+
 
 

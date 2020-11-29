@@ -67,8 +67,21 @@ function! BalloonExpr()
 
         "let l:block_inst_regexp = '^\s*\w\+\_s\+\%(#\_s*(\_s*\%(\_s*\.\w\+\s*(\s*[`A-Za-z_0-9+]\+\s*)\s*,*\_s*\%(\/\/.*\)*\_s*\)*)\)*\_s*\w\+\_s*'
         let l:block_inst_regexp = '^\s*\w\+\_s\+\%(#\_s*(\_s*\%(\_s*\.\w\+\s*(\s*\S\+\s*)\s*,*\_s*\%(\/\/.*\)*\_s*\)*)\)*\_s*\w\+\_s*'
-        let l:modinst_lnum = search(l:block_inst_regexp,'b')
-        let msg_mod = 'Module: '. Strip(getline(l:modinst_lnum)) . " (Line: " . l:modinst_lnum . ")\n"
+        " search for start line of module instance
+        let l:modinst_lnum_start = search(l:block_inst_regexp,'b')
+        " search for end line of module instance
+        let l:modinst_lnum_end   = search(l:block_inst_regexp,'e')
+        "------------------------------------------------------
+        "let msg_mod = 'Module: '. Strip(getline(l:modinst_lnum_start)) . " (Line: " . l:modinst_lnum_start . ")\n"
+        "------------------------------------------------------
+        " Prepare text for the balloon
+        let l:lines = getline(l:modinst_lnum_start,l:modinst_lnum_end)
+        let msg_mod = "Module: \n"
+        for ll in l:lines 
+            let msg_mod = msg_mod . ll . "\n"
+        endfor
+        let msg_mod = msg_mod . "\n(Line Start: " . l:modinst_lnum_start . " - Line End: " . l:modinst_lnum_end . ")\n"
+        "------------------------------------------------------
         let msg = v:beval_text ."\n" . msg_mod
     else
     "------------------------------------------------------------------
@@ -121,6 +134,5 @@ if has("gui_win32")
   let b:browsefilter = "Systemverilog Source Files (*.v *.sv *.svi *.svh)\t*.v;*.sv;*.svi;*svh\n" .
 	\ "All Files (*.*)\t*.*\n"
 endif
-
 
 

@@ -90,7 +90,7 @@ function! BalloonExpr()
         " Place the cursor at the beginning of the file
         call setpos('.',[0,1,1,0])
         let l:found = 1
-        let l:lnum = search(v:beval_text)
+        let l:lnum = search('\<'.v:beval_text.'\>')
         " save the line number of the first match
         let l:lnum_first = l:lnum
 
@@ -98,7 +98,7 @@ function! BalloonExpr()
         " and does not contain the variable type
         while ( match(getline(l:lnum), l:regexp_decl) == -1 )
             call setpos('.',[0,l:lnum+1,1,0])
-            let l:lnum = search(v:beval_text)
+            let l:lnum = search('\<'.v:beval_text.'\>')
             "echo l:lnum_first ." ". l:lnum . " " . getline(l:lnum)
             "sleep 2
             if l:lnum == l:lnum_first

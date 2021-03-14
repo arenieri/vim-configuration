@@ -8,12 +8,12 @@ endif
 let loaded_lines = 1
 
 " Move lines with Alt + Up/Down
-nnoremap <silent> <A-Down> :m .+1<CR>==
-nnoremap <silent> <A-Up>   :m .-2<CR>==
-inoremap <silent> <A-Down> <Esc>:m .+1<CR>==gi
-inoremap <silent> <A-Up>   <Esc>:m .-2<CR>==gi
-vnoremap <silent> <A-Down> :m '>+1<CR>gv=gv
-vnoremap <silent> <A-Up>   :m '<-2<CR>gv=gv
+nnoremap <silent> <C-Down> :m .+1<CR>==
+nnoremap <silent> <C-Up>   :m .-2<CR>==
+inoremap <silent> <C-Down> <Esc>:m .+1<CR>==gi
+inoremap <silent> <C-Up>   <Esc>:m .-2<CR>==gi
+vnoremap <silent> <C-Down> :m '>+1<CR>gv=gv
+vnoremap <silent> <C-Up>   :m '<-2<CR>gv=gv
 
 " Duplicate lines
 nnoremap <silent> <C-D>      :t.<CR>

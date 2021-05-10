@@ -66,7 +66,10 @@ function! BalloonExpr()
         "  inst_name (
 
         "let l:block_inst_regexp = '^\s*\w\+\_s\+\%(#\_s*(\_s*\%(\_s*\.\w\+\s*(\s*[`A-Za-z_0-9+]\+\s*)\s*,*\_s*\%(\/\/.*\)*\_s*\)*)\)*\_s*\w\+\_s*'
-        let l:block_inst_regexp = '^\s*\w\+\_s\+\%(#\_s*(\_s*\%(\_s*\.\w\+\s*(\s*\S\+\s*)\s*,*\_s*\%(\/\/.*\)*\_s*\)*)\)*\_s*\w\+\_s*'
+        " \_s  : matches white space including end of line
+        " \{-} : matches 0 or more of the preceding atom, as few as possible
+        " \S   : matches any non white space character
+        let l:block_inst_regexp = '^\s*\w\+\_s\+\%(#\_s*(\_s*\%(\_s*\.\w\+\s*(\_s*\(\S\+\|{\_.\{-}}\)\+\_s*)\s*,*\_s*\%(\/\/.*\)*\_s*\)*)\)*\_s*\w\+\_s*'
         " search for start line of module instance
         let l:modinst_lnum_start = search(l:block_inst_regexp,'b')
         " search for end line of module instance

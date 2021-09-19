@@ -159,6 +159,9 @@ if has('linux')
     if !isdirectory($HOME."/.fonts/HackNerd")
         exec "!ln -s  $HOME/.vim/plugged/vim-configuration/fonts/HackNerd  $HOME/.fonts/HackNerd"
     endif
+    if !isdirectory($HOME."/.fonts/Meslo")
+        exec "!ln -s  $HOME/.vim/plugged/vim-configuration/fonts/Meslo  $HOME/.fonts/Meslo"
+    endif
 endif
 
 

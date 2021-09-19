@@ -153,6 +153,15 @@ if has('unix')
 
 endif
 
+if has('linux')
+    " NOTE: In MacOS use GUI to install fonts
+    " Link fonts in ˜/.fonts directory if needed
+    if !isdirectory($HOME."/.fonts/HackNerd")
+        exec "!ln -s  $HOME/.vim/plugged/vim-configuration/fonts/HackNerd  $HOME/.fonts/HackNerd"
+    endif
+endif
+
+
 " Configure directories for backup, swap and undo files
 " Folders have to be created manually
 if has('win32')

@@ -1,36 +1,36 @@
-# vim: ft=colortemplate fdm=marker cc=22,40,58 et ts=2 sw=2
+; vim: ft=colortemplate fdm=marker cc=22,40,58 et ts=2 sw=2
 
-# Information {{{
-# Mandatory
+; Information {{{
+; Mandatory
 Full name:     Dark_A
 Short name:    dark_a
 Author:        Myself <myself@somewhere.org>
-# Optional
+; Optional
 Maintainer:    Myself <myself@somewhere.org>
 Website:       https://me.org
 Description:   Dark A colorscheme
 License:       Public domain
-# Prefix for options: short name is used if this key is not present:
+; Prefix for options: short name is used if this key is not present:
 Option Prefix: dark
-# }}}
+; }}}
 
-# Documentation {{{
+; Documentation {{{
 Include: _help.colortemplate
-# }}}
+; }}}
 
-# Common linked groups {{{
+; Common linked groups {{{
 QuickFixLine      -> Search
-#StatusLineTerm    -> StatusLine
-#StatusLineTermNC  -> StatusLineNC
+;StatusLineTerm    -> StatusLine
+;StatusLineTermNC  -> StatusLineNC
 Character         -> Constant
 Conditional       -> Statement
 Define            -> PreProc
 Debug             -> PreProc
 Delimiter         -> Special
-#Exception         -> Statement
+;Exception         -> Statement
 Float             -> Constant
-#Function          -> Identifier
-#Include           -> PreProc
+;Function          -> Identifier
+;Include           -> PreProc
 Keyword           -> Statement
 Label             -> Statement
 Macro             -> PreProc
@@ -41,18 +41,18 @@ Repeat            -> Statement
 SpecialChar       -> Special
 SpecialComment    -> Special
 StorageClass      -> Type
-#String            -> Constant
+;String            -> Constant
 Structure         -> Type
 Tag               -> Special
 Typedef           -> Type
-# See `:help lCursor`
+; See `:help lCursor`
 lCursor           -> Cursor
-# }}}
+; }}}
 
 Background: dark
 
-# Color palette {{{
-# Color name          GUI                   Base256       Base16 (optional)
+; Color palette {{{
+; Color name          GUI                   Base256       Base16 (optional)
 Color: black          rgb(  0,   0,   0)        ~         Black
 Color: red            rgb(255,   0,   0)        ~         DarkRed
 Color: green          rgb(  0, 255,   0)        ~         DarkGreen
@@ -68,7 +68,7 @@ Color: brightyellow   rgb(255, 255, 100)        ~         LightYellow
 Color: brightblue     rgb(  0, 100, 255)        ~         LightBlue
 Color: brightmagenta  rgb(255, 100, 255)        ~         LightMagenta
 Color: brightcyan     rgb(100, 255, 255)        ~         LightCyan
-#
+;
 Color: C01_DarkGreen  rgb(  0,  26,  37)        ~         DarkGreen
 Color: C02_Orange     rgb(225, 130,  72)        ~         LightRed
 Color: C03_LightGray  rgb(183, 207, 249)        ~         LightGrey
@@ -105,21 +105,21 @@ Color: C32_Green      rgb(144, 239, 143)        ~         LightGreen
 Color: C33_Blue       rgb(  0,  68,  83)        ~         LightBlue
 Color: C34_Grey       rgb( 90,  90,  90)        ~         DarkGrey
 Color: C35_Orange     rgb(223,  95,   0)        ~         LightRed
-Color: C36_Red        rgb(153,   0,   0)        ~         DarkRed
+Color: C36_Orange     rgb(208,  64,   0)        ~         DarkRed
 Color: C37_White      rgb(230, 230, 220)        ~         LightGrey
 Color: C38_Magenta    rgb(240, 110, 255)        ~         LightMagenta
 Color: C39_Orchid     rgb(137, 104, 205)        ~         LightMagenta
 
-# You may use hexadecimal values, too, and you may provide an explicit base-256 color:
+; You may use hexadecimal values, too, and you may provide an explicit base-256 color:
 Color: brightwhite    #ffffff                  231        White
-# }}}
-# Terminal colors {{{
+; }}}
+; Terminal colors {{{
 Term colors: black red green yellow blue magenta cyan white
 Term colors: brightblack brightred brightgreen brightyellow
 Term colors: brightblue brightmagenta brightcyan brightwhite
-# }}}
+; }}}
 
-# Default highlight groups {{{
+; Default highlight groups {{{
 Variant: gui
 #if get(g:, '@optionprefix_transp_bg', 0) && !has('gui_running')
 Variant: 256 8
@@ -132,7 +132,7 @@ Variant: gui 256 8
     Terminal          C37_White         C05_DarkBlue
 #endif
 
-# Group               Foreground        Background        Attributes
+; Group               Foreground        Background        Attributes
 ColorColumn           none              C34_Grey
 Conceal               none              none
 Cursor                none              C07_Magenta
@@ -179,7 +179,7 @@ Visual                C08_LightGrey     C39_Orchid
 VisualNOS             C08_LightGrey     C39_Orchid        underline bold
 WarningMsg            C24_Red           C05_DarkBlue
 WildMenu              C08_LightGrey     C12_PastelBlue
-# Other conventional  group names (see `help group-name`)
+; Other conventional  group names (see `help group-name`)
 Comment               C09_Grey          none              italic
 Constant              C02_Orange        none
 Error                 C07_Magenta       none
@@ -192,21 +192,21 @@ PreProc               C19_Pink1         none
 Special               C18_Orange3       none
 Statement             C13_LightBlue     none
 String                C04_LightGreen    none
-Todo                  C36_Red           C11_Yellow        bold
+Todo                  C36_Orange        C11_Yellow        bold
 Type                  C15_Pink          none
 Underlined            C16_Grey          none              underline
 Boolean               C15_Pink          none
-# See `:help CursorIM`
+; See `:help CursorIM`
 CursorIM              none              fg
-# See `:help window-toolbar`
+; See `:help window-toolbar`
 ToolbarLine           C22_White         C17_DustyGrey
 ToolbarButton         C28_Black         C27_Grey          bold
-# }}}
+; }}}
 
-# Additional highlight groups {{{
-# Add additional highlight groups here if you want
-# }}}
+; Additional highlight groups {{{
+; Add additional highlight groups here if you want
+; }}}
 
-# B/W variant {{{
+; B/W variant {{{
 Include: _bw.colortemplate
-# }}}
+; }}}

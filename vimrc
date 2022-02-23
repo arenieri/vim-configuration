@@ -21,6 +21,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'antoinemadec/vim-verilog-instance'
     Plug 'powerman/vim-plugin-AnsiEsc'
+    " Highlight keywords or lines
+    Plug 'azabiong/vim-highlighter'
 
     " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
     "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }

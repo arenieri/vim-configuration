@@ -9,21 +9,21 @@ noremap <F12> :IndentGuidesToggle<CR>
 
 
 " Add Menu
-amenu Misc.Highlight\ Cursor\ Line<Tab>F3       :set cursorline!<CR>
-amenu Misc.Rainbow\ Parentheses<Tab>F6          :RainbowToggle<CR>
-amenu Misc.NERD\ Tree<Tab>F7                    :NERDTreeToggle<CR>
-amenu Misc.Tagbar<Tab>F9                        :TagbarToggle<CR>
-amenu Misc.Undo\ Tree<Tab>F11                   :UndotreeToggle<CR>
-amenu Misc.Indent\ Guide<Tab>F12                :IndentGuidesToggle<CR>
-amenu Misc.MRU<Tab>:MRU                         :MRU<CR>
-amenu Misc.Remove\ Trailing\ Spaces<Tab>:RTS    :RTS<CR>
-amenu Misc.AnsiEsc<Tab>:AnsiEsc                 :AnsiEsc<CR>
-amenu Misc.-Sep1-                               <Nop>
-amenu Misc.Increase\ Font\ Size                 :SetLargerFont<CR>
-amenu Misc.Decrease\ Font\ Size                 :SetSmallerFont<CR>
-amenu Misc.Reset\ Font\ Size                    :ResetFontSize<CR>
-amenu Misc.-Sep2-                               <Nop>
-amenu Misc.Open\ Configuration\ Files           :NERDTree $HOME/.vim/plugged/vim-configuration/<CR>
+amenu Misc.Highlight\ Cursor\ Line<Tab>F3           :set cursorline!<CR>
+amenu Misc.Rainbow\ Parentheses<Tab>F6              :RainbowToggle<CR>
+amenu Misc.NERD\ Tree<Tab>F7                        :NERDTreeToggle<CR>
+amenu Misc.Tagbar<Tab>F9                            :TagbarToggle<CR>
+amenu Misc.Undo\ Tree<Tab>F11                       :UndotreeToggle<CR>
+amenu Misc.Indent\ Guide<Tab>F12                    :IndentGuidesToggle<CR>
+amenu Misc.MRU<Tab>:MRU                             :MRU<CR>
+amenu Misc.Remove\ Trailing\ Spaces<Tab>(:RTS)\ F2  :RTS<CR>
+amenu Misc.AnsiEsc<Tab>:AnsiEsc                     :AnsiEsc<CR>
+amenu Misc.-Sep1-                                   <Nop>
+amenu Misc.Increase\ Font\ Size                     :SetLargerFont<CR>
+amenu Misc.Decrease\ Font\ Size                     :SetSmallerFont<CR>
+amenu Misc.Reset\ Font\ Size                        :ResetFontSize<CR>
+amenu Misc.-Sep2-                                   <Nop>
+amenu Misc.Open\ Configuration\ Files               :NERDTree $HOME/.vim/plugged/vim-configuration/<CR>
 
 "amenu Misc.Matrix                          :Matrix<CR>
 

@@ -8,6 +8,29 @@
 " Use relative paths
 let g:startify_relative_path = 1
 
+" Load Help in Startify
+let g:startify_vim_ascii = [
+        \ '        __',
+        \ '.--.--.|__|.--------.',
+        \ '|  |  ||  ||        |',
+        \ ' \___/ |__||__|__|__|',
+        \ ''
+        \]
+
+let g:startify_custom_help = [
+        \ '',
+        \ ' QUICK HELP',
+        \ '     f<Enter>     : highlight selection',
+        \ '     f<Backspace> : erase highlight',
+        \ '     f<Ctrl+L>    : clear highlight',
+        \ '   See Misc Menu for additional commands',
+        \ '',
+        \]
+
+let g:startify_custom_header = 'startify#pad(g:startify_vim_ascii + g:startify_custom_help)'
+
+"let g:startify_custom_footer = startify#pad(startify#fortune#boxed())
+
 "---------------
 " NERDCommenter
 "---------------

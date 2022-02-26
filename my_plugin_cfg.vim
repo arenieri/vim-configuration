@@ -20,9 +20,13 @@ let g:startify_vim_ascii = [
 let g:startify_custom_help = [
         \ '',
         \ ' QUICK HELP',
-        \ '     f<Enter>     : highlight selection',
-        \ '     f<Backspace> : erase highlight',
-        \ '     f<Ctrl+L>    : clear highlight',
+        \ '     f<Enter>     : highlight selection      |   <Ctrl+UP/DN> : move line(s) up/down',
+        \ '     f<Backspace> : erase highlight          |   <Ctrl+TAB>   : indent line(s)',
+        \ '     f<Ctrl+L>    : clear highlight          |   <Ctrl+S+TAB> : deindent line(s)',
+        \ '     <Ctrl+E>     : delete line              |   ',
+        \ '     <Ctrl+W>     : erase line content       |   ',
+        \ '     <Ctrl+D>     : duplicate line           |   ',
+        \ '',
         \ '   See Misc Menu for additional commands',
         \ '',
         \]

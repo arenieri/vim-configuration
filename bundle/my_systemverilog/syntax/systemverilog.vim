@@ -48,7 +48,7 @@ syn keyword verilogConditional if else case casex casez default endcase
 syn keyword verilogRepeat      forever repeat while for
 
 syn keyword verilogTodo contained TODO
-syn match   verilogTodo contained "FIXME\(:[a-zA-Z0-9_]*\)*"
+syn match   verilogTodo contained "FIXME\(:[a-zA-Z0-9_]\+\)*"
 
 syn match   verilogOperator "[&|~><!)(*#%@+/=?:;}{,.\^\-\[\]]"
 

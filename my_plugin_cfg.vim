@@ -67,7 +67,7 @@ let g:rainbow_active = 1
 
 " Disable rainbow parentheses for some filetype
 let g:rainbow_conf = {
-\   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+\   'guifgs': ['dodgerblue2', 'darkorange3', 'seagreen3', 'firebrick'],
 \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
 \   'separately': {
 \       'nerdtree' : 0,

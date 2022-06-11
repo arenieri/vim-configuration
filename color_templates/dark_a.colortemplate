@@ -82,7 +82,7 @@ Color: C10_GreenBlue  rgb(  0,  56,  77)        ~         DarkBlue
 Color: C11_Yellow     rgb(255, 204,  27)        ~         LightYellow
 Color: C12_PastelBlue rgb( 81, 127, 141)        ~         LightBlue
 Color: C13_LightBlue  rgb( 28, 141, 178)        ~         LightBlue
-Color: C14_Pink       rgb(251, 148,  25)        ~         LightMagenta
+Color: C14_Red        rgb(100,  34,  82)        ~         LightMagenta
 Color: C15_Pink       rgb(255,  90, 103)        ~         LightMagenta
 Color: C16_Grey       rgb(183, 207, 249)        ~         LightBlue
 
@@ -137,8 +137,8 @@ ColorColumn           none              C34_Grey
 Conceal               none              none
 Cursor                none              C07_Magenta
 CursorColumn          none              C33_Blue
-CursorLine            none              C33_Blue
-CursorLineNr          C03_LightGray     C33_Blue          bold
+CursorLine            none              C14_Red
+CursorLineNr          C03_LightGray     C14_Red           bold
 DiffAdd               C04_LightGreen    C05_DarkBlue
 DiffChange            C06_LightGreen    C05_DarkBlue      underline
 DiffDelete            C07_Magenta       C05_DarkBlue
@@ -176,7 +176,7 @@ TabLineSel            C08_LightGrey     C13_LightBlue
 Title                 C06_LightGreen    none
 VertSplit             C12_PastelBlue    C05_DarkBlue
 Visual                C08_LightGrey     C39_Orchid
-VisualNOS             C08_LightGrey     C39_Orchid        underline bold
+VisualNOS             C08_LightGrey     C39_Orchid        bold
 WarningMsg            C24_Red           C05_DarkBlue
 WildMenu              C08_LightGrey     C12_PastelBlue
 ; Other conventional  group names (see `help group-name`)

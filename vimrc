@@ -48,6 +48,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'ryanoasis/vim-devicons'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
+    Plug 'azabiong/vim-highlighter'
+
     "Some colorschemes
     "Plug 'lifepillar/vim-wwdc16-theme'
     "Plug 'lifepillar/vim-gruvbox8'
@@ -63,6 +65,9 @@ call plug#end()
 " source main configuration file
 " The file is located in vim-configuration
 runtime my_config.vim
+
+" Override font if needed
+"set guifont=HackNerdFontComplete-Regular:h15
 
 " Uncomment for dark blue colorscheme
 "colorscheme mydarkblue

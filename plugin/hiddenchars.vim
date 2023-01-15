@@ -34,3 +34,10 @@ let g:nohiddenchars_ftypes          = ['log', 'text', 'help', 'gitcommit']
 
 autocmd! BufNewFile,BufRead  *  call s:showhiddenchars()
 
+
+" Color background of non-ascii caracters in red, independently from other
+" syntax highligt rules
+highlight nonascii guibg=Red ctermbg=1 term=standout
+au BufReadPost * syntax match nonascii "[^\u0000-\u007F]"
+
+
